@@ -1,0 +1,3971 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 fill=%27%23071d3b%27/%3E%3Cpath d=%27M10 50h12V32H10zm16 0h12V20H26zm16 0h12V8H42z%27 fill=%27%231bb1bf%27/%3E%3C/svg%3E">
+<title>進能服 6692｜1GW 太陽能光電運維公司營運計畫與大同標竿決策平台</title>
+<meta name="description" content="進能服 6692 太陽能光電運維公司 FY2028 分拆與 2030 年 1GW 營運計畫決策平台：大同智能標竿深度解析、Notion 4.6 架構檢核、四大案源管道、組織人力爬坡、西海岸 6 大據點、作業閉環、SLA 到場、財務損益、敏感度與六大決策提案。">
+<style>
+:root{
+  --blue:#1968AD; --blue-d:#12518A; --blue-dd:#0C3A63; --blue-soft:#E8F1F9;
+  --teal:#1BB1BF; --teal-d:#12818C; --teal-soft:#E2F5F7;
+  --ink:#12293D; --muted:#5B7285; --line:#D9E3EC; --paper:#F4F7FA; --card:#fff;
+  --amber:#E09A2B; --amber-soft:#FCF2DE;
+  --coral:#D95F45; --coral-soft:#FBEAE5;
+  --grey:#9FB1C0; --grey-soft:#EDF1F5;
+  --green:#2E7D32; --green-soft:#E8F5E9;
+  --purple:#6B46C1; --purple-soft:#F3E8FF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+  background:var(--paper); color:var(--ink); line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:fixed; top:0; left:0; right:0; z-index:50; height:54px;
+  display:flex; align-items:center; gap:8px; padding:0 20px;
+  background:rgba(255,255,255,.95); backdrop-filter:blur(8px);
+  border-bottom:2px solid var(--blue);
+}
+.topbar .brand{display:flex; align-items:center; gap:9px; margin-right:14px; white-space:nowrap; text-decoration:none}
+.topbar .brand .mk{flex:0 0 26px}
+.topbar .brand .tx{font-weight:800; font-size:.88rem; letter-spacing:.02em; color:var(--ink); line-height:1.15}
+.topbar .brand .tx small{display:block; font-weight:700; font-size:.66rem; letter-spacing:.08em; color:var(--blue)}
+.topnav{display:flex; gap:4px; flex:1; min-width:0; overflow-x:auto; scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{
+  text-decoration:none; color:var(--muted); font-size:.82rem; font-weight:600;
+  padding:6px 11px; border-radius:4px; white-space:nowrap; border:1px solid transparent;
+  transition:all .15s ease;
+}
+.topnav a:hover{color:var(--blue); background:var(--blue-soft)}
+.topnav a.active{color:#fff; background:var(--blue); font-weight:700}
+.topbar .meta{font-size:.74rem; color:var(--muted); white-space:nowrap; font-weight:600}
+@media(max-width:1160px){.topbar .meta{display:none}}
+@media(max-width:860px){.topbar .brand .tx{font-size:.78rem}}
+
+/* ---------- views / slides ---------- */
+.view{display:none}
+.view.active{display:block}
+.slide{
+  display:none; min-height:100vh; padding:74px 44px 84px;
+  max-width:1380px; margin:0 auto; flex-direction:column;
+}
+.slide.active{display:flex}
+.slide-header{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:16px}
+.eyebrow{font-size:.76rem; font-weight:800; letter-spacing:.14em; color:var(--teal-d); text-transform:uppercase; margin-bottom:5px}
+.slide-header h1,.slide-header h2{font-size:clamp(1.3rem,2.5vw,1.85rem); line-height:1.28; font-weight:800; max-width:32em; color:var(--ink)}
+.slide-header h1::after,.slide-header h2::after{
+  content:""; display:block; width:64px; height:4px; margin-top:8px;
+  background:linear-gradient(90deg,var(--blue),var(--teal));
+}
+.slide-header .sub{margin-top:8px; color:var(--muted); font-size:.90rem; max-width:60em; line-height:1.55}
+.flags{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+.flag{font-size:.72rem; font-weight:700; padding:5px 12px; border-radius:3px; white-space:nowrap}
+.flag.blue{background:var(--blue-soft); color:var(--blue-d)}
+.flag.teal{background:var(--teal-soft); color:var(--teal-d)}
+.flag.amber{background:var(--amber-soft); color:#9a6a10}
+.flag.coral{background:var(--coral-soft); color:#b4432c}
+.flag.green{background:var(--green-soft); color:var(--green)}
+.flag.purple{background:var(--purple-soft); color:var(--purple)}
+.flag.grey{background:var(--grey-soft); color:var(--muted)}
+.slide-body{flex:1; display:flex; flex-direction:column; gap:14px}
+.slide-foot{display:flex; justify-content:space-between; gap:16px; margin-top:16px; padding-top:10px; border-top:1px solid var(--line); font-size:.73rem; color:var(--muted); background:rgba(255,255,255,.6); border-radius:3px; padding-left:8px; padding-right:8px}
+.slide-foot .pageno{white-space:nowrap; font-weight:800; color:var(--blue)}
+
+/* ---------- layout grids ---------- */
+.two-col{display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:stretch}
+.three-col{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.four-col{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+.five-col{display:grid; grid-template-columns:repeat(5,1fr); gap:10px}
+.split-45{display:grid; grid-template-columns:45% 1fr; gap:16px; align-items:start}
+.split-55{display:grid; grid-template-columns:1fr 45%; gap:16px; align-items:start}
+.split-img-right{display:grid; grid-template-columns:1.05fr 1fr; gap:16px; align-items:start}
+.split-img-left{display:grid; grid-template-columns:1fr 1.05fr; gap:16px; align-items:start}
+
+@media(max-width:1050px){
+  .slide{padding:70px 16px 90px}
+  .two-col,.three-col,.four-col,.five-col,.split-45,.split-55,.split-img-right,.split-img-left{grid-template-columns:1fr}
+}
+
+/* ---------- components ---------- */
+.card{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--blue); border-radius:4px; padding:14px 16px; box-shadow:0 3px 10px rgba(18,41,61,.04)}
+.card.teal{border-top-color:var(--teal)}
+.card.amber{border-top-color:var(--amber)}
+.card.coral{border-top-color:var(--coral)}
+.card.green{border-top-color:var(--green)}
+.card.purple{border-top-color:var(--purple)}
+.card.grey{border-top-color:var(--grey)}
+.card h3{font-size:.95rem; font-weight:800; margin-bottom:6px; color:var(--ink)}
+.card p{font-size:.86rem; color:var(--muted); line-height:1.52}
+
+.metric{border-radius:4px; padding:12px 14px; border:1px solid var(--line); background:#fff; border-left:5px solid var(--blue); box-shadow:0 2px 8px rgba(18,41,61,.03)}
+.metric .k{font-size:clamp(1.3rem,2.2vw,1.8rem); font-weight:900; line-height:1.1; color:var(--blue); font-variant-numeric:tabular-nums}
+.metric .t{font-size:.78rem; color:var(--muted); margin-top:5px; line-height:1.42}
+.metric.teal{border-left-color:var(--teal)} .metric.teal .k{color:var(--teal-d)}
+.metric.amber{border-left-color:var(--amber)} .metric.amber .k{color:#9a6a10}
+.metric.coral{border-left-color:var(--coral)} .metric.coral .k{color:#b4432c}
+.metric.green{border-left-color:var(--green)} .metric.green .k{color:var(--green)}
+.metric.purple{border-left-color:var(--purple)} .metric.purple .k{color:var(--purple)}
+.metric.grey{border-left-color:var(--grey)} .metric.grey .k{color:var(--muted)}
+
+.big-callout{
+  background:linear-gradient(120deg,var(--blue-dd),var(--blue) 62%,var(--teal-d)); color:#fff;
+  border-radius:4px; padding:18px 22px; position:relative; overflow:hidden;
+}
+.big-callout .label{font-size:.72rem; letter-spacing:.14em; opacity:.85; font-weight:800; margin-bottom:5px}
+.big-callout .answer{font-size:clamp(1.05rem,2vw,1.45rem); font-weight:800; line-height:1.35}
+.big-callout .more{margin-top:7px; font-size:.86rem; opacity:.92; line-height:1.52}
+
+.table-wrap{background:#fff; border:1px solid var(--line); border-radius:4px; overflow-x:auto; box-shadow:0 3px 12px rgba(7,29,59,.04)}
+table{width:100%; border-collapse:collapse; font-size:.84rem; min-width:540px}
+th{background:var(--blue); color:#fff; text-align:left; font-weight:700; padding:8px 11px; white-space:nowrap; font-size:.81rem}
+th.sub{background:var(--blue-d)}
+td{padding:7px 11px; border-bottom:1px solid #EDF1F5; vertical-align:top}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#FAFCFE}
+tbody tr:hover{background:#F0F6FC}
+td.num,th.num{text-align:right; font-variant-numeric:tabular-nums}
+td.ctr,th.ctr{text-align:center}
+.hl-row{background:var(--amber-soft) !important}
+.hl-row td{font-weight:700}
+.bad-row{background:var(--coral-soft) !important}
+.good-row{background:var(--green-soft) !important}
+
+.table-toggle{display:block; width:100%; padding:8px 11px; border:0; border-top:1px solid var(--line); background:var(--blue-soft); color:var(--blue-dd); text-align:left; font:700 .76rem inherit; cursor:pointer}
+.table-toggle:hover{background:#d8e6f5}
+.table-extra{display:none}
+.table-wrap.expanded .table-extra{display:table-row}
+
+.chip{display:inline-block; font-size:.7rem; font-weight:700; padding:2px 7px; border-radius:3px; white-space:nowrap}
+.chip.blue{background:var(--blue-soft); color:var(--blue-d)}
+.chip.teal{background:var(--teal-soft); color:var(--teal-d)}
+.chip.amber{background:var(--amber-soft); color:#9a6a10}
+.chip.coral{background:var(--coral-soft); color:#b4432c}
+.chip.green{background:var(--green-soft); color:var(--green)}
+.chip.purple{background:var(--purple-soft); color:var(--purple)}
+.chip.grey{background:var(--grey-soft); color:var(--muted)}
+
+.note{background:var(--amber-soft); border-left:4px solid var(--amber); padding:9px 13px; font-size:.85rem; border-radius:0 3px 3px 0}
+.warn{background:var(--coral-soft); border-left:4px solid var(--coral); padding:9px 13px; font-size:.85rem; border-radius:0 3px 3px 0}
+.tip{background:var(--green-soft); border-left:4px solid var(--green); padding:9px 13px; font-size:.85rem; border-radius:0 3px 3px 0}
+
+.fig{background:#fff; border:1px solid var(--line); border-radius:4px; padding:10px 12px; box-shadow:0 3px 10px rgba(18,41,61,.03)}
+.fig .cap{font-size:.74rem; color:var(--muted); margin-top:6px; text-align:center}
+.fig .figtitle{font-size:.84rem; font-weight:800; margin-bottom:6px; color:var(--blue-dd)}
+svg text{font-family:inherit}
+.fig svg{display:block; width:100%; height:auto}
+
+/* ---------- home ---------- */
+.home{min-height:100vh}
+.hero{
+  position:relative; overflow:hidden; color:#fff;
+  background:linear-gradient(115deg,var(--blue-dd) 0%,var(--blue) 55%,#1580A8 100%);
+  padding:90px 44px 48px;
+}
+.hero .inner{max-width:1380px; margin:0 auto; position:relative; z-index:2}
+.hero .kicker{font-size:.78rem; font-weight:800; letter-spacing:.16em; color:#8FD9E4}
+.hero h1{font-size:clamp(1.65rem,3.8vw,2.7rem); font-weight:900; line-height:1.24; margin-top:10px; max-width:26em}
+.hero .lede{margin-top:12px; max-width:52em; font-size:.95rem; opacity:.93; line-height:1.65}
+.hero .herometa{margin-top:18px; display:flex; gap:8px; flex-wrap:wrap}
+.hero .herometa span{font-size:.73rem; font-weight:700; background:rgba(255,255,255,.16); padding:4px 11px; border-radius:3px}
+.hero .deco{position:absolute; right:-60px; top:-40px; width:820px; opacity:.38; pointer-events:none; z-index:1}
+@media(max-width:1000px){.hero{padding:75px 16px 36px} .hero .deco{width:520px; right:-120px; opacity:.25}}
+.homebody{max-width:1380px; margin:0 auto; padding:26px 44px 50px}
+@media(max-width:1000px){.homebody{padding:20px 16px 40px}}
+
+.part-cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:16px}
+.part-card{
+  display:block; text-decoration:none; color:var(--ink); background:#fff;
+  border:1px solid var(--line); border-top:4px solid var(--blue); border-radius:4px; padding:18px;
+  transition:transform .15s ease, box-shadow .15s ease; position:relative; overflow:hidden;
+}
+.part-card:hover{transform:translateY(-3px); box-shadow:0 10px 24px rgba(18,41,61,.10)}
+.part-card.c2{border-top-color:var(--teal)} .part-card.c3{border-top-color:var(--amber)} .part-card.c4{border-top-color:var(--coral)}
+.part-card .pc-eyebrow{font-size:.70rem; font-weight:800; letter-spacing:.14em; color:var(--blue)}
+.part-card.c2 .pc-eyebrow{color:var(--teal-d)} .part-card.c3 .pc-eyebrow{color:#9a6a10} .part-card.c4 .pc-eyebrow{color:#b4432c}
+.part-card h2{font-size:1.15rem; font-weight:800; margin:6px 0 5px; line-height:1.32}
+.part-card p{color:var(--muted); font-size:.85rem; line-height:1.52}
+.part-card .pc-flags{margin-top:10px; display:flex; gap:5px; flex-wrap:wrap}
+.part-card .pc-go{margin-top:12px; font-weight:800; color:var(--blue); font-size:.83rem}
+.part-card .pc-icon{position:absolute; right:12px; top:12px; opacity:.85}
+
+.quick-spec-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:11px; margin-top:22px}
+.home-foot{padding-top:18px; font-size:.73rem; color:var(--muted); border-top:1px solid var(--line); margin-top:26px; line-height:1.75}
+
+/* ---------- bottom deckbar controls ---------- */
+.deckbar{position:fixed; left:0; right:0; bottom:0; z-index:50; pointer-events:none; display:none}
+.progress{height:4px; background:#DFE7EE}
+.progress .fill{height:100%; width:0%; background:linear-gradient(90deg,var(--blue),var(--teal)); transition:width .22s ease}
+.hint{position:absolute; left:18px; bottom:12px; font-size:.73rem; color:var(--muted); background:rgba(255,255,255,.95); padding:4px 9px; border-radius:3px; border:1px solid var(--line)}
+.ctrl{position:absolute; right:16px; bottom:10px; display:flex; align-items:center; gap:7px; pointer-events:auto}
+.ctrl .counter{font-size:.77rem; color:var(--muted); background:rgba(255,255,255,.95); border:1px solid var(--line); padding:4px 11px; border-radius:3px; font-variant-numeric:tabular-nums}
+.ctrl button{
+  width:32px; height:32px; border:1px solid var(--line); background:rgba(255,255,255,.95);
+  border-radius:3px; cursor:pointer; font-size:1.05rem; color:var(--ink); font-weight:800;
+  display:flex; align-items:center; justify-content:center; transition:background .15s;
+}
+.ctrl button:hover{background:var(--blue); color:#fff}
+@media(max-width:820px){.hint{display:none}}
+</style>
+</head>
+<body>
+
+<!-- ================= TOP BAR ================= -->
+<div class="topbar">
+  <a class="brand" href="#home">
+    <svg class="mk" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+      <rect x="0" y="0" width="12" height="12" rx="2" fill="#1968AD" opacity=".9"/>
+      <rect x="14" y="0" width="12" height="12" rx="2" fill="#1BB1BF" opacity=".9"/>
+      <rect x="0" y="14" width="12" height="12" rx="2" fill="#1BB1BF" opacity=".6"/>
+      <rect x="14" y="14" width="12" height="12" rx="2" fill="#1968AD"/>
+    </svg>
+    <div class="tx">進能服 6692<small>1GW 維運公司營運計畫・決策中樞</small></div>
+  </a>
+  <nav class="topnav">
+    <a href="#home" data-nav="home">封面</a>
+    <a href="#p1" data-nav="p1">Part 1 大同標竿 (4 頁)</a>
+    <a href="#p2" data-nav="p2">Part 2 4.6 架構 (3 頁)</a>
+    <a href="#p3" data-nav="p3">Part 3 1GW 目標 (4 頁)</a>
+    <a href="#p4" data-nav="p4">Part 4 組織與據點 (4 頁)</a>
+    <a href="#p5" data-nav="p5">Part 5 營運與技術 (3 頁)</a>
+    <a href="#p6" data-nav="p6">Part 6 財務與風險 (4 頁)</a>
+    <a href="#p7" data-nav="p7">Part 7 決策與協同 (3 頁)</a>
+  </nav>
+  <div class="meta">基準：2026/09 ｜ 呈閱：David、李總、董事會</div>
+</div>
+
+
+<!-- ================= HOME VIEW ================= -->
+<div class="view active home" id="view-home">
+  <div class="hero">
+    <svg class="deco" viewBox="0 0 900 520" aria-hidden="true">
+      <g fill="#fff" opacity=".18">
+        <polygon points="320,50 490,10 610,65 440,115"/>
+        <polygon points="630,135 800,85 910,130 740,180"/>
+        <polygon points="240,260 410,210 530,255 360,305"/>
+        <polygon points="650,340 820,290 890,320 720,370"/>
+      </g>
+      <g fill="#8FD9E4" opacity=".35">
+        <circle cx="560" cy="180" r="55"/>
+        <circle cx="390" cy="320" r="42"/>
+        <circle cx="750" cy="110" r="30"/>
+      </g>
+      <g stroke="#fff" stroke-width="2" fill="none" opacity=".4">
+        <path d="M120 190 L470 402"/><circle cx="120" cy="190" r="5" fill="#1BB1BF"/>
+        <path d="M180 390 L300 390 Q330 390 330 360 L330 290"/><circle cx="180" cy="390" r="5" fill="#E09A2B"/>
+        <path d="M680 410 L540 460 L220 460"/><circle cx="220" cy="460" r="5" fill="#1BB1BF"/>
+      </g>
+    </svg>
+    <div class="inner">
+      <div class="kicker">進能服 6692 · 4.6 運維管理 × 5 商業模式 戰略專題</div>
+      <h1>大同智能標竿 × Notion 架構檢核 × 1GW 維運公司營運計畫 R1.0</h1>
+      <p class="lede">
+        奠基於 OMPLAN R6.1 與 2026/09 決策會議：進能服維運 BU 預定於 FY2028 分拆獨立為專業運維公司，2030 年底在管容量跨越 1,000 MW 里程碑。本平台深度拆解大同智能（350MW/47人）標竿實績、全面校正 Notion 4.6 架構缺口，並提供涵蓋組織、據點、技術閉環、財務損益、敏感度與六大決策提案的完整戰略決策中樞。
+      </p>
+      <div class="herometa">
+        <span>在管容量 1,000 MW</span>
+        <span>FY2028 獨立分拆</span>
+        <span>光電為主 ≥90% ＋ 儲能試點</span>
+        <span>區域集中：南 50% / 中 30% / 北 20%</span>
+        <span>嚴守 0.8 MW 接單門檻</span>
+        <span>FY2030 營收 3.8 億 ｜ 營業利益率 14.6%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="homebody">
+    <!-- 7 Part Navigation Cards -->
+    <div class="part-cards">
+      <a class="part-card" href="#p1-1">
+        <svg class="pc-icon" width="32" height="32" viewBox="0 0 32 32">
+          <rect x="2" y="2" width="12" height="12" rx="2" fill="#1968AD" opacity=".25"/>
+          <rect x="18" y="2" width="12" height="12" rx="2" fill="#1968AD" opacity=".5"/>
+          <rect x="2" y="18" width="12" height="12" rx="2" fill="#1968AD" opacity=".5"/>
+          <rect x="18" y="18" width="12" height="12" rx="2" fill="#1968AD"/>
+        </svg>
+        <div class="pc-eyebrow">PART 1</div>
+        <h2>大同智能標竿分析</h2>
+        <p>解析老牌集團 47 人管 350MW/1,610 場的真實產能、每人 34 場負荷極限、作業閉環、發電預測 7.6% 誤差與進能服精準借鏡矩陣。</p>
+        <div class="pc-flags"><span class="chip blue">4 頁</span><span class="chip teal">人均場數上限</span><span class="chip amber">借鏡矩陣</span></div>
+        <div class="pc-go">進入標竿分析 &rarr;</div>
+      </a>
+
+      <a class="part-card c2" href="#p2-1">
+        <svg class="pc-icon" width="32" height="32" viewBox="0 0 32 32">
+          <path d="M4 28 L4 18 L10 18 L10 28 M12 28 L12 12 L18 12 L18 28 M20 28 L20 6 L26 6 L26 28" stroke="#1BB1BF" stroke-width="2.6" fill="none"/>
+        </svg>
+        <div class="pc-eyebrow">PART 2</div>
+        <h2>Notion 4.6 架構檢核</h2>
+        <p>檢核並糾正 Notion 4.6 現存 9 處編號重複與錯置，補齊 1GW 必備之 6 大缺口章節（整改SOP、VPP、SLA、據點、損益、保發履約）與資安整改。</p>
+        <div class="pc-flags"><span class="chip teal">3 頁</span><span class="chip coral">9 處編號糾偏</span><span class="chip purple">6 大功能缺口</span></div>
+        <div class="pc-go">進入架構檢核 &rarr;</div>
+      </a>
+
+      <a class="part-card c3" href="#p3-1">
+        <svg class="pc-icon" width="32" height="32" viewBox="0 0 32 32">
+          <polygon points="16,3 28,15 16,27 4,15" fill="#E09A2B" opacity=".4"/>
+          <polygon points="16,10 23,17 16,24 9,17" fill="#E09A2B"/>
+        </svg>
+        <div class="pc-eyebrow">PART 3</div>
+        <h2>1GW 目標與成長路徑</h2>
+        <p>對齊全台 31.2GW 國家目標，構建 FY2027 (318MW) 到 FY2030 (1GW) 月度爬坡路徑、年新簽 210~262MW 機會池漏斗與四大案源結構。</p>
+        <div class="pc-flags"><span class="chip amber">4 頁</span><span class="chip blue">四年成長模型</span><span class="chip teal">四大案源結構</span></div>
+        <div class="pc-go">進入成長路徑 &rarr;</div>
+      </a>
+
+      <a class="part-card c4" href="#p4-1">
+        <svg class="pc-icon" width="32" height="32" viewBox="0 0 32 32">
+          <circle cx="16" cy="9" r="6" stroke="#D95F45" stroke-width="2.4" fill="none"/>
+          <path d="M5 27 C5 21 10 18 16 18 C22 18 27 21 27 27" stroke="#D95F45" stroke-width="2.4" fill="none"/>
+        </svg>
+        <div class="pc-eyebrow">PART 4</div>
+        <h2>組織、人力與資源</h2>
+        <p>FY2030 獨立維運公司五大本部架構、77 人編制爬坡、突破 30MW 現場人均產能之外包機制，以及西海岸 6 大營運據點與檢測設備配置。</p>
+        <div class="pc-flags"><span class="chip coral">4 頁</span><span class="chip green">77 人編制</span><span class="chip blue">6 大據點布局</span></div>
+        <div class="pc-go">進入組織與資源 &rarr;</div>
+      </a>
+
+      <a class="part-card" href="#p5-1" style="border-top-color:var(--green)">
+        <svg class="pc-icon" width="32" height="32" viewBox="0 0 32 32">
+          <circle cx="16" cy="16" r="12" stroke="#2E7D32" stroke-width="2.4" fill="none"/>
+          <path d="M16 8 L16 16 L22 20" stroke="#2E7D32" stroke-width="2.4" fill="none"/>
+        </svg>
+        <div class="pc-eyebrow" style="color:var(--green)">PART 5</div>
+        <h2>營運模式與技術路線</h2>
+        <p>告警到履歷數位閉環、AI Agent 雙用途驅動、P1 四小時急到場高規 SLA、技術演進四階段路線圖（監控→控制→AI預測→VPP）與 8 大 KPI 儀表。</p>
+        <div class="pc-flags"><span class="chip green">3 頁</span><span class="chip teal">P1 4hr 到場</span><span class="chip amber">技術演進藍圖</span></div>
+        <div class="pc-go" style="color:var(--green)">進入營運與技術 &rarr;</div>
+      </a>
+
+      <a class="part-card" href="#p6-1" style="border-top-color:var(--purple)">
+        <svg class="pc-icon" width="32" height="32" viewBox="0 0 32 32">
+          <path d="M4 24 L10 16 L16 20 L28 6" stroke="#6B46C1" stroke-width="2.6" fill="none"/>
+          <circle cx="28" cy="6" r="3" fill="#6B46C1"/>
+        </svg>
+        <div class="pc-eyebrow" style="color:var(--purple)">PART 6</div>
+        <h2>財務、敏感度與風險</h2>
+        <p>FY2028~2030 獨立損益預測（營收 3.8 億、利益率 14.6%）、8,065 萬費用明細、獲利敏感度極限測試、八大風險對策與 G0~G6 里程碑關卡。</p>
+        <div class="pc-flags"><span class="chip purple">4 頁</span><span class="chip coral">14.6% 利益率</span><span class="chip amber">敏感度極限測試</span></div>
+        <div class="pc-go" style="color:var(--purple)">進入財務與風險 &rarr;</div>
+      </a>
+
+      <a class="part-card" href="#p7-1" style="border-top-color:var(--blue-dd)">
+        <svg class="pc-icon" width="32" height="32" viewBox="0 0 32 32">
+          <polygon points="16,2 20,12 30,12 22,18 25,28 16,22 7,28 10,18 2,12 12,12" stroke="#0C3A63" stroke-width="2" fill="none"/>
+        </svg>
+        <div class="pc-eyebrow" style="color:var(--blue-dd)">PART 7</div>
+        <h2>待決策與跨部門協同</h2>
+        <p>提請 David 拍板之 6 大戰略決策提案（D1~D6）、組織向上牽動與向下配合神經網絡矩陣，以及全案核心假設清單與資料來源追溯。</p>
+        <div class="pc-flags"><span class="chip blue">3 頁</span><span class="chip coral">D1~D6 決策</span><span class="chip teal">上下牽動網絡</span></div>
+        <div class="pc-go" style="color:var(--blue-dd)">進入決策與協同 &rarr;</div>
+      </a>
+    </div>
+
+    <!-- Quick Spec Grid -->
+    <div class="quick-spec-grid">
+      <div class="metric blue">
+        <div class="k">1,000 MW</div>
+        <div class="t">2030 年底在管容量目標（占台灣 31.2GW 國家目標約 3.2%）</div>
+      </div>
+      <div class="metric teal">
+        <div class="k">3.79 億元</div>
+        <div class="t">FY2030 營業收入（運維服務 2.65 億 ＋ 整新整改工程 1.14 億）</div>
+      </div>
+      <div class="metric green">
+        <div class="k">14.6%</div>
+        <div class="t">FY2030 營業利益率（營業利益 5,519 萬元，穩定超越定案基準）</div>
+      </div>
+      <div class="metric coral">
+        <div class="k">77 人</div>
+        <div class="t">全公司總人力編制（現場 34 人 Master+Slave ＋ 間接支援 43 人）</div>
+      </div>
+      <div class="metric amber">
+        <div class="k">30 MW / 人</div>
+        <div class="t">現場工程師人均承載上限（搭配 ≥25% 清洗外包與機器人維持餘裕）</div>
+      </div>
+      <div class="metric purple">
+        <div class="k">6 處</div>
+        <div class="t">西海岸維運服務據點（高雄主倉、台南一二、彰化、屏東嘉義、桃園）</div>
+      </div>
+      <div class="metric blue">
+        <div class="k">31.2 GW</div>
+        <div class="t">經濟部審定 2030 國家光電目標（更正 9/15 會議 25GW 口誤）</div>
+      </div>
+      <div class="metric grey">
+        <div class="k">8 大結論</div>
+        <div class="t">跨越標竿、架構、財務、人力與接單門檻之核心決策指引</div>
+      </div>
+    </div>
+
+    <!-- Executive Summary Table -->
+    <div style="margin-top:28px">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <h2 style="font-size:1.25rem; font-weight:800; color:var(--ink);">0. 執行摘要核心結論總表</h2>
+        <span class="chip blue">決策依據全面驗證</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:48px;" class="ctr">#</th>
+              <th style="width:68%;">核心結論與關鍵戰略發現</th>
+              <th style="width:28%;">依據與出處</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hl-row">
+              <td class="ctr"><b>1</b></td>
+              <td><b>大同維運團隊為 47 人管 350 MW／1,610 場，折合每人 7.5 MW、34 場</b>。進能服 R6.1 定案值為每人 25 MW、31 場。<b>兩邊每人管的「場數」幾乎相同，每人 MW 差 3 倍，本質來自平均案場規模（大同約 0.22 MW，進能服 0.8 MW）</b>。</td>
+              <td>【查證】大同簡報 p.10；【文件】R6.1 定案版</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>2</b></td>
+              <td><b>人力的真實上限是「場數」而不是 MW</b>。要做到 1GW，<b>接單門檻（平均 0.8 MW 以上）比盲目加人更關鍵</b>；平均案場一旦縮小到 0.3 MW，現場人力需求將暴增 2.7 倍。</td>
+              <td>【推論】產能與場次工作量模型</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>3</b></td>
+              <td><b>大同值得借鏡的是營運模式</b>：固定的「告警→派工→查修→紀錄」閉環、24 小時到場 SLA、案場履歷、發電預測與 VPP 就緒。<b>其區域配置不宜照搬</b>：大同 47% 容量在北部，與進能服南部集中策略相反。</td>
+              <td>【查證】大同簡報 p.10、15–18、22</td>
+            </tr>
+            <tr class="bad-row">
+              <td class="ctr"><b>4</b></td>
+              <td><b>Notion 4.6 存在 9 處編號錯誤與重複</b>，且缺乏 1GW 必備之 6 個核心章節（案場評估整改、儲能/VPP、NOC/SLA、據點布局、事業損益分拆、履約保證）。<b>另有一處外部平台帳號密碼明文曝險，需即刻移除整改</b>。</td>
+              <td>【查證】Notion 4.6 知識庫檢核</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>5</b></td>
+              <td><b>1GW 基準成長路徑</b>：FY2027 318 MW → FY2028 520 MW → FY2029 750 MW → <b>FY2030 1,000 MW</b>。每年需新簽 <b>210~262 MW</b>，以 30% 成交率計需維持 <b>700~875 MW</b> 機會池。</td>
+              <td>【推論】月度爬坡模擬模型</td>
+            </tr>
+            <tr class="good-row">
+              <td class="ctr"><b>6</b></td>
+              <td><b>FY2030 營運體量</b>：營收約 <b>3.79 億</b>（服務 2.65 億 ＋ 工程 1.14 億）、總人力 <b>77 人</b>（現場 34 人）、營運據點 6 處、營業利益率達到 <b>14.6%</b>。</td>
+              <td>【推論】獨立損益模型</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>7</b></td>
+              <td><b>影響獲利最大三因子</b>：<b>單價</b>（降至 28 萬/MW 時利益率跌至 10.5%）、<b>現場交付成本</b>（升至 14 萬時跌至 9.9%）、<b>人均承載</b>（跌至 20 MW 時跌至 9.9%）。極端不利組合下利益率僅剩 <b>6.7%</b>。</td>
+              <td>【推論】獲利敏感度極限測試</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>8</b></td>
+              <td><b>國家目標口徑修正</b>：9/15 會議將 2030 目標誤述為 25 GW，經濟部 2026/04 送交立法院之正式報告明確為 <b>31.2 GW</b>（2026/02 累計 15.68 GW），進能服 1GW 約占全台 <b>3.2%</b>。</td>
+              <td>【查證】立法院經濟委員會報告</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Notice Box -->
+    <div class="note" style="margin-top:20px;">
+      <b>📌 檔案錯置提醒與引用說明</b>：大衛雲目錄 `4.6.2 商業模式/20260916-01_大同智能…來自【得到大腦】.md` 實質為 <b>9/15 進能服內部 BP 決策會議紀錄</b>（李總主持，討論 FY2027 目標、2030 年 1GW、清洗機器人等），建議正名為 `20260915_維運事業BP會議(2030 1GW)-得到大腦.md` 並移至 `4.6.2.1 年度計畫`。本規劃已嚴謹分離引用內部決策與大同公開資料。
+    </div>
+
+    <div class="home-foot">
+      進金生能源服務 6692 ｜ 4.6 運維管理 × 5 商業模式 戰略專題 ｜ 支援鍵盤 ← → 翻頁、Home 回首頁、F 全螢幕 ｜ 呈閱：David、李總、董事會
+    </div>
+  </div>
+</div>
+\n
+<!-- ================= PART 1: 大同智能標竿分析 ================= -->
+<div class="view" id="view-p1">
+
+  <!-- P1.1 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 1 · 大同標竿 1.1</div>
+        <h1>大同智能概況：老牌機電集團的綠能資產與業務體系</h1>
+        <p class="sub">大同智能（資本額 60 億）歷經多年佈局，建立「創能、用能、節能、儲能」四塊綠能生態。維運團隊 47 人支撐 350.5 MW 光伏與 124 MW 儲能，具備高度集團整合品牌優勢。</p>
+      </div>
+      <div class="flags">
+        <span class="flag blue">資本額 60 億</span>
+        <span class="flag teal">光電 350MW / 1,610場</span>
+        <span class="flag amber">儲能 124MW</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-right">
+        <!-- Table on Left -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:32%;">營運構面</th>
+                <th style="width:38%;">大同智能實績數據</th>
+                <th style="width:30%;">資料出處與備註</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>成立時間 / 資本額</b></td>
+                <td>2010 年 ｜ <b>新台幣 60 億元</b></td>
+                <td>【查證】簡報 p.8</td>
+              </tr>
+              <tr class="hl-row">
+                <td><b>員工規模</b></td>
+                <td>全公司 165 人 ｜ <b>維運團隊 47 人</b></td>
+                <td>【查證】維運團隊占比 28.5%</td>
+              </tr>
+              <tr>
+                <td><b>全台服務據點</b></td>
+                <td><b>6 個服務據點</b>（北、中、南、東、離島）</td>
+                <td>全島平均覆蓋佈局</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>太陽光電建置</b></td>
+                <td><b>356 MWp ／ 1,652 場</b>（簡報 p.9）<br><small style="color:var(--muted)">維運表登載為 350.5 MW ／ 1,610 場</small></td>
+                <td>【查證】平均場大小約 0.22 MW</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>大型儲能</b></td>
+                <td><b>124 MW ／ 280 MWh</b>（簡報 p.9）<br><small style="color:var(--muted)">維運表登載為 123.87 MWh ／ 12 場</small></td>
+                <td>集中於宜蘭、桃園示範點</td>
+              </tr>
+              <tr>
+                <td><b>周邊能源實績</b></td>
+                <td>充電樁 1,968+ 支、Tesla Powerwall 120+ 台</td>
+                <td>綠電累計簽約 10.3 億度</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SVG Diagram on Right: 4-Pillar Energy Matrix -->
+        <div class="fig">
+          <div class="figtitle">大同智能綠能業務四大構面體系</div>
+          <svg viewBox="0 0 540 320" role="img" aria-label="大同智能四大業務構面">
+            <g transform="translate(10,10)">
+              <!-- 創能 -->
+              <rect x="10" y="10" width="240" height="135" rx="8" fill="#E8F1F9" stroke="#1968AD" stroke-width="2"/>
+              <text x="30" y="40" font-size="16" font-weight="900" fill="#1968AD">☀️ 創能 (Generation)</text>
+              <text x="30" y="68" font-size="12" fill="#12293D">· 太陽能光電開發建置 (356 MWp)</text>
+              <text x="30" y="92" font-size="12" fill="#12293D">· 地熱發電技術評估與示範案場</text>
+              <text x="30" y="116" font-size="12" fill="#5B7285">· 跨足水面型、屋頂型與地面型</text>
+
+              <!-- 用能 -->
+              <rect x="270" y="10" width="240" height="135" rx="8" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="2"/>
+              <text x="290" y="40" font-size="16" font-weight="900" fill="#12818C">🏢 用能 (Consumption)</text>
+              <text x="290" y="68" font-size="12" fill="#12293D">· 高能效機電與設備汰換工程</text>
+              <text x="290" y="92" font-size="12" fill="#12293D">· 智慧建築能管系統 (BEMS)</text>
+              <text x="290" y="116" font-size="12" fill="#5B7285">· 企業溫室氣體碳盤查輔導顧問</text>
+
+              <!-- 節能 -->
+              <rect x="10" y="160" width="240" height="135" rx="8" fill="#FCF2DE" stroke="#E09A2B" stroke-width="2"/>
+              <text x="30" y="190" font-size="16" font-weight="900" fill="#9a6a10">⚡ 節能 (Efficiency)</text>
+              <text x="30" y="218" font-size="12" fill="#12293D">· 綠電購售交易配比（累計 10.3 億度）</text>
+              <text x="30" y="242" font-size="12" fill="#12293D">· 用電大戶法定義務綠能解方</text>
+              <text x="30" y="266" font-size="12" fill="#5B7285">· 智慧充電樁佈局（1,968+ 支）</text>
+
+              <!-- 儲能 -->
+              <rect x="270" y="160" width="240" height="135" rx="8" fill="#F3E8FF" stroke="#6B46C1" stroke-width="2"/>
+              <text x="290" y="190" font-size="16" font-weight="900" fill="#6B46C1">🔋 儲能 (Storage & VPP)</text>
+              <text x="290" y="218" font-size="12" fill="#12293D">· 大型電網儲能（124 MW / 280 MWh）</text>
+              <text x="290" y="242" font-size="12" fill="#12293D">· 家用儲能 Tesla Powerwall (120+台)</text>
+              <text x="290" y="266" font-size="12" fill="#5B7285">· 輔助服務 ETP 交易與 VPP 聚合</text>
+            </g>
+          </svg>
+          <div class="cap">圖 1.1：大同智能綠能生態系四大業務支柱構面解構</div>
+        </div>
+      </div>
+
+      <div class="three-col" style="margin-top:4px;">
+        <div class="card">
+          <h3>🏛️ 重資本與歷史沿革</h3>
+          <p>背靠百年大同機電製造與電力設備底蘊，具備強大重電原廠品牌背書，對公部門、學校屋頂與老牌工業用戶具有高議價優勢。</p>
+        </div>
+        <div class="card teal">
+          <h3>🔍 數據不一致性查核</h3>
+          <p>簡報 p.10 之維運表格分項加總為 345.3 MW／1,583 場，但表頭加總標記為 350.5 MW／1,610 場，顯示內部資料口徑有約 5.2 MW 之落差。</p>
+        </div>
+        <div class="card purple">
+          <h3>🔋 儲能實績集中示範</h3>
+          <p>大同儲能總計 123.87 MWh／12 場，集中在宜蘭冬山與桃園觀音，本質仍屬重點試點案場，常態分散式維運經驗仍以光電為主。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>資料來源：大同智能研討會簡報 p.8–10 ｜ 內部查核與數據重構</div>
+      <div class="pageno">1.1</div>
+    </div>
+  </section>
+
+  <!-- P1.2 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 1 · 大同標竿 1.2</div>
+        <h1>維運組織區域劃分：每人場數飽和與案場規模之深層解碼</h1>
+        <p class="sub">大同 47 人維運團隊每人承載 7.5 MW、34 場，而進能服 R6.1 定案值為每人 25 MW、31 場。兩者「每人場數」幾乎一致，人均 MW 差距 3 倍完全來自平均案場規模（0.22 MW vs 0.8 MW）。</p>
+      </div>
+      <div class="flags">
+        <span class="flag coral">真實上限是場數</span>
+        <span class="flag blue">進能服 25MW vs 大同 7.5MW</span>
+        <span class="flag teal">門檻效應</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-right">
+        <!-- Table on Left -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>服務區域</th>
+                <th class="ctr">涵蓋縣市</th>
+                <th class="num">容量 (MW)</th>
+                <th class="num">案場數</th>
+                <th class="num">人數</th>
+                <th class="num">每人 MW</th>
+                <th class="num">每人場數</th>
+                <th class="num">平均場大小</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hl-row">
+                <td><b>北區</b></td>
+                <td class="ctr">宜花北基桃</td>
+                <td class="num">163.9</td>
+                <td class="num">767</td>
+                <td class="num">19</td>
+                <td class="num">8.6</td>
+                <td class="num"><b>40</b></td>
+                <td class="num">214 kW</td>
+              </tr>
+              <tr>
+                <td><b>中區</b></td>
+                <td class="ctr">竹苗中投彰</td>
+                <td class="num">114.9</td>
+                <td class="num">551</td>
+                <td class="num">12</td>
+                <td class="num">9.6</td>
+                <td class="num"><b>46</b></td>
+                <td class="num">209 kW</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>南區</b></td>
+                <td class="ctr">雲嘉南高屏</td>
+                <td class="num">45.2</td>
+                <td class="num">136</td>
+                <td class="num">12</td>
+                <td class="num">3.8</td>
+                <td class="num"><b>11</b></td>
+                <td class="num">333 kW</td>
+              </tr>
+              <tr>
+                <td><b>離島</b></td>
+                <td class="ctr">澎湖、金門</td>
+                <td class="num">21.2</td>
+                <td class="num">129</td>
+                <td class="num">4</td>
+                <td class="num">5.3</td>
+                <td class="num"><b>32</b></td>
+                <td class="num">164 kW</td>
+              </tr>
+              <tr style="background:var(--blue-soft); font-weight:800;">
+                <td><b>合計 / 平均</b></td>
+                <td class="ctr">全台佈局</td>
+                <td class="num"><b>350.5</b></td>
+                <td class="num"><b>1,610</b></td>
+                <td class="num"><b>47</b></td>
+                <td class="num"><b>7.5</b></td>
+                <td class="num"><b>34</b></td>
+                <td class="num"><b>218 kW</b></td>
+              </tr>
+              <tr class="hl-row" style="background:#FFF9E6; border-top:2px solid var(--amber);">
+                <td><b>進能服 R6.1</b></td>
+                <td class="ctr">南部集中</td>
+                <td class="num"><b>318.0</b></td>
+                <td class="num"><b>398</b></td>
+                <td class="num"><b>14</b></td>
+                <td class="num"><b style="color:var(--blue);font-size:1.05rem">25.0</b></td>
+                <td class="num"><b style="color:var(--coral);font-size:1.05rem">31</b></td>
+                <td class="num"><b style="color:var(--green);font-size:1.05rem">800 kW</b></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SVG Diagram on Right: Capacity & Count Comparison -->
+        <div class="fig">
+          <div class="figtitle">大同各區容量分布 vs 人均場數負荷</div>
+          <svg viewBox="0 0 540 280" role="img" aria-label="大同各區容量與人均場數比較">
+            <!-- Background Bars -->
+            <g transform="translate(40, 20)">
+              <!-- Axis lines -->
+              <line x1="60" y1="20" x2="60" y2="200" stroke="#D9E3EC" stroke-width="1.5"/>
+              <line x1="60" y1="200" x2="480" y2="200" stroke="#D9E3EC" stroke-width="1.5"/>
+
+              <!-- Bar 1: 北區 -->
+              <text x="110" y="220" font-size="13" font-weight="700" fill="#12293D" text-anchor="middle">北區</text>
+              <rect x="85" y="45" width="50" height="155" rx="4" fill="#1968AD"/>
+              <text x="110" y="38" font-size="12" font-weight="800" fill="#1968AD" text-anchor="middle">163.9 MW</text>
+              <circle cx="110" cy="80" r="14" fill="#D95F45"/>
+              <text x="110" y="85" font-size="11" font-weight="800" fill="#fff" text-anchor="middle">40場</text>
+
+              <!-- Bar 2: 中區 -->
+              <text x="210" y="220" font-size="13" font-weight="700" fill="#12293D" text-anchor="middle">中區</text>
+              <rect x="185" y="90" width="50" height="110" rx="4" fill="#1BB1BF"/>
+              <text x="210" y="83" font-size="12" font-weight="800" fill="#12818C" text-anchor="middle">114.9 MW</text>
+              <circle cx="210" cy="65" r="14" fill="#D95F45"/>
+              <text x="210" y="70" font-size="11" font-weight="800" fill="#fff" text-anchor="middle">46場</text>
+
+              <!-- Bar 3: 南區 -->
+              <text x="310" y="220" font-size="13" font-weight="700" fill="#12293D" text-anchor="middle">南區</text>
+              <rect x="285" y="157" width="50" height="43" rx="4" fill="#E09A2B"/>
+              <text x="310" y="150" font-size="12" font-weight="800" fill="#E09A2B" text-anchor="middle">45.2 MW</text>
+              <circle cx="310" cy="170" r="14" fill="#2E7D32"/>
+              <text x="310" y="175" font-size="11" font-weight="800" fill="#fff" text-anchor="middle">11場</text>
+
+              <!-- Bar 4: 離島 -->
+              <text x="410" y="220" font-size="13" font-weight="700" fill="#12293D" text-anchor="middle">離島</text>
+              <rect x="385" y="180" width="50" height="20" rx="4" fill="#9FB1C0"/>
+              <text x="410" y="173" font-size="12" font-weight="800" fill="#5B7285" text-anchor="middle">21.2 MW</text>
+              <circle cx="410" cy="100" r="14" fill="#D95F45"/>
+              <text x="410" y="105" font-size="11" font-weight="800" fill="#fff" text-anchor="middle">32場</text>
+
+              <!-- Legend -->
+              <g transform="translate(180, 245)">
+                <rect x="0" y="0" width="14" height="10" fill="#1968AD"/>
+                <text x="20" y="9" font-size="11" fill="#5B7285">在管容量 (MW)</text>
+                <circle cx="120" cy="5" r="6" fill="#D95F45"/>
+                <text x="132" y="9" font-size="11" fill="#5B7285">每人承載場數 (紅飽和/綠餘裕)</text>
+              </g>
+            </g>
+          </svg>
+          <div class="cap">圖 1.2：大同各區域在管容量 vs 每人承載案場數（中北部飽和，南區寬鬆）</div>
+        </div>
+      </div>
+
+      <div class="three-col" style="margin-top:4px;">
+        <div class="card amber">
+          <h3>🎯 接單門檻（0.8MW）是生死線</h3>
+          <p>大同每人管 34 場已達實體極限（中區每人 46 場）。若進能服平均案場由 0.8 MW 降至 0.3 MW，維護 1GW 需要的現場人力將從 34 人暴增至 92 人！</p>
+        </div>
+        <div class="card teal">
+          <h3>🏢 北部屋頂包袱沉重</h3>
+          <p>大同 47% 容量、近半數案場擠在雙北基宜桃，多屬幾十至百餘瓩的破碎屋頂，通勤路程與巡檢成本居高不下，邊際效益受限。</p>
+        </div>
+        <div class="card green">
+          <h3>⚡ 進能服南部規模優勢</h3>
+          <p>進能服主打南部集中與平均 0.8 MW 以上案場，人均容量為大同的 3.3 倍，能將高階工程師產能充分釋放至預防性維護與加值服務。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>資料來源：大同簡報 p.10 ｜ 進能服 OMPLAN R6.1 參數定案版比對</div>
+      <div class="pageno">1.2</div>
+    </div>
+  </section>
+
+  <!-- P1.3 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 1 · 大同標竿 1.3</div>
+        <h1>營運閉環與平台成熟度：24小時SLA與預測誤差實證</h1>
+        <p class="sub">大同確立「告警→派工→查修→紀錄」作業閉環與全台 24 小時到場 SLA。其 AI 發電預測平均絕對誤差約 7.6%（單日達 1.7%~13.8%），平台成熟度處於從「監控」過渡至「控制」階段。</p>
+      </div>
+      <div class="flags">
+        <span class="flag blue">24hr 到場 SLA</span>
+        <span class="flag amber">發電預測誤差 7.6%</span>
+        <span class="flag teal">作業閉環</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <!-- Top SVG Flow: Operational Closed Loop -->
+      <div class="fig" style="padding:12px 18px;">
+        <div class="figtitle">大同智能智慧維運四大階段演進與即時作業閉環流程</div>
+        <svg viewBox="0 0 1120 160" role="img" aria-label="大同維運作業閉環流程">
+          <defs>
+            <marker id="ar-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0 0, 8 4, 0 8" fill="#1968AD"/></marker>
+          </defs>
+          <g>
+            <!-- Stage 1 -->
+            <rect x="20" y="25" width="230" height="90" rx="6" fill="#E8F1F9" stroke="#1968AD" stroke-width="2"/>
+            <text x="135" y="55" font-size="15" font-weight="800" fill="#1968AD" text-anchor="middle">① 系統告警 (Alert)</text>
+            <text x="135" y="78" font-size="12" fill="#12293D" text-anchor="middle">串列即時監測 ｜ LINE 告警通知</text>
+            <text x="135" y="98" font-size="11" fill="#5B7285" text-anchor="middle">AIoT 監控平台自動初判故障原因</text>
+
+            <!-- Arrow 1 -->
+            <line x1="250" y1="70" x2="295" y2="70" stroke="#1968AD" stroke-width="2.5" marker-end="url(#ar-blue)"/>
+
+            <!-- Stage 2 -->
+            <rect x="305" y="25" width="230" height="90" rx="6" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="2"/>
+            <text x="420" y="55" font-size="15" font-weight="800" fill="#12818C" text-anchor="middle">② 自動派工 (Dispatch)</text>
+            <text x="420" y="78" font-size="12" fill="#12293D" text-anchor="middle">工單自動觸發 ｜ 派發區域班組</text>
+            <text x="420" y="98" font-size="11" fill="#5B7285" text-anchor="middle">備品在庫確認 ｜ 路線最佳化排程</text>
+
+            <!-- Arrow 2 -->
+            <line x1="535" y1="70" x2="580" y2="70" stroke="#1968AD" stroke-width="2.5" marker-end="url(#ar-blue)"/>
+
+            <!-- Stage 3 -->
+            <rect x="590" y="25" width="230" height="90" rx="6" fill="#FCF2DE" stroke="#E09A2B" stroke-width="2"/>
+            <text x="705" y="55" font-size="15" font-weight="800" fill="#9a6a10" text-anchor="middle">③ 現場查修 (Repair)</text>
+            <text x="705" y="78" font-size="12" fill="#12293D" text-anchor="middle"><b>24 小時內到場</b> 承諾</text>
+            <text x="705" y="98" font-size="11" fill="#5B7285" text-anchor="middle">高壓排除、變流器重啟與部件更換</text>
+
+            <!-- Arrow 3 -->
+            <line x1="820" y1="70" x2="865" y2="70" stroke="#1968AD" stroke-width="2.5" marker-end="url(#ar-blue)"/>
+
+            <!-- Stage 4 -->
+            <rect x="875" y="25" width="225" height="90" rx="6" fill="#F3E8FF" stroke="#6B46C1" stroke-width="2"/>
+            <text x="987" y="55" font-size="15" font-weight="800" fill="#6B46C1" text-anchor="middle">④ 報告與履歷 (Archive)</text>
+            <text x="987" y="78" font-size="12" fill="#12293D" text-anchor="middle">一場一檔案場履歷 ｜ 專人生態追蹤</text>
+            <text x="987" y="98" font-size="11" fill="#5B7285" text-anchor="middle">歷史數據沉澱 ｜ 轉入發電效能整改</text>
+
+            <!-- Return Loop line -->
+            <path d="M987 115 L987 140 L135 140 L135 115" stroke="#9FB1C0" stroke-width="1.8" stroke-dasharray="5,4" fill="none" marker-end="url(#ar-blue)"/>
+            <text x="560" y="135" font-size="11" fill="#5B7285" text-anchor="middle">閉環知識反饋：優化維護頻率與設備健康模型</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Bottom Two Tables -->
+      <div class="two-col" style="margin-top:6px;">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:28%;">營運構面</th>
+                <th>大同作法與戰略定位</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>收益邏輯</b></td>
+                <td>躉售 (FIT) 轉向 CPPA 綠電交易。棄光棄電風險促使儲能調度成為必要商業手段。</td>
+              </tr>
+              <tr class="hl-row">
+                <td><b>演進四階段</b></td>
+                <td>FIT時期不維護 &rarr; <b>現階段：全面監控</b> &rarr; 進階：遠端控制 &rarr; 未來：AI毫秒調度與VPP。</td>
+              </tr>
+              <tr>
+                <td><b>平台四模組</b></td>
+                <td>專人監視（日監控）、故障告警（串列自動工單）、案場履歷（一場一檔）、大數據分析（變流器比對）。</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>加值整改實績</b></td>
+                <td>具備案場評估與整改能力，<b>曾將單一衰退案場發電效能由 20% 提升至 80%</b>。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:32%;">技術能力</th>
+                <th class="ctr" style="width:24%;">成熟度</th>
+                <th>實績與說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>EMS / AIoT 平台</b></td>
+                <td class="ctr"><span class="chip green">已上線</span></td>
+                <td>全台戰情大螢幕、串列級即時監測、告警推播</td>
+              </tr>
+              <tr>
+                <td><b>自動派工系統</b></td>
+                <td class="ctr"><span class="chip green">已上線</span></td>
+                <td>LINE 連動開單、定期巡檢派工、異常專人追蹤</td>
+              </tr>
+              <tr class="hl-row">
+                <td><b>發電預測演算法</b></td>
+                <td class="ctr"><span class="chip amber">驗證中</span></td>
+                <td>2026/05 比對：<b>單日誤差 1.7%~13.8%，平均絕對誤差約 7.6%</b>。尚無法支撐即時交易</td>
+              </tr>
+              <tr>
+                <td><b>DERMS / VPP</b></td>
+                <td class="ctr"><span class="chip blue">架構完成</span></td>
+                <td>符合 IEEE 2030 標準，具備註冊、預測、聚合介面</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>資料來源：大同簡報 p.4–6、14–22、29 ｜ 技術成熟度為本版獨立評估</div>
+      <div class="pageno">1.3</div>
+    </div>
+  </section>
+
+  <!-- P1.4 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 1 · 大同標竿 1.4</div>
+        <h1>進能服借鏡矩陣：汲取營運閉環，揚棄全台分散</h1>
+        <p class="sub">全面對比進能服與大同智能之優劣勢。進能服應堅決採納作業閉環與案場履歷，發電預測用於天候免賠判定；但堅決拒絕小屋頂與全台均布，發揮南部集中與大案場之規模經濟效益。</p>
+      </div>
+      <div class="flags">
+        <span class="flag green">直接採用閉環</span>
+        <span class="flag coral">堅決拒絕小屋頂</span>
+        <span class="flag purple">AM 分潤領先</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-left">
+        <!-- SVG Visual: Competitive Radar / Comparison -->
+        <div class="fig">
+          <div class="figtitle">進能服 6692 vs 大同智能 戰略競爭力雷達對比</div>
+          <svg viewBox="0 0 500 300" role="img" aria-label="進能服 vs 大同戰略雷達">
+            <g transform="translate(250, 150)">
+              <!-- Radar Circles -->
+              <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" fill="none" stroke="#D9E3EC" stroke-width="1.2"/>
+              <polygon points="0,-80 76,-25 47,65 -47,65 -76,-25" fill="none" stroke="#D9E3EC" stroke-width="1.2"/>
+              <polygon points="0,-40 38,-12 23,32 -23,32 -38,-12" fill="none" stroke="#D9E3EC" stroke-width="1.2"/>
+              <!-- Axis lines -->
+              <line x1="0" y1="0" x2="0" y2="-130" stroke="#9FB1C0" stroke-width="1"/>
+              <line x1="0" y1="0" x2="124" y2="-40" stroke="#9FB1C0" stroke-width="1"/>
+              <line x1="0" y1="0" x2="76" y2="105" stroke="#9FB1C0" stroke-width="1"/>
+              <line x1="0" y1="0" x2="-76" y2="105" stroke="#9FB1C0" stroke-width="1"/>
+              <line x1="0" y1="0" x2="-124" y2="-40" stroke="#9FB1C0" stroke-width="1"/>
+
+              <!-- Axis labels -->
+              <text x="0" y="-136" font-size="12" font-weight="800" fill="#12293D" text-anchor="middle">平均案場規模 (MW)</text>
+              <text x="134" y="-38" font-size="12" font-weight="800" fill="#12293D" text-anchor="start">AM分潤定價能力</text>
+              <text x="82" y="122" font-size="12" font-weight="800" fill="#12293D" text-anchor="middle">平台監控成熟度</text>
+              <text x="-82" y="122" font-size="12" font-weight="800" fill="#12293D" text-anchor="middle">資本額與原廠品牌</text>
+              <text x="-134" y="-38" font-size="12" font-weight="800" fill="#12293D" text-anchor="end">南部日照與區位密度</text>
+
+              <!-- Polygon 1: 大同智能 (Amber/Grey) -->
+              <polygon points="0,-33 46,-15 63,87 -105,82 -38,-12" fill="rgba(224,154,43,0.22)" stroke="#E09A2B" stroke-width="2.5"/>
+
+              <!-- Polygon 2: 進能服 6692 (Blue/Teal) -->
+              <polygon points="0,-115 110,-35 48,66 -42,38 -108,-35" fill="rgba(25,104,173,0.32)" stroke="#1968AD" stroke-width="2.8"/>
+
+              <!-- Legend -->
+              <g transform="translate(-180, 132)">
+                <rect x="0" y="0" width="14" height="10" fill="#1968AD"/>
+                <text x="20" y="9" font-size="11" font-weight="700" fill="#1968AD">進能服 6692（案場大、南部密度高、AM創利）</text>
+                <rect x="230" y="0" width="14" height="10" fill="#E09A2B"/>
+                <text x="250" y="9" font-size="11" font-weight="700" fill="#E09A2B">大同智能（資本品牌大、平台成型、北部多）</text>
+              </g>
+            </g>
+          </svg>
+          <div class="cap">圖 1.4：進能服與大同智能五大戰略維度能力雷達對比</div>
+        </div>
+
+        <!-- Table on Right: Decision Matrix -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:24%;">處置決策</th>
+                <th style="width:36%;">對應項目</th>
+                <th>進能服落實做法與取代機制</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="good-row">
+                <td><b>直接採用</b></td>
+                <td><b>告警派工閉環 ＋ 24hr SLA</b></td>
+                <td>寫入 4.6.4.2 維運流程與標準對外合約；取代現行各區分散判斷之派工模式。</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>直接採用</b></td>
+                <td><b>案場履歷（一場一檔）</b></td>
+                <td>納入 AI Agent 資料底座，整合設備歷史紀錄，取代散落於 Excel 與 LINE 群組。</td>
+              </tr>
+              <tr class="hl-row">
+                <td><b>調整採用</b></td>
+                <td><b>發電預測演算法</b></td>
+                <td>前期不投入昂貴交易調度，<b>優先用於保發案場天候免賠判定</b>（如 8 月高雄日照 -43%）。</td>
+              </tr>
+              <tr class="hl-row">
+                <td><b>調整採用</b></td>
+                <td><b>四階段演進里程碑</b></td>
+                <td>做為 4.6.5 資訊平台升級路線（監控&rarr;控制&rarr;AI預測&rarr;VPP就緒）。</td>
+              </tr>
+              <tr class="bad-row">
+                <td><b>暫不採用</b></td>
+                <td><b>VPP 電力交易聚合商</b></td>
+                <td>FY2030 前僅維持「VPP 就緒」介面，嚴守光伏 ≥90% 本業，不冒進承擔調度罰則。</td>
+              </tr>
+              <tr class="bad-row">
+                <td><b>堅決不採用</b></td>
+                <td><b>全台平均布點、接小屋頂</b></td>
+                <td>小屋頂人均場數飽和、邊際效益極差，違反進能服南部集中與 0.8 MW 門檻原則。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:6px;">
+        <div class="card teal">
+          <h3>🏆 進能服壓倒性優勢（核心護城河）</h3>
+          <p>平均案場規模達 0.8 MW（大同僅 0.22 MW，我們大 3.7 倍）；擁有母公司自建 EPC 穩定轉入案源；已深度對接國泰電業等大型資產方；領先確立 AM 資產管理分潤定價（350/600 元/kW）。</p>
+        </div>
+        <div class="card amber">
+          <h3>⚠️ 進能服待補強短板（戰略追趕點）</h3>
+          <p>資本額（目前仍屬 BU，FY2028 分拆）與機電老牌知名度尚有差距；大型儲能實際維運案量少於大同；監控平台尚未完全產品化；北部在地化服務網絡較單薄。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>資料來源：OM1GW_R1.0 1.5 節 ｜ 進能服競爭力矩陣深度綜合研判</div>
+      <div class="pageno">1.4</div>
+    </div>
+  </section>
+
+</div>
+\n
+<!-- ================= PART 2: Notion 4.6 架構檢核 ================= -->
+<div class="view" id="view-p2">
+
+  <!-- P2.1 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 2 · 架構檢核 2.1</div>
+        <h1>Notion 4.6 現況檢核：9 處編號重複與錯置全面糾偏</h1>
+        <p class="sub">比對 Notion 線上頁面、大衛雲本機資料夾及 1GW 營運計畫需求，發現 9 處編號重號、層級錯亂、錯別字與 AI Agent 重複定義問題，提出全面正名與順延建議。</p>
+      </div>
+      <div class="flags">
+        <span class="flag coral">9 處編號錯置</span>
+        <span class="flag blue">去重與層級順延</span>
+        <span class="flag teal">知識庫一致性</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <!-- Table on Top/Left -->
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:40px;" class="ctr">#</th>
+              <th style="width:16%;">章節位置</th>
+              <th style="width:36%;">現況異常問題</th>
+              <th style="width:44%;">具體正名與順延建議</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bad-row">
+              <td class="ctr"><b>1</b></td>
+              <td><b>4.6.2 商業模式</b></td>
+              <td>`4.6.2.1 年度計畫` 與 `4.6.2.1 市場區隔` 嚴重重號</td>
+              <td>市場區隔改為 <b>4.6.2.2</b>，後續子章節編號順延調整。</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>2</b></td>
+              <td><b>4.6.2 目標客戶</b></td>
+              <td>子項直接編為 `4.6.2.2.1 壽險基金`</td>
+              <td>順延後正式改為 <b>4.6.2.3.1</b>。</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>3</b></td>
+              <td><b>4.6.2.4 營業項目</b></td>
+              <td>子項編為 `4.6.2.2.1 AM`、`4.6.2.2.2 OM`、`4.6.2.2.3 代操`</td>
+              <td>全面改為 <b>4.6.2.5.1 ~ 5.3</b>（順延至第 5 節營業項目）。</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>4</b></td>
+              <td><b>4.6.4.2 維運流程</b></td>
+              <td>子項編為 `4.6.4.1.1 ISO流程`、`4.6.4.1.3 PDCA`</td>
+              <td>改為 <b>4.6.4.2.1 ISO流程</b>、<b>4.6.4.2.2 PDCA</b>。</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>5</b></td>
+              <td><b>4.6.4.6 資源管理</b></td>
+              <td>子項編為 `4.6.4.4.1–4`，與供應鏈重號</td>
+              <td>改為 <b>4.6.4.6.1–4</b>。</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>6</b></td>
+              <td><b>4.6.8 風險管理</b></td>
+              <td>子項編為 `4.6.7.1–4`（本機已是 4.6.8.3 火災處置）</td>
+              <td>統一修正為 <b>4.6.8.1–4</b>。</td>
+            </tr>
+            <tr class="hl-row">
+              <td class="ctr"><b>7</b></td>
+              <td><b>AI Agent 定義重複</b></td>
+              <td>`4.6.5.3 AI Agent` 與頂層 `4.6.7 AI Agent` 兩處重複且內容互斥</td>
+              <td><b>刪除 4.6.5.3</b>，所有 Agent 集中收攏至頂層 <b>4.6.7</b>。</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>8</b></td>
+              <td><b>4.6.7 子項分歧</b></td>
+              <td>Notion 寫「業務/營運」，本機為「異常告警/業務客服」，均無編號</td>
+              <td>統一為：<b>4.6.7.1 營運 Agent</b>、<b>4.6.7.2 業務客服 Agent</b>、<b>4.6.7.3 成本預算 Agent</b>。</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>9</b></td>
+              <td><b>4.6.6 技術產品</b></td>
+              <td>`Robort` 拼寫錯誤；缺 4.6.6.1.3 EL；除草機器人等未編號</td>
+              <td>正名為 <b>Robot</b>；補齊 <b>4.6.6.1.3 EL</b>；未編號項目全數補齊號碼。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="three-col" style="margin-top:6px;">
+        <div class="card">
+          <h3>📌 重號清理邏輯</h3>
+          <p>現行 Notion 多處因前期撰寫者各自擴充，造成編號與父節點脫節。透過嚴謹的一級順延，確保搜尋與引用零歧異。</p>
+        </div>
+        <div class="card teal">
+          <h3>🤖 AI Agent 集中治理</h3>
+          <p>將原本散落在「4.6.5 資訊平台」與「4.6.7」的兩組 Agent 統整，以營運、業務客服、成本預算三大場景重塑。</p>
+        </div>
+        <div class="card amber">
+          <h3>📂 本機目錄同步推進</h3>
+          <p>完成 Notion 修訂後，將大衛雲本機資料夾結構一併重命名對齊，確保雲端硬碟與 Notion 樹狀結構完全鏡像。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>比對來源：Notion 4.6 運維管理 ｜ 大衛雲本機資料夾 ｜ 2026-09-14 最後編輯查核</div>
+      <div class="pageno">2.1</div>
+    </div>
+  </section>
+
+  <!-- P2.2 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 2 · 架構檢核 2.2</div>
+        <h1>1GW 營運擴展：6 大缺失章節功能缺口與補強建議</h1>
+        <p class="sub">若要承載 1GW 獨立運維公司規模，現行架構缺乏「案場整改、儲能VPP、NOC/SLA、據點準則、分拆損益、履約保證」六大核心功能模組，必須立即增補入目次。</p>
+      </div>
+      <div class="flags">
+        <span class="flag coral">6 大核心缺口</span>
+        <span class="flag purple">1GW 必要支柱</span>
+        <span class="flag blue">標準化補強</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <!-- Top SVG Flow Diagram -->
+      <div class="fig" style="padding:10px 14px;">
+        <div class="figtitle">1GW 營運體系六大功能缺口與架構落點映射圖</div>
+        <svg viewBox="0 0 1080 140" role="img" aria-label="1GW 六大缺口架構圖">
+          <g transform="translate(10, 10)">
+            <!-- Item 1 -->
+            <rect x="10" y="10" width="160" height="100" rx="6" fill="#E8F1F9" stroke="#1968AD" stroke-width="1.8"/>
+            <text x="90" y="38" font-size="13" font-weight="800" fill="#1968AD" text-anchor="middle">① 案場評估整改</text>
+            <text x="90" y="62" font-size="11" fill="#12293D" text-anchor="middle">落點：4.6.4.7</text>
+            <text x="90" y="82" font-size="10" fill="#5B7285" text-anchor="middle">整改SOP / AM二級市場</text>
+            <text x="90" y="98" font-size="10" fill="#12818C" text-anchor="middle">週期短(2~3月) / 毛利高</text>
+
+            <!-- Item 2 -->
+            <rect x="185" y="10" width="160" height="100" rx="6" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="1.8"/>
+            <text x="265" y="38" font-size="13" font-weight="800" fill="#12818C" text-anchor="middle">② 儲能與 VPP</text>
+            <text x="265" y="62" font-size="11" fill="#12293D" text-anchor="middle">落點：4.6.6.6</text>
+            <text x="265" y="82" font-size="10" fill="#5B7285" text-anchor="middle">儲能試點 / VPP就緒</text>
+            <text x="265" y="98" font-size="10" fill="#1968AD" text-anchor="middle">充放電與通訊控制介面</text>
+
+            <!-- Item 3 -->
+            <rect x="360" y="10" width="160" height="100" rx="6" fill="#FCF2DE" stroke="#E09A2B" stroke-width="1.8"/>
+            <text x="440" y="38" font-size="13" font-weight="800" fill="#9a6a10" text-anchor="middle">③ NOC 與 SLA</text>
+            <text x="440" y="62" font-size="11" fill="#12293D" text-anchor="middle">落點：4.6.4.2.3</text>
+            <text x="440" y="82" font-size="10" fill="#5B7285" text-anchor="middle">分級派工 / P1~P4 SLA</text>
+            <text x="440" y="98" font-size="10" fill="#D95F45" text-anchor="middle">P1 4hr到場時效閉環</text>
+
+            <!-- Item 4 -->
+            <rect x="535" y="10" width="160" height="100" rx="6" fill="#FBEAE5" stroke="#D95F45" stroke-width="1.8"/>
+            <text x="615" y="38" font-size="13" font-weight="800" fill="#b4432c" text-anchor="middle">④ 據點布局準則</text>
+            <text x="615" y="62" font-size="11" fill="#12293D" text-anchor="middle">落點：4.6.4.6.2</text>
+            <text x="615" y="82" font-size="10" fill="#5B7285" text-anchor="middle">60分到場 / 80MW拓點</text>
+            <text x="615" y="98" font-size="10" fill="#12293D" text-anchor="middle">台南拿30%市場(360MW)</text>
+
+            <!-- Item 5 -->
+            <rect x="710" y="10" width="160" height="100" rx="6" fill="#F3E8FF" stroke="#6B46C1" stroke-width="1.8"/>
+            <text x="790" y="38" font-size="13" font-weight="800" fill="#6B46C1" text-anchor="middle">⑤ 分拆與財務計畫</text>
+            <text x="790" y="62" font-size="11" fill="#12293D" text-anchor="middle">落點：4.6.3.2.3</text>
+            <text x="790" y="82" font-size="10" fill="#5B7285" text-anchor="middle">FY2028獨立損益表</text>
+            <text x="790" y="98" font-size="10" fill="#2E7D32" text-anchor="middle">資本額5000萬~1億</text>
+
+            <!-- Item 6 -->
+            <rect x="885" y="10" width="165" height="100" rx="6" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1.8"/>
+            <text x="967" y="38" font-size="13" font-weight="800" fill="#2E7D32" text-anchor="middle">⑥ 履約保證管理</text>
+            <text x="967" y="62" font-size="11" fill="#12293D" text-anchor="middle">落點：4.6.8.5</text>
+            <text x="967" y="82" font-size="10" fill="#5B7285" text-anchor="middle">保發保PR對外賠付</text>
+            <text x="967" y="98" font-size="10" fill="#D95F45" text-anchor="middle">扣除天候防禦機制</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Table on Bottom -->
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:40px;" class="ctr">#</th>
+              <th style="width:20%;">缺口名稱</th>
+              <th style="width:40%;">為什麼邁向 1GW 必須具備（痛點與必要性）</th>
+              <th style="width:20%;">建議章節落點</th>
+              <th style="width:16%;">取代或合併</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hl-row">
+              <td class="ctr"><b>1</b></td>
+              <td><b>案場評估與整新整改</b></td>
+              <td>李總 9/15 指示建立標準評估 SOP；整改銷售週期僅 2~3 個月，毛利達 25%，為 AM 二級市場核心武器。</td>
+              <td>新增 <b>4.6.4.7 案場評估與整改</b></td>
+              <td>取代散在 4.6.2.4 的零星敘述</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>2</b></td>
+              <td><b>儲能與 VPP</b></td>
+              <td>情境設定涵蓋儲能試點（100MWh），大同主軸之一，需明訂介面標準。</td>
+              <td>擴充 4.6.2.2，並新增 <b>4.6.6.6 儲能與 VPP 就緒</b></td>
+              <td>合併原本空白之儲能標題</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>3</b></td>
+              <td><b>NOC 戰情中心與 SLA</b></td>
+              <td>1GW 需集中監控、分級派工，明訂 P1 四小時到場 SLA。</td>
+              <td>新增 <b>4.6.4.2.3 SLA 與派工分級</b></td>
+              <td>補足 4.6.5.1.2 戰情台之營運實體</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>4</b></td>
+              <td><b>據點布局準則</b></td>
+              <td>台南 1.2GW 搶占 30% 戰略；需明訂 60 分鐘到場與單點 120~200MW 準則。</td>
+              <td>擴充 <b>4.6.4.6.2 據點布局準則</b></td>
+              <td>取代原本僅標題的服務點+倉庫</td>
+            </tr>
+            <tr class="good-row">
+              <td class="ctr"><b>5</b></td>
+              <td><b>事業損益與分拆</b></td>
+              <td>FY2028 獨立成公司，需獨立損益、資本額規劃與母子公司分攤協議。</td>
+              <td>新增 <b>4.6.3.2.3 分拆與財務計畫</b></td>
+              <td>補足 4.6.4.3 僅看單案成本之盲點</td>
+            </tr>
+            <tr class="bad-row">
+              <td class="ctr"><b>6</b></td>
+              <td><b>保發 / 保 PR 履約管理</b></td>
+              <td>8 月 34 場中有 14 場未達標（均為保發案），對外賠付合約防禦極度迫切。</td>
+              <td>新增 <b>4.6.8.5 履約保證管理</b></td>
+              <td>與 4.6.3.4 分工：KPI管內，此管賠付</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>規劃來源：OM1GW_R1.0 2.2 節 ｜ 1GW 運維公司能力缺口映射矩陣</div>
+      <div class="pageno">2.2</div>
+    </div>
+  </section>
+
+  <!-- P2.3 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 2 · 架構檢核 2.3</div>
+        <h1>建議架構 v2 藍圖與關鍵資安漏洞即刻整改</h1>
+        <p class="sub">維持「4.6.1 至 4.6.8」八大頂層章節不變，僅整頓內部子編號並補齊 6 大缺口。同時嚴正警示：Notion 頁面中外部平台帳密明文外洩，必須即刻強制下線整改！</p>
+      </div>
+      <div class="flags">
+        <span class="flag coral">🚨 資安緊急整改</span>
+        <span class="flag blue">架構 v2 藍圖</span>
+        <span class="flag green">維持 8 大頂層穩定</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <!-- Security Warning Box -->
+      <div class="warn" style="font-size:0.92rem; line-height:1.6; border-left-width:6px;">
+        <h3 style="color:#b4432c; font-size:1.05rem; margin-bottom:4px;">🚨 嚴重資安漏洞緊急處置通知</h3>
+        經查核，Notion 頁面 <code>4.6.6.1.2 台達：CV &gt; 合作夥伴：艾略</code> 區塊，<b>直接將外部合作平台的真實帳號與密碼明文曝險於頁面上</b>！<br>
+        <b>處置要求</b>：1. 立即刪除該明文文字；2. 帳號持有人即刻變更密碼；3. 全面遷移至公司 1Password 或 Vault 密碼保險庫管理。
+      </div>
+
+      <!-- Architecture Tree Diagram -->
+      <div class="fig" style="margin-top:6px; padding:12px 16px;">
+        <div class="figtitle">建議架構 v2 全景八大頂層與核心新增模組藍圖 (標 ★ 為新增)</div>
+        <svg viewBox="0 0 1100 220" role="img" aria-label="建議架構 v2 樹狀圖">
+          <g>
+            <!-- 8 Root Boxes -->
+            <g transform="translate(10, 20)">
+              <!-- 4.6.1 -->
+              <rect x="0" y="0" width="250" height="85" rx="5" fill="#E8F1F9" stroke="#1968AD" stroke-width="1.8"/>
+              <text x="12" y="24" font-size="13" font-weight="900" fill="#1968AD">4.6.1 產業環境</text>
+              <text x="12" y="46" font-size="11" fill="#12293D">1 市場分析 ｜ 2 政策法規</text>
+              <text x="12" y="66" font-size="11" fill="#12293D"><b>3 標竿學習（大同智能★）</b>｜ 4 競爭</text>
+
+              <!-- 4.6.2 -->
+              <rect x="270" y="0" width="260" height="85" rx="5" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="1.8"/>
+              <text x="282" y="24" font-size="13" font-weight="900" fill="#12818C">4.6.2 商業模式</text>
+              <text x="282" y="46" font-size="11" fill="#12293D">1 年度計畫 ｜ 2 市場區隔(光/儲)</text>
+              <text x="282" y="66" font-size="11" fill="#12293D">3 目標客群 ｜ 4 推廣 ｜ 5 營業項目</text>
+
+              <!-- 4.6.3 -->
+              <rect x="550" y="0" width="260" height="85" rx="5" fill="#FCF2DE" stroke="#E09A2B" stroke-width="1.8"/>
+              <text x="562" y="24" font-size="13" font-weight="900" fill="#9a6a10">4.6.3 運維公司</text>
+              <text x="562" y="46" font-size="11" fill="#12293D">1 願景策略 ｜ 2 三年規劃(<b>含分拆★</b>)</text>
+              <text x="562" y="66" font-size="11" fill="#12293D">3 組織架構 ｜ 4 管理KPI ｜ 5 獎金制</text>
+
+              <!-- 4.6.4 -->
+              <rect x="830" y="0" width="250" height="85" rx="5" fill="#FBEAE5" stroke="#D95F45" stroke-width="1.8"/>
+              <text x="842" y="24" font-size="13" font-weight="900" fill="#b4432c">4.6.4 流程管理</text>
+              <text x="842" y="46" font-size="11" fill="#12293D">1 理論 ｜ 2 流程(<b>SLA派工★</b>) ｜ 3 成本</text>
+              <text x="842" y="66" font-size="11" fill="#12293D">6 資源(<b>據點★</b>) ｜ <b>7 案場整改★</b></text>
+            </g>
+
+            <g transform="translate(10, 115)">
+              <!-- 4.6.5 -->
+              <rect x="0" y="0" width="250" height="85" rx="5" fill="#EDF1F5" stroke="#9FB1C0" stroke-width="1.8"/>
+              <text x="12" y="24" font-size="13" font-weight="900" fill="#5B7285">4.6.5 資訊平台</text>
+              <text x="12" y="46" font-size="11" fill="#12293D">1 IT 平台架構 ｜ 2 OT 監控平台</text>
+              <text x="12" y="66" font-size="11" fill="#5B7285">(AI Agent 全面移轉至 4.6.7)</text>
+
+              <!-- 4.6.6 -->
+              <rect x="270" y="0" width="260" height="85" rx="5" fill="#F3E8FF" stroke="#6B46C1" stroke-width="1.8"/>
+              <text x="282" y="24" font-size="13" font-weight="900" fill="#6B46C1">4.6.6 技術產品</text>
+              <text x="282" y="46" font-size="11" fill="#12293D">1 AI (IV/CV/<b>EL★</b>/<b>預測★</b>) ｜ 2 Robot</text>
+              <text x="282" y="66" font-size="11" fill="#12293D">3 數位化 ｜ 4 監控 ｜ <b>6 儲能VPP★</b></text>
+
+              <!-- 4.6.7 -->
+              <rect x="550" y="0" width="260" height="85" rx="5" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1.8"/>
+              <text x="562" y="24" font-size="13" font-weight="900" fill="#2E7D32">4.6.7 AI Agent</text>
+              <text x="562" y="46" font-size="11" fill="#12293D">1 營運 Agent (日/月報、異常告警)</text>
+              <text x="562" y="66" font-size="11" fill="#12293D">2 業務客服 Agent ｜ 3 成本預算 Agent</text>
+
+              <!-- 4.6.8 -->
+              <rect x="830" y="0" width="250" height="85" rx="5" fill="#FCF2DE" stroke="#E09A2B" stroke-width="1.8"/>
+              <text x="842" y="24" font-size="13" font-weight="900" fill="#9a6a10">4.6.8 風險管理</text>
+              <text x="842" y="46" font-size="11" fill="#12293D">1 保險 ｜ 2 颱風 ｜ 3 火災處置</text>
+              <text x="842" y="66" font-size="11" fill="#12293D">4 回報機制 ｜ <b>5 履約保證管理★</b></text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="two-col" style="margin-top:6px;">
+        <div class="card teal">
+          <h3>📐 架構演進原則：只改編號與補缺口</h3>
+          <p>嚴守「不增減 4.6.1 至 4.6.8 八大頂層」原則，確保跨部門引用（如 2.2 事業經營、3.4 研發）的連結永不失效，以最小震盪完成知識庫重構。</p>
+        </div>
+        <div class="card green">
+          <h3>🛡️ 雙軌風險管理分工</h3>
+          <p>內部日常管理由 <b>4.6.3.4 KPI</b> 負責；對外業主 PR 保證與發電量賠付則由新增的 <b>4.6.8.5 履約保證管理</b> 獨立管轄，職責切分壁壘分明。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>架構規劃：OM1GW_R1.0 2.3–2.4 節 ｜ Notion 知識庫整改行動建議</div>
+      <div class="pageno">2.3</div>
+    </div>
+  </section>
+
+</div>
+\n
+<!-- ================= PART 3: 1GW 目標與成長路徑 ================= -->
+<div class="view" id="view-p3">
+
+  <!-- P3.1 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 3 · 1GW 計畫 3.1</div>
+        <h1>1GW 戰略定位與情境邊界：2030 國家目標占 3.2%</h1>
+        <p class="sub">依據經濟部提交立法院正式報告，2030 年全台光電目標為 31.2 GW（非 25 GW）。進能服 1GW 在管目標約占全台市場 3.2%，以光伏為主（≥90%），南向集中並嚴守接單門檻。</p>
+      </div>
+      <div class="flags">
+        <span class="flag blue">國家目標 31.2GW</span>
+        <span class="flag teal">全台市占 3.2%</span>
+        <span class="flag coral">南50/中30/北20</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-right">
+        <!-- Table on Left -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:28%;">邊界構面</th>
+                <th style="width:38%;">設定參數與標準</th>
+                <th style="width:34%;">戰略意涵與決策理由</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hl-row">
+                <td><b>達標時限</b></td>
+                <td><b>2030 年底</b></td>
+                <td>在管容量跨越 1,000 MW (1GW)</td>
+              </tr>
+              <tr>
+                <td><b>法人型態</b></td>
+                <td>FY2027 維持 BU &rarr; <b>FY2028 獨立分拆公司</b></td>
+                <td>獨立損益、股權架構與長效激勵</td>
+              </tr>
+              <tr>
+                <td><b>業務範疇</b></td>
+                <td><b>光伏占比 &ge; 90%</b> ｜ 儲能試點 50~100MWh</td>
+                <td>VPP 僅做到「系統就緒」，不承擔聚合風險</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>區域配比</b></td>
+                <td><b>南區 50% (500MW)</b> ｜ 中區 30% ｜ 北區 20%</td>
+                <td>極大化日照時數與案場密度，北部僅維持既有</td>
+              </tr>
+              <tr class="bad-row">
+                <td><b>接單門檻</b></td>
+                <td><b>DY &ge; 3.5</b> ｜ 費率 &ge; 6% ｜ <b>平均單案 &ge; 0.8 MW</b></td>
+                <td>單案人工攤提 &ge; 12 萬，嚴防小屋頂吞噬產能</td>
+              </tr>
+              <tr>
+                <td><b>市場份額</b></td>
+                <td>全台 31.2 GW 中占 <b>3.2%</b></td>
+                <td>更正會議「(25-5)/2*10%」之非官方算法</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SVG Diagram on Right: Market Penetration -->
+        <div class="fig">
+          <div class="figtitle">全台太陽光電累計裝機容量推移與進能服 1GW 份額</div>
+          <svg viewBox="0 0 520 280" role="img" aria-label="全台光電容量推移圖">
+            <g transform="translate(30, 20)">
+              <!-- National Target Area -->
+              <path d="M50 180 L220 140 L440 40 L440 200 L50 200 Z" fill="rgba(25,104,173,0.12)"/>
+              <line x1="50" y1="180" x2="220" y2="140" stroke="#1968AD" stroke-width="2.5"/>
+              <line x1="220" y1="140" x2="440" y2="40" stroke="#1968AD" stroke-width="2.5" stroke-dasharray="6,4"/>
+
+              <!-- Data Points: National -->
+              <circle cx="50" cy="180" r="5" fill="#1968AD"/>
+              <text x="50" y="170" font-size="11" font-weight="700" fill="#1968AD" text-anchor="middle">2023 (12.4GW)</text>
+
+              <circle cx="220" cy="140" r="6" fill="#1968AD"/>
+              <text x="220" y="125" font-size="12" font-weight="800" fill="#1968AD" text-anchor="middle">2026/02 現況 (15.68GW)</text>
+
+              <circle cx="440" cy="40" r="7" fill="#0C3A63"/>
+              <text x="440" y="25" font-size="13" font-weight="900" fill="#0C3A63" text-anchor="middle">2030 目標 31.2 GW</text>
+
+              <!-- Progress bar for 1GW -->
+              <rect x="50" y="220" width="390" height="24" rx="4" fill="#EDF1F5"/>
+              <rect x="50" y="220" width="13" height="24" rx="4" fill="#1BB1BF"/>
+              <rect x="50" y="220" width="40" height="24" rx="4" fill="#E09A2B" opacity=".85"/>
+              <text x="445" y="236" font-size="11" fill="#5B7285">100% (31.2 GW)</text>
+              <text x="96" y="236" font-size="11" font-weight="800" fill="#9a6a10">進能服 1.0 GW (3.2%)</text>
+
+              <!-- Baseline markers -->
+              <line x1="50" y1="200" x2="450" y2="200" stroke="#D9E3EC" stroke-width="1.5"/>
+              <text x="50" y="262" font-size="11" fill="#5B7285">資料依據：立法院經委會 2026/04 審查報告 (立法院 uploadn/115/1150416/313.pdf)</text>
+            </g>
+          </svg>
+          <div class="cap">圖 3.1：台灣太陽光電政策目標軌跡與進能服 1GW 市場滲透水位</div>
+        </div>
+      </div>
+
+      <div class="three-col" style="margin-top:4px;">
+        <div class="card">
+          <h3>☀️ 為什麼堅決聚焦南部？</h3>
+          <p>中南部日照時數（年均 1,300~1,450 小時）高出北部（約 950 小時）35% 以上，相同人員產能與合約容量下，發電效益與 AM 分潤空間大出數倍。</p>
+        </div>
+        <div class="card coral">
+          <h3>⛔ 守死 0.8 MW 接單紅線</h3>
+          <p>業務開發若為衝容量而引進大量 100~200kW 屋頂，會迅速吃垮 Master+Slave 維運組數。寧可放慢簽約速度，也絕不向下妥協案場規模。</p>
+        </div>
+        <div class="card teal">
+          <h3>📈 3.2% 市占的戰略分量</h3>
+          <p>在全台破 31GW 的巨量市場中，掌握 1GW 高品質地面與大型工廠屋頂，即足以奠定全台前三大第三方獨立運維旗艦地位。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>資料來源：OM1GW_R1.0 3.1 節 ｜ 經濟部立法院審定報告比對</div>
+      <div class="pageno">3.1</div>
+    </div>
+  </section>
+
+  <!-- P3.2 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 3 · 1GW 計畫 3.2</div>
+        <h1>年度成長路徑模型：從 318MW 到 1,000MW 的月度爬坡</h1>
+        <p class="sub">基於月度滾動模型，設定簽約後 2 個月開始計費、年流失率 1%。FY2027~2030 每年需新簽 211~262 MW，業務端需維持 700~875 MW 規模之機會池（成交率 30%）。</p>
+      </div>
+      <div class="flags">
+        <span class="flag blue">四年月度爬坡</span>
+        <span class="flag teal">年新簽 262MW</span>
+        <span class="flag amber">機會池 875MW</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-left">
+        <!-- SVG Chart: Capacity Ramp and Funnel -->
+        <div class="fig">
+          <div class="figtitle">2027~2030 在管容量爬坡與每年新簽容量推進</div>
+          <svg viewBox="0 0 520 290" role="img" aria-label="1GW 容量推移圖">
+            <g transform="translate(45, 20)">
+              <!-- Grid lines -->
+              <line x1="40" y1="20" x2="440" y2="20" stroke="#F0F4F8" stroke-width="1"/>
+              <line x1="40" y1="80" x2="440" y2="80" stroke="#F0F4F8" stroke-width="1"/>
+              <line x1="40" y1="140" x2="440" y2="140" stroke="#F0F4F8" stroke-width="1"/>
+              <line x1="40" y1="200" x2="440" y2="200" stroke="#D9E3EC" stroke-width="1.5"/>
+
+              <!-- Bars: FY2027 -->
+              <rect x="65" y="136" width="55" height="64" rx="4" fill="#1968AD"/>
+              <text x="92" y="130" font-size="12" font-weight="800" fill="#1968AD" text-anchor="middle">318 MW</text>
+              <text x="92" y="218" font-size="12" font-weight="700" fill="#12293D" text-anchor="middle">FY2027(B)</text>
+
+              <!-- Bars: FY2028 -->
+              <rect x="165" y="96" width="55" height="104" rx="4" fill="#1BB1BF"/>
+              <text x="192" y="90" font-size="12" font-weight="800" fill="#12818C" text-anchor="middle">520 MW</text>
+              <text x="192" y="218" font-size="12" font-weight="700" fill="#12293D" text-anchor="middle">FY2028</text>
+
+              <!-- Bars: FY2029 -->
+              <rect x="265" y="50" width="55" height="150" rx="4" fill="#E09A2B"/>
+              <text x="292" y="44" font-size="12" font-weight="800" fill="#9a6a10" text-anchor="middle">750 MW</text>
+              <text x="292" y="218" font-size="12" font-weight="700" fill="#12293D" text-anchor="middle">FY2029</text>
+
+              <!-- Bars: FY2030 -->
+              <rect x="365" y="0" width="55" height="200" rx="4" fill="#0C3A63"/>
+              <text x="392" y="-6" font-size="14" font-weight="900" fill="#0C3A63" text-anchor="middle">1,000 MW</text>
+              <text x="392" y="218" font-size="12" font-weight="800" fill="#0C3A63" text-anchor="middle">FY2030</text>
+
+              <!-- Annual Addition markers -->
+              <g fill="#5B7285" font-size="10">
+                <text x="192" y="150" fill="#fff" font-weight="800" text-anchor="middle">+211MW</text>
+                <text x="292" y="120" fill="#fff" font-weight="800" text-anchor="middle">+242MW</text>
+                <text x="392" y="90" fill="#fff" font-weight="800" text-anchor="middle">+262MW</text>
+              </g>
+
+              <!-- Legend -->
+              <g transform="translate(110, 242)">
+                <rect x="0" y="0" width="14" height="10" fill="#1968AD"/>
+                <text x="20" y="9" font-size="11" fill="#5B7285">在管容量推移（月度計費平滑）</text>
+              </g>
+            </g>
+          </svg>
+          <div class="cap">圖 3.2：2027~2030 在管容量推進階梯圖（每年新簽 211~262 MW）</div>
+        </div>
+
+        <!-- Table on Right -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>核心指標項目</th>
+                <th class="num">FY2027(B)</th>
+                <th class="num">FY2028</th>
+                <th class="num">FY2029</th>
+                <th class="num">FY2030</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>期初在管容量</td>
+                <td class="num">約 170 MW</td>
+                <td class="num">318 MW</td>
+                <td class="num">520 MW</td>
+                <td class="num">750 MW</td>
+              </tr>
+              <tr class="hl-row">
+                <td><b>當年新簽合約容量</b></td>
+                <td class="num"><b>185 MW</b></td>
+                <td class="num"><b>211 MW</b></td>
+                <td class="num"><b>242 MW</b></td>
+                <td class="num"><b>262 MW</b></td>
+              </tr>
+              <tr class="good-row">
+                <td><b>期末在管容量</b></td>
+                <td class="num"><b>318 MW</b></td>
+                <td class="num"><b>520 MW</b></td>
+                <td class="num"><b>750 MW</b></td>
+                <td class="num"><b style="color:var(--blue);font-size:1.05rem">1,000 MW</b></td>
+              </tr>
+              <tr>
+                <td>全年平均計費容量</td>
+                <td class="num">231 MW</td>
+                <td class="num">426 MW</td>
+                <td class="num">643 MW</td>
+                <td class="num">884 MW</td>
+              </tr>
+              <tr>
+                <td>加權年費（萬/MW）</td>
+                <td class="num">31.8 萬</td>
+                <td class="num">31.5 萬</td>
+                <td class="num">31.0 萬</td>
+                <td class="num">30.0 萬</td>
+              </tr>
+              <tr>
+                <td>新簽服務 ACV（萬元）</td>
+                <td class="num">5,891</td>
+                <td class="num">6,631</td>
+                <td class="num">7,490</td>
+                <td class="num">7,869</td>
+              </tr>
+              <tr class="hl-row" style="background:#FFF9E6;">
+                <td><b>所需機會池（成交率 30%）</b></td>
+                <td class="num">617 MW</td>
+                <td class="num"><b>702 MW</b></td>
+                <td class="num"><b>805 MW</b></td>
+                <td class="num"><b style="color:var(--coral)">874 MW</b></td>
+              </tr>
+              <tr>
+                <td>所需機會池（成交率 44.5%）</td>
+                <td class="num">—</td>
+                <td class="num">473 MW</td>
+                <td class="num">543 MW</td>
+                <td class="num">589 MW</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:6px;">
+        <div class="card teal">
+          <h3>⚡ 若 FY2027 達成 A 案（448 MW）</h3>
+          <p>若 FY2027 衝上 A 案目標，則 FY2028~2030 每年僅需淨增約 184 MW，年新簽壓力驟降 20%，能大幅減輕業務開發負擔並提升客戶議價空間。</p>
+        </div>
+        <div class="card amber">
+          <h3>📉 單價逐年下修（31.8 &rarr; 30.0 萬）之意涵</h3>
+          <p>大案規模化後客戶議價壓力提高，每 MW 單價趨於競爭；但透過提升 AM 分潤案場比重（35~60 萬），可有效穩定整體平均費率。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>模型依據：OM1GW_R1.0 3.2 節 ｜ 月度滾動爬坡模擬模型</div>
+      <div class="pageno">3.2</div>
+    </div>
+  </section>
+
+  <!-- P3.3 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 3 · 1GW 計畫 3.3</div>
+        <h1>案源拓展四大管道結構：自建、外拓、整新與併購</h1>
+        <p class="sub">FY2028~2030 累計需新簽約 714 MW，單靠自建 EPC 遠遠不足。規劃「母公司自建 EPC (30%)、外部第三方承接 (40%)、資產管理整新 (20%)、併購合約包 (10%)」四大案源支柱。</p>
+      </div>
+      <div class="flags">
+        <span class="flag blue">累計新簽 714MW</span>
+        <span class="flag amber">資產管理整新 20%</span>
+        <span class="flag coral">2033 重置潮提前卡位</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <!-- Top SVG Diagram: 4 Channels Donut & Flow -->
+      <div class="fig" style="padding:10px 14px;">
+        <div class="figtitle">四大案源管道容量配置比重與關鍵推進機制</div>
+        <svg viewBox="0 0 1080 130" role="img" aria-label="四大案源管道比重">
+          <g transform="translate(20, 15)">
+            <!-- Channel A -->
+            <rect x="0" y="0" width="245" height="90" rx="6" fill="#E8F1F9" stroke="#1968AD" stroke-width="2"/>
+            <text x="20" y="28" font-size="14" font-weight="900" fill="#1968AD">A. 自建 EPC 移轉 (30%)</text>
+            <text x="20" y="52" font-size="12" font-weight="700" fill="#12293D">容量貢獻：215 MW</text>
+            <text x="20" y="72" font-size="11" fill="#5B7285">母公司完工即簽約 ｜ 合約權責拆分清晰</text>
+
+            <!-- Channel B -->
+            <rect x="265" y="0" width="245" height="90" rx="6" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="2"/>
+            <text x="285" y="28" font-size="14" font-weight="900" fill="#12818C">B. 外部第三方承接 (40%)</text>
+            <text x="285" y="52" font-size="12" font-weight="700" fill="#12293D">容量貢獻：285 MW (最大支柱)</text>
+            <text x="285" y="72" font-size="11" fill="#5B7285">台南/高屏/彰化高 DY 大案 ｜ 拒接北部低價案</text>
+
+            <!-- Channel C -->
+            <rect x="530" y="0" width="245" height="90" rx="6" fill="#FCF2DE" stroke="#E09A2B" stroke-width="2"/>
+            <text x="550" y="28" font-size="14" font-weight="900" fill="#9a6a10">C. 資產管理整新 (20%)</text>
+            <text x="550" y="52" font-size="12" font-weight="700" fill="#12293D">容量貢獻：145 MW</text>
+            <text x="550" y="72" font-size="11" fill="#5B7285">攜手國泰等基金收購老舊電廠 ｜ 整新綁長約</text>
+
+            <!-- Channel D -->
+            <rect x="795" y="0" width="245" height="90" rx="6" fill="#F3E8FF" stroke="#6B46C1" stroke-width="2"/>
+            <text x="815" y="28" font-size="14" font-weight="900" fill="#6B46C1">D. 併購維運合約包 (10%)</text>
+            <text x="815" y="52" font-size="12" font-weight="700" fill="#12293D">容量貢獻：70 MW</text>
+            <text x="815" y="72" font-size="11" fill="#5B7285">收購南部中小同業資產 ｜ 擴大區域客戶密度</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Table on Bottom -->
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:20%;">管道名稱</th>
+              <th class="ctr" style="width:10%;">目標占比</th>
+              <th class="num" style="width:12%;">貢獻 MW</th>
+              <th style="width:34%;">關鍵戰略動作</th>
+              <th style="width:24%;">代價與潛在風險</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>A. 自建 EPC 移轉</b></td>
+              <td class="ctr"><span class="chip blue">30%</span></td>
+              <td class="num"><b>215 MW</b></td>
+              <td>母公司 EPC 完工即轉入；合約一律採工程與維運拆分。</td>
+              <td>受母公司每年工程建置量天花板限制。</td>
+            </tr>
+            <tr class="hl-row">
+              <td><b>B. 外部第三方承接</b></td>
+              <td class="ctr"><span class="chip teal">40%</span></td>
+              <td class="num"><b>285 MW</b></td>
+              <td>鎖定台南、高雄、屏東、彰化高 DY 大案；堅決拒接北部低價低效案。</td>
+              <td>市場價格競爭激烈，成交率受市場景氣波動。</td>
+            </tr>
+            <tr class="good-row">
+              <td><b>C. 資產管理 / 二級市場</b></td>
+              <td class="ctr"><span class="chip amber">20%</span></td>
+              <td class="num"><b>145 MW</b></td>
+              <td>與國泰電業等大型資產方合作收購老舊案場 &rarr; 整新整改 &rarr; 鎖定 10 年以上長約。</td>
+              <td>需具備高階案場診斷 SOP 與資金方，技術風險自行承擔。</td>
+            </tr>
+            <tr>
+              <td><b>D. 併購維運合約/團隊</b></td>
+              <td class="ctr"><span class="chip purple">10%</span></td>
+              <td class="num"><b>70 MW</b></td>
+              <td>收購南部面臨傳承或虧損的中小維運商合約包與團隊。</td>
+              <td>組織整合成交成本高；需具備嚴格盡職調查能力。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note" style="margin-top:6px;">
+        <b>🎯 2033~2034 台灣第一代光電大重置潮前哨戰</b>：2014~2015 年建置的 FIT 電廠將在 2034 年迎來 20 年到期大重置。現在提前深耕「管道 C（案場整改與資產收購）」，是 1GW 公司在 2030 年後壟斷二級市場重置商機的先決籌碼！
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>資料來源：OM1GW_R1.0 3.3 節 ｜ 9/15 BP 決策會議紀錄比對</div>
+      <div class="pageno">3.3</div>
+    </div>
+  </section>
+
+  <!-- P3.4 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 3 · 1GW 計畫 3.4</div>
+        <h1>服務產品組合與階梯定價：從基礎巡檢到 AM 分潤代操</h1>
+        <p class="sub">構建由低至高的服務階梯：M（基礎 150元/kW）、OM-1（主力 售電6%）、OM-2（加強 8%）、AM（資產管理 350/600元+DY分潤），搭配整改專案工程（毛利25%）與清洗機器人租賃。</p>
+      </div>
+      <div class="flags">
+        <span class="flag green">OM-1 占比 45%</span>
+        <span class="flag purple">AM 分潤定價 20%</span>
+        <span class="flag amber">整改工程毛利 25%</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-left">
+        <!-- SVG Visual: Value Ladder -->
+        <div class="fig">
+          <div class="figtitle">進能服維運服務階梯 (Value Ladder) 與毛利結構</div>
+          <svg viewBox="0 0 500 290" role="img" aria-label="產品價值階梯圖">
+            <g transform="translate(30, 20)">
+              <!-- Step 1: M -->
+              <rect x="20" y="190" width="90" height="70" rx="4" fill="#9FB1C0"/>
+              <text x="65" y="220" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">M 基礎</text>
+              <text x="65" y="240" font-size="10" fill="#fff" text-anchor="middle">150元/kW</text>
+              <text x="65" y="254" font-size="9" fill="#12293D" text-anchor="middle">占比 15%</text>
+
+              <!-- Step 2: OM-1 -->
+              <rect x="120" y="140" width="95" height="120" rx="4" fill="#1968AD"/>
+              <text x="167" y="170" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">OM-1 主力</text>
+              <text x="167" y="190" font-size="10" fill="#fff" text-anchor="middle">售電 6%</text>
+              <text x="167" y="206" font-size="10" fill="#8FD9E4" text-anchor="middle"><b>占比 45%</b></text>
+              <text x="167" y="222" font-size="9" fill="#E8F1F9" text-anchor="middle">PR作KPI保證</text>
+
+              <!-- Step 3: OM-2 -->
+              <rect x="225" y="90" width="95" height="170" rx="4" fill="#1BB1BF"/>
+              <text x="272" y="120" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">OM-2 加強</text>
+              <text x="272" y="140" font-size="10" fill="#fff" text-anchor="middle">售電 8%</text>
+              <text x="272" y="156" font-size="10" fill="#fff" text-anchor="middle">占比 20%</text>
+              <text x="272" y="172" font-size="9" fill="#12293D" text-anchor="middle">自建/高風險案</text>
+
+              <!-- Step 4: AM -->
+              <rect x="330" y="30" width="105" height="230" rx="4" fill="#E09A2B"/>
+              <text x="382" y="60" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">AM 資產管理</text>
+              <text x="382" y="80" font-size="10" fill="#fff" text-anchor="middle">350/600元/kW</text>
+              <text x="382" y="96" font-size="10" fill="#fff" text-anchor="middle"><b>DY &plusmn;3% 分潤</b></text>
+              <text x="382" y="112" font-size="10" fill="#0C3A63" text-anchor="middle"><b>占比 20%</b></text>
+
+              <!-- Up arrow for Margin -->
+              <line x1="15" y1="260" x2="450" y2="20" stroke="#D95F45" stroke-width="2" stroke-dasharray="4,4"/>
+              <text x="320" y="20" font-size="11" font-weight="800" fill="#D95F45">毛利率攀升 &uarr; 30% &rarr; 40%+</text>
+            </g>
+          </svg>
+          <div class="cap">圖 3.4：服務階梯產品線、定價模型與毛利率攀升動能</div>
+        </div>
+
+        <!-- Table on Right -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>服務產品</th>
+                <th>官方定價【文件】</th>
+                <th class="ctr">2030 目標占比</th>
+                <th>核心交付能力與權責</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>M (基礎)</b></td>
+                <td>150 元 ／ kW ／ 年</td>
+                <td class="ctr">15%</td>
+                <td>定期巡檢、基礎除草與表面清洗。</td>
+              </tr>
+              <tr class="hl-row">
+                <td><b>OM-1 (主力)</b></td>
+                <td><b>售電收入 6%</b></td>
+                <td class="ctr"><b>45%</b></td>
+                <td>遠端監控、分級派工、PR 列入對外保障 KPI。</td>
+              </tr>
+              <tr>
+                <td><b>OM-2 (加強)</b></td>
+                <td><b>售電收入 8%</b></td>
+                <td class="ctr">20%</td>
+                <td>自建高規格案場、含全套設備預防保養。</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>AM (資產管理)</b></td>
+                <td><b>350 / 600 元/kW + DY&plusmn;3%分潤</b></td>
+                <td class="ctr"><b>20%</b></td>
+                <td>資產體檢報告、發電量超額分潤、金融對接。</td>
+              </tr>
+              <tr>
+                <td><b>整新整改工程</b></td>
+                <td>專案獨立報價（<b>毛利率 25%</b>）</td>
+                <td class="ctr">占營收 30%</td>
+                <td>變流器汰換、模組重置、支架強化工程。</td>
+              </tr>
+              <tr>
+                <td><b>清洗機器人租賃</b></td>
+                <td>5年回收 BOM÷0.8 (單台50萬以下)</td>
+                <td class="ctr">獨立損益</td>
+                <td>適用 1MW 以上規整案場，壓低現場清洗人均負荷。</td>
+              </tr>
+              <tr>
+                <td><b>儲能維運 (試點)</b></td>
+                <td>待查（報價模型建置中）</td>
+                <td class="ctr">試點 50~100MWh</td>
+                <td>EMS 對接、電池健康狀態 (SOH) 監控。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:6px;">
+        <div class="card teal">
+          <h3>💎 AM 資產管理分潤：利潤增長之極致</h3>
+          <p>透過「基準費率 350/600 元 + 發電量提升 DY ±3% 超額分潤」，將維運團隊從傳統「成本中心」轉化為業主的「創利合夥人」，實現利益完全綁定。</p>
+        </div>
+        <div class="card amber">
+          <h3>🔧 整新工程：貢獻 30% 總營收（1.14 億）</h3>
+          <p>維運不是單純擦面板，透過發掘設備老化隱患，每年為運維公司創造 1.14 億元之整改 EPC 收入，毛利率達 25%，為獲利第二曲線。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>資料來源：OM1GW_R1.0 3.4 節 ｜ 進能服 OMPLAN R6.1 定價模型</div>
+      <div class="pageno">3.4</div>
+    </div>
+  </section>
+
+</div>
+\n
+<!-- ================= PART 4: 組織、人力與資源 ================= -->
+<div class="view" id="view-p4">
+
+  <!-- P4.1 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 4 · 組織與資源 4.1</div>
+        <h1>FY2030 獨立運維公司架構：五大本部與雙人執勤編組</h1>
+        <p class="sub">分拆後公司設立總經理，下設「營運本部 (OU)、業務本部 (BU)、技術平台部、資產管理部 (AM)、管理部」五大部門。現場嚴格推行 Master＋Slave 雙人執勤組，NOC 集中派工。</p>
+      </div>
+      <div class="flags">
+        <span class="flag blue">五大本部架構</span>
+        <span class="flag teal">Master+Slave 兩人一組</span>
+        <span class="flag amber">AM 與工程 PM 協同</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <!-- Full SVG Tree Diagram -->
+      <div class="fig" style="padding:14px 18px;">
+        <div class="figtitle">FY2030 進能服獨立維運公司完整組織架構圖</div>
+        <svg viewBox="0 0 1100 230" role="img" aria-label="FY2030 運維公司組織圖">
+          <g>
+            <!-- CEO Box -->
+            <rect x="470" y="5" width="160" height="42" rx="6" fill="#0C3A63" stroke="#1968AD" stroke-width="2"/>
+            <text x="550" y="32" font-size="15" font-weight="900" fill="#fff" text-anchor="middle">總經理 (GM)</text>
+
+            <!-- Trunk Line -->
+            <line x1="550" y1="47" x2="550" y2="75" stroke="#1968AD" stroke-width="2"/>
+            <line x1="110" y1="75" x2="990" y2="75" stroke="#1968AD" stroke-width="2"/>
+
+            <!-- 5 Departments Lines -->
+            <line x1="110" y1="75" x2="110" y2="95" stroke="#1968AD" stroke-width="2"/>
+            <line x1="330" y1="75" x2="330" y2="95" stroke="#1968AD" stroke-width="2"/>
+            <line x1="550" y1="75" x2="550" y2="95" stroke="#1968AD" stroke-width="2"/>
+            <line x1="770" y1="75" x2="770" y2="95" stroke="#1968AD" stroke-width="2"/>
+            <line x1="990" y1="75" x2="990" y2="95" stroke="#1968AD" stroke-width="2"/>
+
+            <!-- Dept 1: 營運本部 OU -->
+            <rect x="20" y="95" width="180" height="125" rx="6" fill="#E8F1F9" stroke="#1968AD" stroke-width="1.8"/>
+            <text x="110" y="120" font-size="14" font-weight="900" fill="#1968AD" text-anchor="middle">營運本部 (OU)</text>
+            <text x="30" y="142" font-size="11" fill="#12293D">· 南區 (台南×2/高/屏嘉)</text>
+            <text x="30" y="160" font-size="11" fill="#12293D">· 中區 (彰化)</text>
+            <text x="30" y="178" font-size="11" fill="#12293D">· 北區 (桃園維運組)</text>
+            <text x="30" y="196" font-size="11" fill="#D95F45">· 高壓/檢測/儲能專班</text>
+            <text x="30" y="212" font-size="10" fill="#5B7285">現場工程師 34 人 (17組)</text>
+
+            <!-- Dept 2: 業務本部 BU -->
+            <rect x="240" y="95" width="180" height="125" rx="6" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="1.8"/>
+            <text x="330" y="120" font-size="14" font-weight="900" fill="#12818C" text-anchor="middle">業務本部 (BU)</text>
+            <text x="250" y="145" font-size="11" fill="#12293D">· 業務開發 (BD 3人)</text>
+            <text x="250" y="167" font-size="11" fill="#12293D">· 客戶服務 (AI客服)</text>
+            <text x="250" y="189" font-size="11" fill="#12293D">· 合約履約與商務管理</text>
+            <text x="250" y="210" font-size="10" fill="#5B7285">團隊 5 人 ｜ 負責 875MW 機會池</text>
+
+            <!-- Dept 3: 技術平台部 -->
+            <rect x="460" y="95" width="180" height="125" rx="6" fill="#FCF2DE" stroke="#E09A2B" stroke-width="1.8"/>
+            <text x="550" y="120" font-size="14" font-weight="900" fill="#9a6a10" text-anchor="middle">技術平台部</text>
+            <text x="470" y="145" font-size="11" fill="#12293D">· <b>NOC 戰情中心 (6人)</b></text>
+            <text x="470" y="167" font-size="11" fill="#12293D">· IT / 數據 / AI 研發 (3人)</text>
+            <text x="470" y="189" font-size="11" fill="#12293D">· 儲能 / VPP 就緒小組</text>
+            <text x="470" y="210" font-size="10" fill="#5B7285">團隊 9 人 ｜ 集中派工與監控</text>
+
+            <!-- Dept 4: 資產管理部 AM -->
+            <rect x="680" y="95" width="180" height="125" rx="6" fill="#FBEAE5" stroke="#D95F45" stroke-width="1.8"/>
+            <text x="770" y="120" font-size="14" font-weight="900" fill="#b4432c" text-anchor="middle">資產管理部 (AM)</text>
+            <text x="690" y="145" font-size="11" fill="#12293D">· 案場評估與盡職調查</text>
+            <text x="690" y="167" font-size="11" fill="#12293D">· <b>整新整改工程 PM (5人)</b></text>
+            <text x="690" y="189" font-size="11" fill="#12293D">· 資產財務報告與分潤核算</text>
+            <text x="690" y="210" font-size="10" fill="#5B7285">團隊 8 人 ｜ 創造 1.14 億工程營收</text>
+
+            <!-- Dept 5: 管理部 -->
+            <rect x="900" y="95" width="180" height="125" rx="6" fill="#F3E8FF" stroke="#6B46C1" stroke-width="1.8"/>
+            <text x="990" y="120" font-size="14" font-weight="900" fill="#6B46C1" text-anchor="middle">綜合管理部</text>
+            <text x="910" y="142" font-size="11" fill="#12293D">· 財務與會計 (3人)</text>
+            <text x="910" y="160" font-size="11" fill="#12293D">· 人力資源與培訓 (2人)</text>
+            <text x="910" y="178" font-size="11" fill="#12293D">· 供應鏈與倉儲備品 (3人)</text>
+            <text x="910" y="196" font-size="11" fill="#12293D">· 品質與安衛 HSE (2人)</text>
+            <text x="910" y="212" font-size="10" fill="#5B7285">團隊 10 人 ｜ 後勤安全保障</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="three-col" style="margin-top:6px;">
+        <div class="card">
+          <h3>👥 Master＋Slave 雙人體系</h3>
+          <p>現場 17 組（34 人）嚴格推行「資深主工 (Master) ＋ 培訓副工 (Slave)」，確保高壓作業安全、傳承技術並降低整體人力成本。</p>
+        </div>
+        <div class="card teal">
+          <h3>📡 NOC 全島集中大腦</h3>
+          <p>NOC 戰情中心 6 人配置於高雄總部，統一承擔 1,000 MW 之 24 小時監控與初判，避免各區各自為政，現場僅專注高效執行。</p>
+        </div>
+        <div class="card amber">
+          <h3>🤝 AM 與整改 PM 同部同心</h3>
+          <p>將案場評估、整新工程 PM 與資產分潤放在同一部門，形成「診斷&rarr;整新工程&rarr;長約運維」利潤與交付責任完全對齊。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>規劃依據：OM1GW_R1.0 4.1 節 ｜ FY2030 分拆獨立運維公司編制</div>
+      <div class="pageno">4.1</div>
+    </div>
+  </section>
+
+  <!-- P4.2 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 4 · 組織與資源 4.2</div>
+        <h1>四年人力擴編與產能突破：突破 30 MW 人均承載的關鍵條件</h1>
+        <p class="sub">總編制從 FY2027 的 20 人擴充至 FY2030 的 77 人。現場工程師 34 人每人承載 30 MW（37 場），工作負荷達 92%。要維持 22% 安全餘裕，必須落實「清洗外包 25%」或「機器人替代」。</p>
+      </div>
+      <div class="flags">
+        <span class="flag coral">30MW 人均極限</span>
+        <span class="flag green">清洗外包 &ge; 25%</span>
+        <span class="flag blue">全公司 77 人編制</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-left">
+        <!-- SVG Chart: Headcount Progression -->
+        <div class="fig">
+          <div class="figtitle">2027~2030 人力編制成長結構（現場 vs 間接後勤）</div>
+          <svg viewBox="0 0 500 290" role="img" aria-label="人力成長堆疊圖">
+            <g transform="translate(45, 20)">
+              <!-- Grid lines -->
+              <line x1="40" y1="20" x2="420" y2="20" stroke="#F0F4F8" stroke-width="1"/>
+              <line x1="40" y1="80" x2="420" y2="80" stroke="#F0F4F8" stroke-width="1"/>
+              <line x1="40" y1="140" x2="420" y2="140" stroke="#F0F4F8" stroke-width="1"/>
+              <line x1="40" y1="200" x2="420" y2="200" stroke="#D9E3EC" stroke-width="1.5"/>
+
+              <!-- Bar FY2027 -->
+              <rect x="60" y="160" width="55" height="40" rx="3" fill="#1968AD"/>
+              <rect x="60" y="148" width="55" height="12" rx="3" fill="#9FB1C0"/>
+              <text x="87" y="140" font-size="12" font-weight="800" fill="#1968AD" text-anchor="middle">20 人</text>
+              <text x="87" y="218" font-size="12" font-weight="700" fill="#12293D" text-anchor="middle">FY2027</text>
+
+              <!-- Bar FY2028 -->
+              <rect x="150" y="130" width="55" height="70" rx="3" fill="#1968AD"/>
+              <rect x="150" y="80" width="55" height="50" rx="3" fill="#9FB1C0"/>
+              <text x="177" y="72" font-size="12" font-weight="800" fill="#12818C" text-anchor="middle">45 人</text>
+              <text x="177" y="218" font-size="12" font-weight="700" fill="#12293D" text-anchor="middle">FY2028(分拆)</text>
+
+              <!-- Bar FY2029 -->
+              <rect x="240" y="110" width="55" height="90" rx="3" fill="#1968AD"/>
+              <rect x="240" y="45" width="55" height="65" rx="3" fill="#9FB1C0"/>
+              <text x="267" y="37" font-size="12" font-weight="800" fill="#9a6a10" text-anchor="middle">63 人</text>
+              <text x="267" y="218" font-size="12" font-weight="700" fill="#12293D" text-anchor="middle">FY2029</text>
+
+              <!-- Bar FY2030 -->
+              <rect x="330" y="90" width="55" height="110" rx="3" fill="#1968AD"/>
+              <rect x="330" y="10" width="55" height="80" rx="3" fill="#9FB1C0"/>
+              <text x="357" y="3" font-size="13" font-weight="900" fill="#0C3A63" text-anchor="middle">77 人</text>
+              <text x="357" y="218" font-size="12" font-weight="800" fill="#0C3A63" text-anchor="middle">FY2030</text>
+
+              <!-- Inner numbers -->
+              <text x="357" y="150" fill="#fff" font-size="11" font-weight="800" text-anchor="middle">現場 34人</text>
+              <text x="357" y="55" fill="#fff" font-size="11" font-weight="800" text-anchor="middle">間接 43人</text>
+
+              <!-- Legend -->
+              <g transform="translate(100, 245)">
+                <rect x="0" y="0" width="12" height="10" fill="#1968AD"/>
+                <text x="18" y="9" font-size="11" fill="#5B7285">營業成本：現場組 (34人)</text>
+                <rect x="180" y="0" width="12" height="10" fill="#9FB1C0"/>
+                <text x="198" y="9" font-size="11" fill="#5B7285">營業費用：管理/NOC/AM/IT (43人)</text>
+              </g>
+            </g>
+          </svg>
+          <div class="cap">圖 4.2：四年人力爬坡推移（現場 34 人 ＋ 間接後勤 43 人）</div>
+        </div>
+
+        <!-- Table on Right -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>職能類別</th>
+                <th class="num">FY2027</th>
+                <th class="num">FY2028</th>
+                <th class="num">FY2029</th>
+                <th class="num">FY2030</th>
+                <th>費用歸屬</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hl-row">
+                <td><b>現場工程師 (兩人一組)</b></td>
+                <td class="num">14</td>
+                <td class="num">22</td>
+                <td class="num">28</td>
+                <td class="num"><b>34</b></td>
+                <td>營業成本</td>
+              </tr>
+              <tr>
+                <td>區域主管 / 專班 (高壓/檢測/儲能)</td>
+                <td class="num">1</td>
+                <td class="num">5</td>
+                <td class="num">8</td>
+                <td class="num"><b>10</b></td>
+                <td>營業成本</td>
+              </tr>
+              <tr>
+                <td>NOC 戰情中心專員</td>
+                <td class="num">1</td>
+                <td class="num">3</td>
+                <td class="num">5</td>
+                <td class="num"><b>6</b></td>
+                <td>營業費用</td>
+              </tr>
+              <tr>
+                <td>整改工程 PM / 設計</td>
+                <td class="num">1</td>
+                <td class="num">2</td>
+                <td class="num">4</td>
+                <td class="num"><b>5</b></td>
+                <td>營業費用</td>
+              </tr>
+              <tr>
+                <td>AM 資產管理 / 評估</td>
+                <td class="num">0</td>
+                <td class="num">1</td>
+                <td class="num">2</td>
+                <td class="num"><b>3</b></td>
+                <td>營業費用</td>
+              </tr>
+              <tr>
+                <td>BD 業務 / 客服 / IT / 採購 / HSE</td>
+                <td class="num">3</td>
+                <td class="num">8</td>
+                <td class="num">11</td>
+                <td class="num"><b>13</b></td>
+                <td>營業費用</td>
+              </tr>
+              <tr>
+                <td>總經理 / 財務 / 人資 / 行政</td>
+                <td class="num">0 (母公司)</td>
+                <td class="num">4</td>
+                <td class="num">5</td>
+                <td class="num"><b>6</b></td>
+                <td>營業費用</td>
+              </tr>
+              <tr style="background:var(--blue-soft); font-weight:800;">
+                <td><b>全公司總人數</b></td>
+                <td class="num"><b>20</b></td>
+                <td class="num"><b>45</b></td>
+                <td class="num"><b>63</b></td>
+                <td class="num"><b style="color:var(--blue);font-size:1.1rem">77</b></td>
+                <td></td>
+              </tr>
+              <tr class="hl-row" style="background:#FFF9E6;">
+                <td><b>現場人均承載 (MW/人)</b></td>
+                <td class="num">25.0</td>
+                <td class="num">25.0</td>
+                <td class="num">27.5</td>
+                <td class="num"><b style="color:var(--coral)">30.0</b></td>
+                <td>挑戰極限</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:6px;">
+        <div class="card amber">
+          <h3>⚠️ 負荷 92% 之嚴酷檢核</h3>
+          <p>1,000 MW &divide; 0.8 MW = 1,250 場。現場 34 人即每人管 37 場。17 組 &times; 400 案次 = 6,800 案次；光年巡檢 2 次 ＋ 清洗 3 次就吃掉 6,250 案次，常態負荷達 92%，毫無排除突發故障之緩衝！</p>
+        </div>
+        <div class="card green">
+          <h3>💡 解鎖 30 MW 的兩大必要解法</h3>
+          <p>1. <b>清洗至少 25% 轉為外包或清洗機器人</b>（釋放 1,560 案次負荷，恢復 22% 餘裕）；2. <b>或將接單平均案場提高至 1.0 MW</b>（每人降至 30 場）。若兩者皆未達成，現場須擴至 40 人，營業利益率將下滑 1.8%。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>模型依據：OM1GW_R1.0 4.2 節 ｜ 人力編制與工作量檢核模型</div>
+      <div class="pageno">4.2</div>
+    </div>
+  </section>
+
+  <!-- P4.3 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 4 · 組織與資源 4.3</div>
+        <h1>西海岸 6 大營運據點布局：60 分鐘車程輻射與拓點準則</h1>
+        <p class="sub">落實「服務點非辦公室」原則，單點配置 2~4 組工程師與小型倉儲。規劃高雄主倉、台南一二、彰化、屏東嘉義與桃園 6 大據點，滿足開車 60 分鐘內抵達現場之 SLA 硬要求。</p>
+      </div>
+      <div class="flags">
+        <span class="flag blue">6 大據點布局</span>
+        <span class="flag teal">60 分鐘到場半徑</span>
+        <span class="flag amber">單點 120~200MW</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-right">
+        <!-- Table on Left -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>服務據點</th>
+                <th class="ctr">開設時程</th>
+                <th class="num">2030 服務容量</th>
+                <th>戰略定位與涵蓋範圍</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hl-row">
+                <td><b>高雄據點 (現有)</b></td>
+                <td class="ctr"><span class="chip green">已營運</span></td>
+                <td class="num"><b>約 150 MW</b></td>
+                <td><b>南區維運總部 ＋ 中央主倉</b>；NOC 與重型檢測設備駐地。</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>台南一 (現有)</b></td>
+                <td class="ctr"><span class="chip green">已營運</span></td>
+                <td class="num"><b>約 180 MW</b></td>
+                <td>負責台南南半部；台南目標拿下 1.2GW 市場之 30% (360MW)。</td>
+              </tr>
+              <tr>
+                <td><b>彰化據點 (現有)</b></td>
+                <td class="ctr"><span class="chip green">已營運</span></td>
+                <td class="num"><b>約 180 MW</b></td>
+                <td><b>中區營運中心</b>；覆蓋彰化、台中、南投與雲林北部案場。</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>台南二 (新設)</b></td>
+                <td class="ctr"><span class="chip blue">FY2028</span></td>
+                <td class="num"><b>約 180 MW</b></td>
+                <td>負責台南北半部與嘉義交界，分擔台南龐大地面型案場。</td>
+              </tr>
+              <tr>
+                <td><b>屏東 / 嘉義 (新設)</b></td>
+                <td class="ctr"><span class="chip blue">FY2029</span></td>
+                <td class="num"><b>約 120 MW</b></td>
+                <td>依據 FY2028 外部承接與整新大案之實際區位決定設立點。</td>
+              </tr>
+              <tr>
+                <td><b>北部 (桃園)</b></td>
+                <td class="ctr"><span class="chip grey">FY2030</span></td>
+                <td class="num">約 200 MW</td>
+                <td>併入母公司現有桃園據點；僅維護既有合約，不主動擴張。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SVG Map on Right -->
+        <div class="fig">
+          <div class="figtitle">台灣西海岸 6 大維運據點分布與 60 分鐘車程輻射圈</div>
+          <svg viewBox="0 0 520 290" role="img" aria-label="西海岸 6 大據點圖">
+            <!-- Taiwan West Coast simplified outline -->
+            <g transform="translate(10, 10)">
+              <!-- Coastline -->
+              <path d="M280 20 L260 50 L230 100 L200 160 L180 210 L190 250" fill="none" stroke="#D9E3EC" stroke-width="4"/>
+
+              <!-- Hub 1: 桃園 (North) -->
+              <circle cx="270" cy="45" r="28" fill="rgba(159,177,192,0.18)" stroke="#9FB1C0" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <circle cx="270" cy="45" r="7" fill="#9FB1C0"/>
+              <text x="285" y="48" font-size="12" font-weight="800" fill="#5B7285">桃園 (200MW 既有)</text>
+
+              <!-- Hub 2: 彰化 (Central) -->
+              <circle cx="230" cy="110" r="38" fill="rgba(27,177,191,0.18)" stroke="#1BB1BF" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <circle cx="230" cy="110" r="7" fill="#1BB1BF"/>
+              <text x="245" y="114" font-size="12" font-weight="800" fill="#12818C">彰化中區總部 (180MW)</text>
+
+              <!-- Hub 3: 嘉義/屏東 -->
+              <circle cx="205" cy="160" r="30" fill="rgba(224,154,43,0.18)" stroke="#E09A2B" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <circle cx="205" cy="160" r="6" fill="#E09A2B"/>
+              <text x="220" y="164" font-size="11" font-weight="800" fill="#9a6a10">嘉義/屏東據點 (120MW)</text>
+
+              <!-- Hub 4 & 5: 台南一 & 二 (South Golden Zone) -->
+              <circle cx="190" cy="195" r="42" fill="rgba(25,104,173,0.22)" stroke="#1968AD" stroke-width="2" stroke-dasharray="4,4"/>
+              <circle cx="185" cy="190" r="7" fill="#1968AD"/>
+              <circle cx="195" cy="205" r="7" fill="#1968AD"/>
+              <text x="210" y="202" font-size="13" font-weight="900" fill="#1968AD">台南雙據點 (共 360MW 旗艦)</text>
+
+              <!-- Hub 6: 高雄 (Headquarters) -->
+              <circle cx="185" cy="235" r="36" fill="rgba(12,58,99,0.2)" stroke="#0C3A63" stroke-width="2" stroke-dasharray="4,4"/>
+              <circle cx="185" cy="235" r="9" fill="#0C3A63"/>
+              <text x="202" y="240" font-size="13" font-weight="900" fill="#0C3A63">高雄總部 / NOC主倉 (150MW)</text>
+
+              <!-- Radius Badge -->
+              <rect x="15" y="235" width="130" height="35" rx="4" fill="#E8F1F9" stroke="#1968AD" stroke-width="1"/>
+              <text x="25" y="256" font-size="11" font-weight="700" fill="#1968AD">⏱️ 60 分鐘到場半徑</text>
+            </g>
+          </svg>
+          <div class="cap">圖 4.3：台灣西海岸 6 大營運據點地理分布與 60 分鐘車程輻射圈</div>
+        </div>
+      </div>
+
+      <div class="three-col" style="margin-top:4px;">
+        <div class="card">
+          <h3>🚗 60 分鐘時效準則</h3>
+          <p>以據點為中心開車 60 分鐘內必須能抵達所轄主要案場，是落實 P1 故障「4 小時急到場」與日常定期巡檢成本最低化的硬約束。</p>
+        </div>
+        <div class="card teal">
+          <h3>📦 服務點非辦公室</h3>
+          <p>嚴禁鋪張設立行政辦公室；每點租用小型倉儲加 2~4 組現場編制，專注變流器備品快取、工具停放與公務車充電整備。</p>
+        </div>
+        <div class="card amber">
+          <h3>🚪 80 MW 門檻拓點規則</h3>
+          <p>單一區域在管容量未跨越 80 MW 門檻前，嚴禁貿然設點，初期由鄰近據點支援跨區覆蓋，確保新據點成立即具備自我損益平衡能力。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>規劃依據：OM1GW_R1.0 4.3 節 ｜ 李總 9/15 據點輕量化原則</div>
+      <div class="pageno">4.3</div>
+    </div>
+  </section>
+
+  <!-- P4.4 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 4 · 組織與資源 4.4</div>
+        <h1>資本設備投入與專班配置：先進檢測與備品分級管理</h1>
+        <p class="sub">三年累計檢測設備 Capex 約 1,000~1,500 萬元。公務車 27 台採純租賃化隨人力動態擴縮；建立 1,000~2,000 萬常備變流器備品庫存，並依品牌故障率推行分級備品防禦。</p>
+      </div>
+      <div class="flags">
+        <span class="flag blue">公務車 27 台純租賃</span>
+        <span class="flag teal">檢測 Capex 1500萬</span>
+        <span class="flag coral">備品庫存 2000萬</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-left">
+        <!-- SVG Visual: Inspection Toolchain -->
+        <div class="fig">
+          <div class="figtitle">高階檢測工具鏈配置與案場妥善率關聯機制</div>
+          <svg viewBox="0 0 500 290" role="img" aria-label="高階檢測工具鏈">
+            <g transform="translate(20, 15)">
+              <!-- Tool 1: IV -->
+              <rect x="10" y="10" width="210" height="70" rx="5" fill="#E8F1F9" stroke="#1968AD" stroke-width="1.8"/>
+              <text x="25" y="36" font-size="13" font-weight="900" fill="#1968AD">IV 曲線量測儀 (各區2組)</text>
+              <text x="25" y="58" font-size="11" fill="#12293D">1MW+ 案場全面實施 ｜ 串列老化快篩</text>
+
+              <!-- Tool 2: Drone Thermal -->
+              <rect x="240" y="10" width="210" height="70" rx="5" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="1.8"/>
+              <text x="255" y="36" font-size="13" font-weight="900" fill="#12818C">熱像空拍無人機 (各區1~2台)</text>
+              <text x="255" y="58" font-size="11" fill="#12293D">熱斑自動辨識 ｜ 搭配 AI 影像標註</text>
+
+              <!-- Tool 3: EL Night -->
+              <rect x="10" y="95" width="210" height="70" rx="5" fill="#FCF2DE" stroke="#E09A2B" stroke-width="1.8"/>
+              <text x="25" y="121" font-size="13" font-weight="900" fill="#9a6a10">EL 夜間隱裂檢測 (1~2組)</text>
+              <text x="25" y="143" font-size="11" fill="#12293D">整改評估與原廠出險保固求償利器</text>
+
+              <!-- Tool 4: High Voltage -->
+              <rect x="240" y="95" width="210" height="70" rx="5" fill="#F3E8FF" stroke="#6B46C1" stroke-width="1.8"/>
+              <text x="255" y="121" font-size="13" font-weight="900" fill="#6B46C1">高壓/絕緣檢測儀 (專班1套)</text>
+              <text x="255" y="143" font-size="11" fill="#12293D">特高壓變壓器/斷路器/接地耐壓測試</text>
+
+              <!-- Outcome Bar -->
+              <rect x="10" y="180" width="440" height="75" rx="6" fill="#0C3A63"/>
+              <text x="230" y="210" font-size="14" font-weight="900" fill="#8FD9E4" text-anchor="middle">🎯 達成 98% 變流器妥善率 ＆ 100% 履約合約保證</text>
+              <text x="230" y="235" font-size="11" fill="#fff" text-anchor="middle">徹底扭轉 6 月實績妥善率僅 71.43% 之老舊變流器高故障困局</text>
+            </g>
+          </svg>
+          <div class="cap">圖 4.4：預防性檢測工具鏈配置與妥善率提升路徑</div>
+        </div>
+
+        <!-- Table on Right -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>資產與設備類別</th>
+                <th>FY2030 規模</th>
+                <th>估算成本【推論】</th>
+                <th>配置備註與策略</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>公務維運車輛</b></td>
+                <td><b>27 台</b>（每組1台+主管專班）</td>
+                <td>年租賃約 30 萬/台（計營業成本）</td>
+                <td><b>純租賃化優於購買</b>，隨組數增減彈性調節。</td>
+              </tr>
+              <tr class="hl-row">
+                <td><b>IV 曲線儀 / 熱像機</b></td>
+                <td>各區 2 組 ｜ 無人機 1~2 台</td>
+                <td rowspan="3">三年累計 Capex<br><b>1,000 ~ 1,500 萬元</b></td>
+                <td>1 MW 以上案場全面實施量測；無人機熱斑快篩。</td>
+              </tr>
+              <tr>
+                <td><b>EL 夜間檢測設備</b></td>
+                <td>全台 1 ~ 2 組</td>
+                <td>二級市場收購評估、颱風後求償專用。</td>
+              </tr>
+              <tr>
+                <td><b>高壓絕緣檢測套件</b></td>
+                <td>高壓檢測專班 1 套</td>
+                <td>耐壓試驗、接地電阻、繼電保護校驗。</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>備品庫存 (變流器/主板)</b></td>
+                <td>主板、風扇、保險絲、MC4</td>
+                <td>營運資金 <b>1,000 ~ 2,000 萬元</b></td>
+                <td>依品牌妥善率分級管理（老施耐德、台達加強常備）。</td>
+              </tr>
+              <tr>
+                <td><b>IT 平台 / AI 研發</b></td>
+                <td>監控、派工、戰情、Agent</td>
+                <td>營業費用每年 <b>600 ~ 900 萬元</b></td>
+                <td>FY2027 預算約 430~630 萬（R6.1 文件）。</td>
+              </tr>
+              <tr>
+                <td><b>清洗機器人</b></td>
+                <td>租賃模式投放</td>
+                <td>獨立損益計價</td>
+                <td>僅於 1MW 以上且陣列平整案場導入。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:6px;">
+        <div class="card teal">
+          <h3>⚡ 變流器品牌故障率分級防禦</h3>
+          <p>6 月內部統計顯示妥善率僅 71.43%，老舊施耐德、早期台達故障率偏高。庫存備品策略採取「高故障品牌常備核心主板與散熱風扇」，阻斷備品缺料停機之賠付風險。</p>
+        </div>
+        <div class="card amber">
+          <h3>🚁 1MW+ 全面檢測護城河</h3>
+          <p>將 IV 曲線全面檢測與熱像空拍列為常態標準工序，向國泰電業等資產方提供國際級健康診斷報告，此為一般低價割草維運商無法企及的技術門檻。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>預算依據：OM1GW_R1.0 4.4 節 ｜ 進能服 OMPLAN R6.1 資本支出清單</div>
+      <div class="pageno">4.4</div>
+    </div>
+  </section>
+
+</div>
+\n
+<!-- ================= PART 5: 營運模式與技術路線 ================= -->
+<div class="view" id="view-p5">
+
+  <!-- P5.1 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 5 · 營運與技術 5.1</div>
+        <h1>智慧維運數位閉環：NOC 集中監控到 AI Agent 知識沉澱</h1>
+        <p class="sub">融合大同智能閉環優點與進能服規則，構建「NOC監控 &rarr; AI初判 &rarr; 自動派工 &rarr; 現場查修 &rarr; 報告履歷」五段閉環，透過 AI Agent 自動生成日月報並將故障模式轉化為整新商機。</p>
+      </div>
+      <div class="flags">
+        <span class="flag blue">五段數位閉環</span>
+        <span class="flag green">AI Agent 雙用途驅動</span>
+        <span class="flag amber">故障轉整新商機</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <!-- Full SVG Data Flow Diagram -->
+      <div class="fig" style="padding:14px 18px;">
+        <div class="figtitle">智慧維運數據閉環與 AI Agent 核心架構流轉圖</div>
+        <svg viewBox="0 0 1100 180" role="img" aria-label="智慧維運閉環流程">
+          <defs>
+            <marker id="ar-teal" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0 0, 8 4, 0 8" fill="#1BB1BF"/></marker>
+            <marker id="ar-orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0 0, 8 4, 0 8" fill="#E09A2B"/></marker>
+          </defs>
+          <g>
+            <!-- Step 1 -->
+            <rect x="20" y="20" width="180" height="75" rx="6" fill="#E8F1F9" stroke="#1968AD" stroke-width="2"/>
+            <text x="110" y="48" font-size="14" font-weight="900" fill="#1968AD" text-anchor="middle">[NOC 集中監控]</text>
+            <text x="110" y="70" font-size="11" fill="#12293D" text-anchor="middle">全台 1GW 遙測 / 告警分級</text>
+
+            <!-- Arrow 1 -->
+            <line x1="200" y1="57" x2="235" y2="57" stroke="#1BB1BF" stroke-width="2" marker-end="url(#ar-teal)"/>
+
+            <!-- Step 2 -->
+            <rect x="245" y="20" width="180" height="75" rx="6" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="2"/>
+            <text x="335" y="48" font-size="14" font-weight="900" fill="#12818C" text-anchor="middle">[AI 智能初判]</text>
+            <text x="335" y="70" font-size="11" fill="#12293D" text-anchor="middle">15 分鐘快篩 / 隔離通訊異常</text>
+
+            <!-- Arrow 2 -->
+            <line x1="425" y1="57" x2="460" y2="57" stroke="#1BB1BF" stroke-width="2" marker-end="url(#ar-teal)"/>
+
+            <!-- Step 3 -->
+            <rect x="470" y="20" width="180" height="75" rx="6" fill="#FCF2DE" stroke="#E09A2B" stroke-width="2"/>
+            <text x="560" y="48" font-size="14" font-weight="900" fill="#9a6a10" text-anchor="middle">[分級自動派工]</text>
+            <text x="560" y="70" font-size="11" fill="#12293D" text-anchor="middle">P1~P4 工單 / 配件庫存確認</text>
+
+            <!-- Arrow 3 -->
+            <line x1="650" y1="57" x2="685" y2="57" stroke="#1BB1BF" stroke-width="2" marker-end="url(#ar-teal)"/>
+
+            <!-- Step 4 -->
+            <rect x="695" y="20" width="180" height="75" rx="6" fill="#FBEAE5" stroke="#D95F45" stroke-width="2"/>
+            <text x="785" y="48" font-size="14" font-weight="900" fill="#b4432c" text-anchor="middle">[現場排障查修]</text>
+            <text x="785" y="70" font-size="11" fill="#12293D" text-anchor="middle">Master+Slave 兩人組 / 到場SLA</text>
+
+            <!-- Arrow 4 -->
+            <line x1="875" y1="57" x2="910" y2="57" stroke="#1BB1BF" stroke-width="2" marker-end="url(#ar-teal)"/>
+
+            <!-- Step 5 -->
+            <rect x="920" y="20" width="165" height="75" rx="6" fill="#F3E8FF" stroke="#6B46C1" stroke-width="2"/>
+            <text x="1002" y="48" font-size="14" font-weight="900" fill="#6B46C1" text-anchor="middle">[報告與履歷]</text>
+            <text x="1002" y="70" font-size="11" fill="#12293D" text-anchor="middle">一場一檔建檔 / 專人覆核</text>
+
+            <!-- Feedback branch 1: AI Agent 1 -->
+            <path d="M1002 95 L1002 125 L110 125 L110 95" stroke="#1968AD" stroke-width="1.8" stroke-dasharray="4,4" fill="none" marker-end="url(#ar-teal)"/>
+            <text x="560" y="120" font-size="11" font-weight="800" fill="#1968AD" text-anchor="middle">🤖 AI Agent 用途 1：日月報表自動生成（M14）與發電日分析</text>
+
+            <!-- Feedback branch 2: AI Agent 2 -->
+            <path d="M1002 135 L1002 165 L560 165" stroke="#E09A2B" stroke-width="1.8" stroke-dasharray="4,4" fill="none"/>
+            <circle cx="560" cy="165" r="4" fill="#E09A2B"/>
+            <text x="545" y="169" font-size="11" font-weight="800" fill="#9a6a10" text-anchor="end">💡 AI Agent 用途 2：故障特徵知識庫 &rarr; 轉單 AM / 整改 PM</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="two-col" style="margin-top:6px;">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:30%;">AI Agent 模組</th>
+                <th style="width:35%;">對應功能場景</th>
+                <th style="width:35%;">量化價值與產出</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hl-row">
+                <td><b>用途 1：營運報表 Agent</b></td>
+                <td>日報、月報自動爬梳發電與日照數據；比對去年同期日照（M14）。</td>
+                <td><b>報表工時節省 80%</b>，徹底消滅人工作表疏漏。</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>用途 2：戰情知識 Agent</b></td>
+                <td>即時串列離群值檢驗；將變流器熱點、隱裂等歷史紀錄歸戶案場履歷。</td>
+                <td>累積「一場一檔」數位履歷，為資產鑑價提供可信數據。</td>
+              </tr>
+              <tr>
+                <td><b>用途 3：商務客服 Agent</b></td>
+                <td>快速回應業主發電查詢、成本預算快篩與工單進度追蹤。</td>
+                <td>提升客戶續約黏著度，支援 BD 擴充機會池。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card teal">
+          <h3>⚡ 故障特徵化 &rarr; 工程機會的商業飛輪</h3>
+          <p>傳統維運把「換保險絲、修風扇」視為純成本消耗；進能服透過 AI Agent 統計特定案場之頻發故障，自動判定該電廠已達整改臨界點，直接開立 <b>「整新工程建議書」</b> 交由 AM 部門向業主提案，轉化出高毛利 EPC 訂單！</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>架構依據：OM1GW_R1.0 5.1 節 ｜ 進能服 AI Agent 數位閉環標準規範</div>
+      <div class="pageno">5.1</div>
+    </div>
+  </section>
+
+  <!-- P5.2 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 5 · 營運與技術 5.2</div>
+        <h1>服務等級協議 (SLA) 分級：P1 四小時急到場的高規承諾</h1>
+        <p class="sub">建立 P1 至 P4 四級派工機制。針對全場停機、火災等重大 P1 事件，承諾南部核心區「15 分鐘遠端響應、4 小時內工程師抵達現場」，超越大同智能全等級統一 24 小時之業界標準。</p>
+      </div>
+      <div class="flags">
+        <span class="flag coral">P1 4 小時急到場</span>
+        <span class="flag blue">超越大同 24hr 標竿</span>
+        <span class="flag teal">四級派工矩陣</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-left">
+        <!-- SVG Visual: SLA Hierarchy -->
+        <div class="fig">
+          <div class="figtitle">進能服 P1~P4 SLA 到場時限階梯 vs 大同智能對比</div>
+          <svg viewBox="0 0 500 280" role="img" aria-label="SLA 到場階梯圖">
+            <g transform="translate(30, 20)">
+              <!-- Axis -->
+              <line x1="40" y1="20" x2="40" y2="210" stroke="#D9E3EC" stroke-width="1.5"/>
+              <line x1="40" y1="210" x2="440" y2="210" stroke="#D9E3EC" stroke-width="1.5"/>
+
+              <!-- Tatung Baseline Line (24 hr) -->
+              <line x1="40" y1="110" x2="440" y2="110" stroke="#E09A2B" stroke-width="2" stroke-dasharray="6,4"/>
+              <text x="445" y="114" font-size="11" font-weight="800" fill="#E09A2B">大同智能基準 (全等級 24hr)</text>
+
+              <!-- Step P1 (Kingsun) -->
+              <rect x="70" y="175" width="65" height="35" rx="4" fill="#D95F45"/>
+              <text x="102" y="197" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">4 hr</text>
+              <text x="102" y="230" font-size="12" font-weight="800" fill="#b4432c" text-anchor="middle">P1 重大</text>
+
+              <!-- Step P2 (Kingsun) -->
+              <rect x="160" y="110" width="65" height="100" rx="4" fill="#1968AD"/>
+              <text x="192" y="145" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">24 hr</text>
+              <text x="192" y="230" font-size="12" font-weight="800" fill="#1968AD" text-anchor="middle">P2 設備</text>
+
+              <!-- Step P3 (Kingsun) -->
+              <rect x="250" y="60" width="65" height="150" rx="4" fill="#1BB1BF"/>
+              <text x="282" y="95" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">72 hr</text>
+              <text x="282" y="230" font-size="12" font-weight="800" fill="#12818C" text-anchor="middle">P3 串列</text>
+
+              <!-- Step P4 (Kingsun) -->
+              <rect x="340" y="25" width="65" height="185" rx="4" fill="#9FB1C0"/>
+              <text x="372" y="60" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">例行排程</text>
+              <text x="372" y="230" font-size="12" font-weight="800" fill="#5B7285" text-anchor="middle">P4 環境</text>
+
+              <text x="102" y="165" font-size="10" font-weight="800" fill="#D95F45" text-anchor="middle">極速急救</text>
+            </g>
+          </svg>
+          <div class="cap">圖 5.2：SLA 分級響應時限階梯（P1 4 小時極速到場）</div>
+        </div>
+
+        <!-- Table on Right -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th class="ctr" style="width:12%;">等級</th>
+                <th style="width:34%;">事件定義與範例</th>
+                <th class="ctr" style="width:18%;">遠端響應</th>
+                <th class="ctr" style="width:18%;">現場到場時限</th>
+                <th style="width:18%;">業界參考</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bad-row">
+                <td class="ctr"><b>P1</b></td>
+                <td><b>全場停機、火災、高壓站跳脫、併網斷開</b></td>
+                <td class="ctr"><b>15 分鐘內</b></td>
+                <td class="ctr"><b style="color:var(--coral);font-size:1.05rem">4 小時</b><br><small>(南區)/8hr其他</small></td>
+                <td>大同為 24 小時</td>
+              </tr>
+              <tr class="hl-row">
+                <td class="ctr"><b>P2</b></td>
+                <td>單台變流器停機、單一箱變迴路跳脫</td>
+                <td class="ctr">1 小時內</td>
+                <td class="ctr"><b>24 小時內</b></td>
+                <td>大同 24 小時</td>
+              </tr>
+              <tr>
+                <td class="ctr"><b>P3</b></td>
+                <td>串列異常衰退、特定模組熱斑、效能偏低</td>
+                <td class="ctr">1 個工作天</td>
+                <td class="ctr">下次巡檢或 <b>72 小時</b></td>
+                <td>排程巡檢</td>
+              </tr>
+              <tr>
+                <td class="ctr"><b>P4</b></td>
+                <td>雜草過高、表面積塵、監控外殼污損</td>
+                <td class="ctr">—</td>
+                <td class="ctr">排入例行清洗週期</td>
+                <td>例行作業</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="three-col" style="margin-top:6px;">
+        <div class="card coral">
+          <h3>⚡ P1 4 小時的殺手級定位</h3>
+          <p>對於大型地面型或 MW 級案場，全場停機一天的售電損失高達數萬至十數萬元。進能服憑藉南部高密度據點，承諾 4 小時到場，是切入國泰電業等頂級業主的關鍵底牌。</p>
+        </div>
+        <div class="card teal">
+          <h3>🛰️ 15 分鐘遠端系統初判</h3>
+          <p>NOC 接獲系統異常警示 15 分鐘內，必須遠端連線逆變器快取 log，排除是否為台電電網突波或通訊中斷，避免人員盲目出勤浪費燃油工時。</p>
+        </div>
+        <div class="card green">
+          <h3>📋 合約條款與免責界定</h3>
+          <p>SLA 達標率（目標 ≥95%）與獎金直接連動；同時於合約明確明訂因颱風假、不可抗力道路中斷之免責條款，合規防禦法律風險。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>規劃來源：OM1GW_R1.0 5.2 節 ｜ SLA 服務等級協定與派工標準</div>
+      <div class="pageno">5.2</div>
+    </div>
+  </section>
+
+  <!-- P5.3 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 5 · 營運與技術 5.3</div>
+        <h1>技術路線四階段演進與 8 大 KPI 儀表盤</h1>
+        <p class="sub">對齊大同四階段演進，設定 FY2027 監控、FY2028 控制、FY2029 AI預測、FY2030 VPP就緒之明確里程碑。建立發電 PR、變流器妥善率、服務毛利等 8 大核心 KPI 監控體系。</p>
+      </div>
+      <div class="flags">
+        <span class="flag blue">四階段演進路線圖</span>
+        <span class="flag green">8 大核心 KPI</span>
+        <span class="flag amber">PR ≥ 80%</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <!-- Top SVG Roadmap -->
+      <div class="fig" style="padding:12px 16px;">
+        <div class="figtitle">技術與平台演進四階段路線圖（對齊大同並超前落實）</div>
+        <svg viewBox="0 0 1080 120" role="img" aria-label="技術演進四階段">
+          <g transform="translate(10, 10)">
+            <!-- Stage 1 -->
+            <rect x="10" y="10" width="240" height="85" rx="5" fill="#E8F1F9" stroke="#1968AD" stroke-width="2"/>
+            <text x="130" y="36" font-size="14" font-weight="900" fill="#1968AD" text-anchor="middle">Stage 1：全面監控 (FY2027)</text>
+            <text x="130" y="58" font-size="11" fill="#12293D" text-anchor="middle">單一資料源 ｜ 日月報自動化 (M14)</text>
+            <text x="130" y="76" font-size="11" fill="#5B7285" text-anchor="middle">驗收：戰情儀表板上線 (M15) / 工時下降</text>
+
+            <!-- Stage 2 -->
+            <rect x="275" y="10" width="240" height="85" rx="5" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="2"/>
+            <text x="395" y="36" font-size="14" font-weight="900" fill="#12818C" text-anchor="middle">Stage 2：主動控制 (FY2028)</text>
+            <text x="395" y="58" font-size="11" fill="#12293D" text-anchor="middle">遠端調控變流器 ｜ 自動派工上線</text>
+            <text x="395" y="76" font-size="11" fill="#5B7285" text-anchor="middle">驗收：P2工單 100% 系統開派 ｜ 履歷100%</text>
+
+            <!-- Stage 3 -->
+            <rect x="540" y="10" width="240" height="85" rx="5" fill="#FCF2DE" stroke="#E09A2B" stroke-width="2"/>
+            <text x="660" y="36" font-size="14" font-weight="900" fill="#9a6a10" text-anchor="middle">Stage 3：AI 預測 (FY2029)</text>
+            <text x="660" y="58" font-size="11" fill="#12293D" text-anchor="middle">發電預測 (日誤差&le;8%) ｜ 故障預測</text>
+            <text x="660" y="76" font-size="11" fill="#5B7285" text-anchor="middle">驗收：整改工程密度 &ge; 35.7 萬/MW</text>
+
+            <!-- Stage 4 -->
+            <rect x="805" y="10" width="245" height="85" rx="5" fill="#F3E8FF" stroke="#6B46C1" stroke-width="2"/>
+            <text x="927" y="36" font-size="14" font-weight="900" fill="#6B46C1" text-anchor="middle">Stage 4：VPP 就緒 (FY2030)</text>
+            <text x="927" y="58" font-size="11" fill="#12293D" text-anchor="middle">儲能試點接 EMS ｜ 通訊介面符合規格</text>
+            <text x="927" y="76" font-size="11" fill="#5B7285" text-anchor="middle">驗收：至少 1 個儲能場完成調度測試</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Table on Bottom: 8 KPIs -->
+      <div class="table-wrap" style="margin-top:6px;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:14%;">管理類別</th>
+              <th style="width:28%;">核心 KPI 指標名稱</th>
+              <th class="ctr" style="width:20%;">2030 目標值</th>
+              <th style="width:24%;">數據來源系統</th>
+              <th style="width:14%;">責任部門</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hl-row">
+              <td><b>發電效能</b></td>
+              <td>PR（溫度修正後的 PR'25&deg;C）</td>
+              <td class="ctr"><b>自有案場 &ge; 80%</b></td>
+              <td>IEC 61724 知識庫標準</td>
+              <td>技術平台部</td>
+            </tr>
+            <tr class="good-row">
+              <td><b>設備妥善</b></td>
+              <td>變流器妥善率 (Availability)</td>
+              <td class="ctr"><b>&ge; 98.0%</b> <small>(6月實績 71.4%)</small></td>
+              <td>EMS 監控平台統計</td>
+              <td>營運本部 OU</td>
+            </tr>
+            <tr>
+              <td><b>服務 SLA</b></td>
+              <td>各等級現場到場時限達成率</td>
+              <td class="ctr"><b>&ge; 95.0%</b></td>
+              <td>工單派工系統簽到紀錄</td>
+              <td>各區服務據點</td>
+            </tr>
+            <tr class="hl-row">
+              <td><b>人均產能</b></td>
+              <td>現場人均承載 (MW / 人均場數)</td>
+              <td class="ctr"><b>30 MW ／ 37 場</b></td>
+              <td>人資與合約管理系統</td>
+              <td>營運本部 OU</td>
+            </tr>
+            <tr class="good-row">
+              <td><b>商業獲利</b></td>
+              <td>運維服務毛利率 (Service Gross Margin)</td>
+              <td class="ctr"><b>&ge; 40.0%</b></td>
+              <td>財務會計獨立損益</td>
+              <td>全公司 / BU</td>
+            </tr>
+            <tr>
+              <td><b>客戶黏著</b></td>
+              <td>合約到期續約率（年流失率）</td>
+              <td class="ctr"><b>&ge; 95%</b> (年流失 &le; 1%)</td>
+              <td>CRM 合約台帳</td>
+              <td>業務本部 BU</td>
+            </tr>
+            <tr>
+              <td><b>營收轉換</b></td>
+              <td>工程轉換率（整改營收 / 在管 MW）</td>
+              <td class="ctr"><b>&ge; 12.9 萬元 ／ MW</b></td>
+              <td>財務專案會計</td>
+              <td>資產管理部 AM</td>
+            </tr>
+            <tr class="bad-row">
+              <td><b>合約防禦</b></td>
+              <td>保發案場達成率（扣除天候影響後）</td>
+              <td class="ctr"><b>&ge; 95.0%</b></td>
+              <td>4.6.8.5 履約保證台帳</td>
+              <td>合約與風險部</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>資料來源：OM1GW_R1.0 5.3–5.4 節 ｜ 管理 KPI 知識庫對標</div>
+      <div class="pageno">5.3</div>
+    </div>
+  </section>
+
+</div>
+\n
+<!-- ================= PART 6: 財務、敏感度與風險 ================= -->
+<div class="view" id="view-p6">
+
+  <!-- P6.1 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 6 · 財務與風險 6.1</div>
+        <h1>2028~2030 獨立損益預測：營收 3.79 億與 14.6% 利益率</h1>
+        <p class="sub">分拆後獨立核算損益。FY2028 建立基礎架構（利益率 10.5%），隨規模化效應發酵，FY2030 總營收達 3.79 億元（服務 2.65 億＋工程 1.14 億），營業利益攀升至 5,519 萬元（利益率 14.6%）。</p>
+      </div>
+      <div class="flags">
+        <span class="flag blue">營收 3.79 億元</span>
+        <span class="flag green">營業利益率 14.6%</span>
+        <span class="flag amber">整改工程 1.14 億</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-left">
+        <!-- SVG Chart: Revenue & Profit Trend -->
+        <div class="fig">
+          <div class="figtitle">2027~2030 營業收入構成與營業利益率推移</div>
+          <svg viewBox="0 0 500 280" role="img" aria-label="財務損益推移圖">
+            <g transform="translate(45, 20)">
+              <!-- Axis -->
+              <line x1="40" y1="20" x2="420" y2="20" stroke="#F0F4F8" stroke-width="1"/>
+              <line x1="40" y1="75" x2="420" y2="75" stroke="#F0F4F8" stroke-width="1"/>
+              <line x1="40" y1="130" x2="420" y2="130" stroke="#F0F4F8" stroke-width="1"/>
+              <line x1="40" y1="190" x2="420" y2="190" stroke="#D9E3EC" stroke-width="1.5"/>
+
+              <!-- Bar FY2027 -->
+              <rect x="65" y="140" width="50" height="50" rx="3" fill="#1968AD"/>
+              <text x="90" y="132" font-size="11" font-weight="800" fill="#1968AD" text-anchor="middle">1.00 億</text>
+              <text x="90" y="208" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">FY2027</text>
+
+              <!-- Bar FY2028 -->
+              <rect x="155" y="95" width="50" height="65" rx="3" fill="#1968AD"/>
+              <rect x="155" y="65" width="50" height="30" rx="3" fill="#E09A2B"/>
+              <text x="180" y="58" font-size="11" font-weight="800" fill="#12818C" text-anchor="middle">1.92 億</text>
+              <text x="180" y="208" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">FY2028</text>
+
+              <!-- Bar FY2029 -->
+              <rect x="245" y="50" width="50" height="98" rx="3" fill="#1968AD"/>
+              <rect x="245" y="10" width="50" height="40" rx="3" fill="#E09A2B"/>
+              <text x="270" y="3" font-size="11" font-weight="800" fill="#9a6a10" text-anchor="middle">2.85 億</text>
+              <text x="270" y="208" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">FY2029</text>
+
+              <!-- Bar FY2030 -->
+              <rect x="335" y="15" width="50" height="125" rx="3" fill="#1968AD"/>
+              <rect x="335" y="-40" width="50" height="55" rx="3" fill="#E09A2B"/>
+              <text x="360" y="-48" font-size="13" font-weight="900" fill="#0C3A63" text-anchor="middle">3.79 億</text>
+              <text x="360" y="208" font-size="11" font-weight="800" fill="#0C3A63" text-anchor="middle">FY2030</text>
+
+              <!-- Margin Line -->
+              <path d="M90 145 L180 120 L270 95 L360 65" fill="none" stroke="#2E7D32" stroke-width="3"/>
+              <circle cx="180" cy="120" r="4" fill="#2E7D32"/>
+              <text x="180" y="112" font-size="10" font-weight="800" fill="#2E7D32">10.5%</text>
+              <circle cx="270" cy="95" r="4" fill="#2E7D32"/>
+              <text x="270" y="87" font-size="10" font-weight="800" fill="#2E7D32">12.5%</text>
+              <circle cx="360" cy="65" r="5" fill="#2E7D32"/>
+              <text x="360" y="55" font-size="12" font-weight="900" fill="#2E7D32">14.6%</text>
+
+              <!-- Legend -->
+              <g transform="translate(60, 235)">
+                <rect x="0" y="0" width="12" height="9" fill="#1968AD"/>
+                <text x="18" y="8" font-size="11" fill="#5B7285">運維服務營收</text>
+                <rect x="110" y="0" width="12" height="9" fill="#E09A2B"/>
+                <text x="128" y="8" font-size="11" fill="#5B7285">整新整改工程</text>
+                <line x1="220" y1="4" x2="240" y2="4" stroke="#2E7D32" stroke-width="2.5"/>
+                <text x="246" y="8" font-size="11" fill="#2E7D32" font-weight="700">營業利益率</text>
+              </g>
+            </g>
+          </svg>
+          <div class="cap">圖 6.1：四年營業收入推移與營業利益率攀升曲線</div>
+        </div>
+
+        <!-- Table on Right -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>損益項目（單位：萬元）</th>
+                <th class="num">FY2027(B)</th>
+                <th class="num">FY2028</th>
+                <th class="num">FY2029</th>
+                <th class="num">FY2030</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>運維服務營收</td>
+                <td class="num">7,329</td>
+                <td class="num">13,413</td>
+                <td class="num">19,921</td>
+                <td class="num"><b>26,526</b></td>
+              </tr>
+              <tr>
+                <td>整新工程營收 (占 30%)</td>
+                <td class="num">2,671</td>
+                <td class="num">5,748</td>
+                <td class="num">8,538</td>
+                <td class="num"><b>11,368</b></td>
+              </tr>
+              <tr class="hl-row">
+                <td><b>營業收入合計</b></td>
+                <td class="num"><b>10,000</b></td>
+                <td class="num"><b>19,162</b></td>
+                <td class="num"><b>28,459</b></td>
+                <td class="num"><b style="color:var(--blue);font-size:1.05rem">37,894</b></td>
+              </tr>
+              <tr>
+                <td>服務營業成本</td>
+                <td class="num">—</td>
+                <td class="num">8,252</td>
+                <td class="num">11,939</td>
+                <td class="num">15,784</td>
+              </tr>
+              <tr>
+                <td>服務毛利率</td>
+                <td class="num">—</td>
+                <td class="num">38.5%</td>
+                <td class="num">40.1%</td>
+                <td class="num"><b>40.5%</b></td>
+              </tr>
+              <tr>
+                <td>工程毛利 (毛利率 25%)</td>
+                <td class="num">—</td>
+                <td class="num">1,437</td>
+                <td class="num">2,135</td>
+                <td class="num">2,842</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>營業毛利總計</b></td>
+                <td class="num">—</td>
+                <td class="num"><b>6,599</b></td>
+                <td class="num"><b>10,116</b></td>
+                <td class="num"><b>13,583</b></td>
+              </tr>
+              <tr>
+                <td>總毛利率</td>
+                <td class="num">—</td>
+                <td class="num">34.4%</td>
+                <td class="num">35.5%</td>
+                <td class="num">35.8%</td>
+              </tr>
+              <tr>
+                <td>營業費用 (細項見下表)</td>
+                <td class="num">—</td>
+                <td class="num">4,577</td>
+                <td class="num">6,548</td>
+                <td class="num">8,065</td>
+              </tr>
+              <tr class="hl-row" style="background:#E8F5E9; border-top:2px solid var(--green);">
+                <td><b>營業利益 (Operating Profit)</b></td>
+                <td class="num">—</td>
+                <td class="num"><b>2,021</b></td>
+                <td class="num"><b>3,568</b></td>
+                <td class="num"><b style="color:var(--green);font-size:1.1rem">5,519</b></td>
+              </tr>
+              <tr class="good-row">
+                <td><b>營業利益率</b></td>
+                <td class="num">淨利目標 12%</td>
+                <td class="num"><b>10.5%</b></td>
+                <td class="num"><b>12.5%</b></td>
+                <td class="num"><b style="color:var(--green);font-size:1.15rem">14.6%</b></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FY2030 Opex Breakdown Table -->
+      <div style="margin-top:6px;">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th colspan="4" style="background:var(--blue-d)">FY2030 營業費用 8,065 萬元組成細項拆解</th>
+              </tr>
+              <tr>
+                <th>費用項目</th>
+                <th class="num">金額 (萬元)</th>
+                <th>計算基準與備註說明</th>
+                <th>費用動因與管控手段</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>間接人力成本</b></td>
+                <td class="num"><b>3,960</b></td>
+                <td>33 人（NOC、IT、AM、工程PM、管理後勤）&times; 年均 120 萬元</td>
+                <td>自動化系統壓低管理職能人數增幅</td>
+              </tr>
+              <tr>
+                <td><b>營運據點與戰情中心</b></td>
+                <td class="num">510</td>
+                <td>6 處服務據點 &times; 60 萬 ＋ 高雄 NOC 戰情中心 150 萬元</td>
+                <td>租賃輕裝修、兼具備品倉庫功能</td>
+              </tr>
+              <tr>
+                <td><b>資訊平台與 AI Agent</b></td>
+                <td class="num">900</td>
+                <td>伺服器雲端算力、演算法維護與資安授權</td>
+                <td>取代外包開發，提升軟體自主權</td>
+              </tr>
+              <tr>
+                <td><b>業務與營運獎金</b></td>
+                <td class="num">728</td>
+                <td>BU 業務 197 萬（0.5% TCV）＋ OU 現場 531 萬（2% ACV）</td>
+                <td>依 BONUS R2.0 定案公式提撥</td>
+              </tr>
+              <tr>
+                <td><b>專項賠付準備金</b></td>
+                <td class="num">531</td>
+                <td>服務營收之 2.0% 提撥備援</td>
+                <td>防禦颱風災損與極端天候保發賠付</td>
+              </tr>
+              <tr>
+                <td><b>工具設備折舊 / 其他</b></td>
+                <td class="num">1,437</td>
+                <td>檢測工具年折舊 300 萬 ＋ 保險、差旅、業務交際 1,137 萬</td>
+                <td>營收 3% 彈性控管</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>財務依據：OM1GW_R1.0 6.1 節 ｜ FY2028~2030 獨立維運損益預測模型</div>
+      <div class="pageno">6.1</div>
+    </div>
+  </section>
+
+  <!-- P6.2 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 6 · 財務與風險 6.2</div>
+        <h1>資本結構與分拆資本額：5,000 萬至 1 億元的啟動配置</h1>
+        <p class="sub">三年累計 Capex 與營運資金約 3,000 萬元。建議 FY2028 獨立分拆時登記資本額設為 5,000 萬至 1 億元（相當於 6~12 個月營運費用），資產收購案源（管道 C）全面採「表外資產方持有」。</p>
+      </div>
+      <div class="flags">
+        <span class="flag green">資本額 5,000萬~1億</span>
+        <span class="flag teal">表外輕資產運作</span>
+        <span class="flag blue">6~12月現金安全墊</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-left">
+        <!-- SVG Visual: Capital Allocation Waterfall -->
+        <div class="fig">
+          <div class="figtitle">分拆資本額與營運資金安全墊配置瀑布圖</div>
+          <svg viewBox="0 0 500 280" role="img" aria-label="資本結構瀑布圖">
+            <g transform="translate(30, 20)">
+              <!-- Total Bar -->
+              <rect x="20" y="30" width="70" height="200" rx="4" fill="#0C3A63"/>
+              <text x="55" y="20" font-size="12" font-weight="900" fill="#0C3A63" text-anchor="middle">5,000萬~1億</text>
+              <text x="55" y="130" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">實收資本</text>
+
+              <!-- Outflow 1: Capex -->
+              <rect x="110" y="30" width="65" height="35" rx="4" fill="#1968AD"/>
+              <text x="142" y="52" font-size="11" font-weight="800" fill="#fff" text-anchor="middle">1,500萬</text>
+              <text x="142" y="80" font-size="10" fill="#12293D" text-anchor="middle">檢測設備</text>
+
+              <!-- Outflow 2: Inventory -->
+              <rect x="195" y="65" width="65" height="45" rx="4" fill="#1BB1BF"/>
+              <text x="227" y="92" font-size="11" font-weight="800" fill="#fff" text-anchor="middle">2,000萬</text>
+              <text x="227" y="125" font-size="10" fill="#12293D" text-anchor="middle">備品庫存</text>
+
+              <!-- Outflow 3: Hubs -->
+              <rect x="280" y="110" width="65" height="15" rx="4" fill="#E09A2B"/>
+              <text x="312" y="122" font-size="10" font-weight="800" fill="#fff" text-anchor="middle">300萬</text>
+              <text x="312" y="140" font-size="10" fill="#12293D" text-anchor="middle">據點裝修</text>
+
+              <!-- Remaining: Buffer -->
+              <rect x="365" y="125" width="85" height="105" rx="4" fill="#2E7D32"/>
+              <text x="407" y="170" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">3,000~6,000萬</text>
+              <text x="407" y="195" font-size="11" font-weight="800" fill="#E8F5E9" text-anchor="middle">現金安全墊</text>
+              <text x="407" y="245" font-size="11" font-weight="800" fill="#2E7D32" text-anchor="middle">(6~12月營運費用)</text>
+
+              <!-- Connectors -->
+              <line x1="90" y1="30" x2="110" y2="30" stroke="#9FB1C0" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="175" y1="65" x2="195" y2="65" stroke="#9FB1C0" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="260" y1="110" x2="280" y2="110" stroke="#9FB1C0" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="345" y1="125" x2="365" y2="125" stroke="#9FB1C0" stroke-width="1" stroke-dasharray="3,3"/>
+            </g>
+          </svg>
+          <div class="cap">圖 6.2：分拆資本結構用途拆解與營運資金安全緩衝</div>
+        </div>
+
+        <!-- Table on Right -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>資本預算項目</th>
+                <th class="num">FY2028~2030 累計金額</th>
+                <th>資金屬性與資產負債表處理</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hl-row">
+                <td><b>高階檢測設備 Capex</b></td>
+                <td class="num"><b>1,000 ~ 1,500 萬元</b></td>
+                <td>固定資產；分 3~5 年提列折舊（IV曲線儀、熱像機、EL檢測）。</td>
+              </tr>
+              <tr>
+                <td><b>常備備品與模組庫存</b></td>
+                <td class="num"><b>1,000 ~ 2,000 萬元</b></td>
+                <td>流動資產（存貨）；採品牌分級常備，確保停機 4 小時有料可修。</td>
+              </tr>
+              <tr>
+                <td><b>6 大服務據點裝修設備</b></td>
+                <td class="num"><b>約 300 萬元</b></td>
+                <td>3 新據點 &times; 100 萬；輕量租賃倉儲與充電設施。</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>管道 C 資產收購資金</b></td>
+                <td class="num"><b>0 元（不在本表）</b></td>
+                <td><b>不在維運公司資產負債表</b>！由國泰等資金方持有，維運公司賺管理費與分潤。</td>
+              </tr>
+              <tr>
+                <td><b>管道 D 併購合約包</b></td>
+                <td class="num">視標的專案審議</td>
+                <td>以被併購合約未來現金流折現編列，需經董事會專案核定。</td>
+              </tr>
+              <tr style="background:var(--blue-soft); font-weight:800;">
+                <td><b>建議分拆資本額</b></td>
+                <td class="num"><b style="color:var(--blue);font-size:1.1rem">5,000 萬 ~ 1 億元</b></td>
+                <td>足以覆蓋 6~12 個月營業費用與前期常備硬體，財務結構極度穩健。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:6px;">
+        <div class="card teal">
+          <h3>🏦 表外輕資產運作的核心邏輯</h3>
+          <p>老舊案場整新收購（管道 C）需要數億元重資本，絕不可由運維公司以負債收購。我們與壽險及綠能基金結盟，資金方出資持有電廠資產，進能服擔任資產管理與維運總包，賺取高 ROE 的純服務費與超額發電分潤！</p>
+        </div>
+        <div class="card amber">
+          <h3>📑 母子公司過渡期共享協議 (SLA)</h3>
+          <p>FY2028 分拆初期，財務、法務、人資等後勤功能先以「集團共享服務協議」付費委託母公司代管，避免成立第一年後勤固定成本過度膨脹，保護獲利曲線。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>規劃依據：OM1GW_R1.0 6.2 節 ｜ 資本預算與表外資管結構</div>
+      <div class="pageno">6.2</div>
+    </div>
+  </section>
+
+  <!-- P6.3 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 6 · 財務與風險 6.3</div>
+        <h1>獲利敏感度分析：單價、交付成本與承載力極限測試</h1>
+        <p class="sub">以 FY2030 基準營業利益率 14.6% 進行壓力測試。單價每降 2 萬利益率少 4.1 個百分點；現場交付成本上升 2 萬利益率少 4.7 個百分點。「降低現場交付成本」必須列為最高級別戰略管控！</p>
+      </div>
+      <div class="flags">
+        <span class="flag blue">基準 14.6%</span>
+        <span class="flag coral">不利組合跌至 6.7%</span>
+        <span class="flag amber">交付成本敏感度極高</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-left">
+        <!-- SVG Visual: Tornado Chart -->
+        <div class="fig">
+          <div class="figtitle">FY2030 營業利益率敏感度衝擊排序圖（對比基準 14.6%）</div>
+          <svg viewBox="0 0 500 290" role="img" aria-label="敏感度衝擊圖">
+            <g transform="translate(30, 20)">
+              <!-- Base Line 14.6% -->
+              <line x1="220" y1="20" x2="220" y2="240" stroke="#1968AD" stroke-width="2"/>
+              <text x="220" y="14" font-size="11" font-weight="900" fill="#1968AD" text-anchor="middle">基準 14.6%</text>
+
+              <!-- Tornado Bars -->
+              <!-- 1. 不利極端組合 -->
+              <text x="10" y="44" font-size="11" font-weight="800" fill="#D95F45">不利組合(單價28/承載25/工程20%)</text>
+              <rect x="70" y="48" width="150" height="18" rx="2" fill="#D95F45"/>
+              <text x="60" y="62" font-size="11" font-weight="900" fill="#D95F45" text-anchor="end">6.7% (-7.9%)</text>
+
+              <!-- 2. 人均承載 20MW -->
+              <text x="10" y="84" font-size="11" font-weight="700" fill="#12293D">人均承載跌至 20 MW / 人</text>
+              <rect x="120" y="88" width="100" height="18" rx="2" fill="#E09A2B"/>
+              <text x="110" y="102" font-size="11" font-weight="800" fill="#9a6a10" text-anchor="end">9.9% (-4.7%)</text>
+
+              <!-- 3. 現場交付單價升到 14萬 -->
+              <text x="10" y="124" font-size="11" font-weight="700" fill="#12293D">現場交付單價升至 14 萬/MW</text>
+              <rect x="120" y="128" width="100" height="18" rx="2" fill="#E09A2B"/>
+              <text x="110" y="142" font-size="11" font-weight="800" fill="#9a6a10" text-anchor="end">9.9% (-4.7%)</text>
+
+              <!-- 4. 單價降到 28萬 -->
+              <text x="10" y="164" font-size="11" font-weight="700" fill="#12293D">加權單價降至 28 萬/MW</text>
+              <rect x="135" y="168" width="85" height="18" rx="2" fill="#E09A2B"/>
+              <text x="125" y="182" font-size="11" font-weight="800" fill="#9a6a10" text-anchor="end">10.5% (-4.1%)</text>
+
+              <!-- 5. 人均承載 25MW -->
+              <text x="10" y="204" font-size="11" font-weight="700" fill="#12293D">人均承載維持 25 MW (現場40人)</text>
+              <rect x="175" y="208" width="45" height="18" rx="2" fill="#1BB1BF"/>
+              <text x="165" y="222" font-size="11" font-weight="800" fill="#12818C" text-anchor="end">12.8% (-1.8%)</text>
+
+              <!-- 6. 單價維持 31.8萬 (Positive) -->
+              <text x="320" y="224" font-size="11" font-weight="800" fill="#2E7D32">單價維持 31.8 萬</text>
+              <rect x="220" y="208" width="55" height="18" rx="2" fill="#2E7D32"/>
+              <text x="285" y="222" font-size="11" font-weight="900" fill="#2E7D32">17.8% (+3.2%)</text>
+            </g>
+          </svg>
+          <div class="cap">圖 6.3：十種情境獲利敏感度排舞颶風圖（變數偏差幅度對比）</div>
+        </div>
+
+        <!-- Table on Right -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>敏感度情境</th>
+                <th class="num">營業收入 (萬)</th>
+                <th class="num">營業利益 (萬)</th>
+                <th class="num">營業利益率</th>
+                <th>戰略意涵與防範措施</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hl-row">
+                <td><b>基準情境 (Base Case)</b></td>
+                <td class="num">37,894</td>
+                <td class="num">5,519</td>
+                <td class="num"><b style="color:var(--green)">14.6%</b></td>
+                <td>達成 1GW、人均 30MW、工程占 30%。</td>
+              </tr>
+              <tr>
+                <td>加權單價降至 28 萬／MW</td>
+                <td class="num">35,368</td>
+                <td class="num">3,721</td>
+                <td class="num"><b style="color:var(--coral)">10.5%</b></td>
+                <td>大客戶殺價；需拉高 AM 超額分潤比重。</td>
+              </tr>
+              <tr class="good-row">
+                <td>單價維持 31.8 萬／MW</td>
+                <td class="num">40,168</td>
+                <td class="num">7,137</td>
+                <td class="num"><b style="color:var(--green);font-size:1.05rem">17.8%</b></td>
+                <td>維持現行水準，利益暴增 1,600 萬。</td>
+              </tr>
+              <tr>
+                <td>人均承載 25 MW（現場 40 人）</td>
+                <td class="num">37,894</td>
+                <td class="num">4,853</td>
+                <td class="num">12.8%</td>
+                <td>未落實外包，現場多聘 6 名正職。</td>
+              </tr>
+              <tr class="bad-row">
+                <td>人均承載跌至 20 MW</td>
+                <td class="num">37,894</td>
+                <td class="num">3,743</td>
+                <td class="num"><b style="color:var(--coral)">9.9%</b></td>
+                <td>接太多破碎屋頂，人員產能被稀釋。</td>
+              </tr>
+              <tr class="bad-row">
+                <td>現場交付單價升至 14 萬／MW</td>
+                <td class="num">37,894</td>
+                <td class="num">3,751</td>
+                <td class="num"><b style="color:var(--coral)">9.9%</b></td>
+                <td>外包清洗/割草被敲竹槓，需簽框架約。</td>
+              </tr>
+              <tr>
+                <td>整改工程占比降至 20%</td>
+                <td class="num">33,158</td>
+                <td class="num">4,477</td>
+                <td class="num">13.5%</td>
+                <td>AM 轉單不足，少做 4,700 萬工程。</td>
+              </tr>
+              <tr class="bad-row" style="background:#FBEAE5; border-top:2px solid var(--coral);">
+                <td><b>極端不利組合</b><br><small>(單價28/承載25/工程20%)</small></td>
+                <td class="num">30,947</td>
+                <td class="num"><b>2,082</b></td>
+                <td class="num"><b style="color:var(--coral);font-size:1.15rem">6.7%</b></td>
+                <td>三項參數同時偏離，利益縮水近三分之二！</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="big-callout" style="margin-top:6px;">
+        <div class="label">🚨 敏感度核心決策判讀</div>
+        <div class="answer">「降低現場交付成本」與「提升單價」同等致命！</div>
+        <div class="more">
+          數據顯示：現場交付成本每上升 2 萬，利益率跌幅（-4.7%）甚至超越單價下跌 2 萬的影響（-4.1%）。採購部門必須在南部建立長期穩定的除草、清洗外包「框架合約」，鎖定交付單價於 12 萬以下，這是保衛 14.6% 獲利的最重要防線。
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>模型依據：OM1GW_R1.0 6.3 節 ｜ 獲利敏感度極限壓力測試</div>
+      <div class="pageno">6.3</div>
+    </div>
+  </section>
+
+  <!-- P6.4 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 6 · 財務與風險 6.4</div>
+        <h1>八大營運風險管控與 G0~G6 決策閘門機制</h1>
+        <p class="sub">建立新簽壓力、案場偏小、保發天候等八大風險矩陣與應對處置。設立 G0（FY2027定案）至 G6（1GW達標）七大嚴格決策閘門，堅持「未達標準即暫緩擴張，優先保獲利」之紀律。</p>
+      </div>
+      <div class="flags">
+        <span class="flag coral">八大營運風險防禦</span>
+        <span class="flag blue">G0~G6 決策閘門</span>
+        <span class="flag green">未達標暫緩擴張</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <!-- Top SVG Pipeline: Gates G0-G6 -->
+      <div class="fig" style="padding:10px 14px;">
+        <div class="figtitle">1GW 營運計畫 G0 至 G6 里程碑決策檢驗閘門管道</div>
+        <svg viewBox="0 0 1080 120" role="img" aria-label="G0至G6閘門管道">
+          <g transform="translate(10, 10)">
+            <!-- Gates 0 to 6 -->
+            <!-- G0 -->
+            <rect x="0" y="10" width="135" height="85" rx="5" fill="#E8F1F9" stroke="#1968AD" stroke-width="1.8"/>
+            <text x="67" y="34" font-size="13" font-weight="900" fill="#1968AD" text-anchor="middle">G0: 2026/Q4</text>
+            <text x="67" y="54" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">FY2027 定案</text>
+            <text x="67" y="74" font-size="10" fill="#5B7285" text-anchor="middle">選定 A 案或 B 案</text>
+
+            <!-- G1 -->
+            <rect x="150" y="10" width="135" height="85" rx="5" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="1.8"/>
+            <text x="217" y="34" font-size="13" font-weight="900" fill="#12818C" text-anchor="middle">G1: 2027/Q1</text>
+            <text x="217" y="54" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">評估 SOP 試點</text>
+            <text x="217" y="74" font-size="10" fill="#5B7285" text-anchor="middle">國泰 3 案週期&le;2週</text>
+
+            <!-- G2 -->
+            <rect x="300" y="10" width="135" height="85" rx="5" fill="#FCF2DE" stroke="#E09A2B" stroke-width="1.8"/>
+            <text x="367" y="34" font-size="13" font-weight="900" fill="#9a6a10" text-anchor="middle">G2: 2027/Q3</text>
+            <text x="367" y="54" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">分拆決議門檻</text>
+            <text x="367" y="74" font-size="10" fill="#5B7285" text-anchor="middle">在管&ge;300MW/毛利&ge;38%</text>
+
+            <!-- G3 -->
+            <rect x="450" y="10" width="135" height="85" rx="5" fill="#FBEAE5" stroke="#D95F45" stroke-width="1.8"/>
+            <text x="517" y="34" font-size="13" font-weight="900" fill="#b4432c" text-anchor="middle">G3: 2028/Q1</text>
+            <text x="517" y="54" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">獨立公司設立</text>
+            <text x="517" y="74" font-size="10" fill="#5B7285" text-anchor="middle">股權與共享服務協議</text>
+
+            <!-- G4 -->
+            <rect x="600" y="10" width="135" height="85" rx="5" fill="#F3E8FF" stroke="#6B46C1" stroke-width="1.8"/>
+            <text x="667" y="34" font-size="13" font-weight="900" fill="#6B46C1" text-anchor="middle">G4: 2028/Q4</text>
+            <text x="667" y="54" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">控制階段上線</text>
+            <text x="667" y="74" font-size="10" fill="#5B7285" text-anchor="middle">P2工單100%系統派出</text>
+
+            <!-- G5 -->
+            <rect x="750" y="10" width="135" height="85" rx="5" fill="#EDF1F5" stroke="#9FB1C0" stroke-width="1.8"/>
+            <text x="817" y="34" font-size="13" font-weight="900" fill="#12293D" text-anchor="middle">G5: 2029/Q4</text>
+            <text x="817" y="54" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">跨越 750 MW</text>
+            <text x="817" y="74" font-size="10" fill="#5B7285" text-anchor="middle">利益率 &ge; 12% 檢核</text>
+
+            <!-- G6 -->
+            <rect x="900" y="10" width="160" height="85" rx="6" fill="#0C3A63" stroke="#1968AD" stroke-width="2"/>
+            <text x="980" y="34" font-size="14" font-weight="900" fill="#8FD9E4" text-anchor="middle">G6: 2030/Q4</text>
+            <text x="980" y="54" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">🎯 1,000 MW 登頂</text>
+            <text x="980" y="74" font-size="11" fill="#fff" text-anchor="middle">利益率 &ge; 14% 全勝</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Table on Bottom -->
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:36px;" class="ctr">#</th>
+              <th style="width:16%;">風險項目</th>
+              <th style="width:38%;">潛在嚴重影響</th>
+              <th style="width:42%;">標準防禦處置對策</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bad-row">
+              <td class="ctr"><b>R1</b></td>
+              <td><b>新簽壓力過大 (年簽260MW)</b></td>
+              <td>達標 1GW 延遲 1~2 年，規模化放緩。</td>
+              <td>提前啟動管道 C (整新) 與 D (併購)；FY2027 積極追逐 A 案 (448MW)。</td>
+            </tr>
+            <tr class="bad-row">
+              <td class="ctr"><b>R2</b></td>
+              <td><b>平均案場規模縮小 (&lt;0.8MW)</b></td>
+              <td>現場工程師暴增 2.7 倍，費用激增吃垮毛利。</td>
+              <td><b>嚴守 0.8 MW 接單門檻</b>；小案非接不可時改收高額 M 級固定巡檢費。</td>
+            </tr>
+            <tr class="hl-row">
+              <td class="ctr"><b>R3</b></td>
+              <td><b>保發案場天候風險 (如8月高雄日照-43%)</b></td>
+              <td>業主違約金賠付、商譽與長約續約受損。</td>
+              <td>合約明訂「扣除天候異常」免賠條款；以 AI 發電預測量化客觀天候損失。</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>R4</b></td>
+              <td><b>老舊變流器機種高故障</b></td>
+              <td>妥善率跌破 80%，備品短缺導致長時停機。</td>
+              <td>推行品牌分級備品；針對施耐德、老台達做散熱根因改善專案。</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>R5</b></td>
+              <td><b>分拆後失去母公司資源</b></td>
+              <td>FY2028 間接費用暴增，利益率被壓縮。</td>
+              <td>簽訂過渡期「共享服務協議 (SLA)」，財會與 IT 依使用量拆分分攤。</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>R6</b></td>
+              <td><b>現場清洗人力短缺</b></td>
+              <td>定期巡檢與清洗進度落後，案場失溫減發。</td>
+              <td>外包與清洗機器人雙軌制；EPC 新案設計即預留清洗機器人走道。</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>R7</b></td>
+              <td><b>客戶集中於國泰電業</b></td>
+              <td>議價權被特定資產方壓制。</td>
+              <td>積極拓寬管道 B 外部客戶，維持外部承接案量 &ge; 40%。</td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>R8</b></td>
+              <td><b>儲能與 VPP 起步過晚</b></td>
+              <td>2030 年後失去電網輔助服務加值空間。</td>
+              <td>FY2029 起每年至少完成 1 個示範案場調度測試，保持系統介面就緒。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>風險依據：OM1GW_R1.0 6.4–6.5 節 ｜ 八大營運風險與里程碑決策機制</div>
+      <div class="pageno">6.4</div>
+    </div>
+  </section>
+
+</div>
+\n
+<!-- ================= PART 7: 待決策與跨部門協同 ================= -->
+<div class="view" id="view-p7">
+
+  <!-- P7.1 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 7 · 決策提案 7.1</div>
+        <h1>待 David 拍板決策：決定 1GW 戰略航向的六大十字路口</h1>
+        <p class="sub">提請 David 逐項定奪六大關鍵決策。涵蓋 FY2027 擴張激進度 (A vs B)、人均承載解鎖路徑、四大案源結構配置、北部市場戰略、獨立分拆時點與大同標竿定位。</p>
+      </div>
+      <div class="flags">
+        <span class="flag coral">待 David 定奪</span>
+        <span class="flag blue">D1 ~ D6 決策項</span>
+        <span class="flag green">推薦路徑評估</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <!-- Top SVG Decision Matrix Cards -->
+      <div class="fig" style="padding:10px 14px;">
+        <div class="figtitle">六大戰略決策題 (D1~D6) 核心焦點與推薦路徑</div>
+        <svg viewBox="0 0 1080 125" role="img" aria-label="六大決策題核心焦點">
+          <g transform="translate(10, 10)">
+            <!-- D1 -->
+            <rect x="0" y="5" width="165" height="90" rx="5" fill="#E8F1F9" stroke="#1968AD" stroke-width="1.8"/>
+            <text x="82" y="30" font-size="13" font-weight="900" fill="#1968AD" text-anchor="middle">D1: FY2027 路徑</text>
+            <text x="82" y="52" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">A 案 448MW vs B 案 318MW</text>
+            <text x="82" y="72" font-size="10" fill="#2E7D32" font-weight="800" text-anchor="middle">推薦：追 A 案減輕後三年</text>
+
+            <!-- D2 -->
+            <rect x="180" y="5" width="165" height="90" rx="5" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="1.8"/>
+            <text x="262" y="30" font-size="13" font-weight="900" fill="#12818C" text-anchor="middle">D2: 人均提升至 30</text>
+            <text x="262" y="52" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">外包 25% vs 案場提至 1MW</text>
+            <text x="262" y="72" font-size="10" fill="#2E7D32" font-weight="800" text-anchor="middle">推薦：清洗外包+機器人</text>
+
+            <!-- D3 -->
+            <rect x="360" y="5" width="165" height="90" rx="5" fill="#FCF2DE" stroke="#E09A2B" stroke-width="1.8"/>
+            <text x="442" y="30" font-size="13" font-weight="900" fill="#9a6a10" text-anchor="middle">D3: 案源結構</text>
+            <text x="442" y="52" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">自30/外40/整20/併10</text>
+            <text x="442" y="72" font-size="10" fill="#2E7D32" font-weight="800" text-anchor="middle">推薦：本版多元案源版</text>
+
+            <!-- D4 -->
+            <rect x="540" y="5" width="165" height="90" rx="5" fill="#FBEAE5" stroke="#D95F45" stroke-width="1.8"/>
+            <text x="622" y="30" font-size="13" font-weight="900" fill="#b4432c" text-anchor="middle">D4: 北部拓展策略</text>
+            <text x="622" y="52" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">維持既有 vs 同業轉包</text>
+            <text x="622" y="72" font-size="10" fill="#2E7D32" font-weight="800" text-anchor="middle">推薦：維持既有不搶標</text>
+
+            <!-- D5 -->
+            <rect x="720" y="5" width="165" height="90" rx="5" fill="#F3E8FF" stroke="#6B46C1" stroke-width="1.8"/>
+            <text x="802" y="30" font-size="13" font-weight="900" fill="#6B46C1" text-anchor="middle">D5: 分拆時點</text>
+            <text x="802" y="52" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">FY2028 vs FY2029</text>
+            <text x="802" y="72" font-size="10" fill="#2E7D32" font-weight="800" text-anchor="middle">推薦：FY2028按表分拆</text>
+
+            <!-- D6 -->
+            <rect x="900" y="5" width="165" height="90" rx="5" fill="#EDF1F5" stroke="#9FB1C0" stroke-width="1.8"/>
+            <text x="982" y="30" font-size="13" font-weight="900" fill="#12293D" text-anchor="middle">D6: 大同定位</text>
+            <text x="982" y="52" font-size="11" font-weight="700" fill="#12293D" text-anchor="middle">純標竿學習 vs 策略合作</text>
+            <text x="982" y="72" font-size="10" fill="#2E7D32" font-weight="800" text-anchor="middle">推薦：汲取模式、謹慎合作</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Detailed Decision Table -->
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:36px;" class="ctr">#</th>
+              <th style="width:16%;">決策議題</th>
+              <th style="width:36%;">決策選項說明</th>
+              <th style="width:34%;">權衡代價與潛在風險</th>
+              <th class="ctr" style="width:14%;">本版建議</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hl-row">
+              <td class="ctr"><b>D1</b></td>
+              <td><b>FY2027 走哪條路</b></td>
+              <td><b>A 案</b>：新簽 1.5 億、在管 448 MW<br><b>B 案</b>：營收 1.0 億、在管 318 MW</td>
+              <td>A 案 BD 拓銷壓力巨大，但後三年每年只需增 184 MW；B 案穩健但後三年新簽壓力大。</td>
+              <td class="ctr"><span class="chip blue">爭取 A 案</span></td>
+            </tr>
+            <tr class="good-row">
+              <td class="ctr"><b>D2</b></td>
+              <td><b>人均承載提升到 30</b></td>
+              <td>a. 清洗外包 25% 以上<br>b. 平均案場拉高至 1.0 MW<br>c. 維持 25 MW（現場需 40 人）</td>
+              <td>外包需壓低單價；提升至 1MW 可接案源變少；維持 25MW 營業利益率直接掉 1.8 個百分點。</td>
+              <td class="ctr"><span class="chip green">採選項 a</span></td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>D3</b></td>
+              <td><b>案源拓展結構</b></td>
+              <td><b>多元版</b>：自建30 / 外部40 / AM20 / 併購10<br><b>保守版</b>：自建40 / 外部55 / AM 5</td>
+              <td>多元版需要案場評估 SOP 與資金方對接；保守版若 EPC 減產，1GW 將推遲至 2032 年後。</td>
+              <td class="ctr"><span class="chip amber">推薦多元版</span></td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>D4</b></td>
+              <td><b>北部市場策略</b></td>
+              <td><b>守成版</b>：只維持既有桃園 200MW<br><b>轉包版</b>：接單後轉包北部同業維護</td>
+              <td>守成版放棄北部 20% 增量但保住高毛利；轉包版毛利極薄且存在維護品質爭議。</td>
+              <td class="ctr"><span class="chip blue">守成版</span></td>
+            </tr>
+            <tr class="hl-row">
+              <td class="ctr"><b>D5</b></td>
+              <td><b>分拆獨立時點</b></td>
+              <td><b>FY2028</b>（本版設定，建置期第一年利益率10.5%）<br><b>FY2029</b>（多一年共享集團資源）</td>
+              <td>FY2028 分拆能儘早樹立獨立運維品牌與激勵機制；延後一年則獨立品牌起步過慢。</td>
+              <td class="ctr"><span class="chip purple">FY2028</span></td>
+            </tr>
+            <tr>
+              <td class="ctr"><b>D6</b></td>
+              <td><b>大同智能定位</b></td>
+              <td><b>標竿學習</b>（汲取閉環與SLA，各走各路）<br><b>評估合作</b>（北部或儲能外包合作）</td>
+              <td>合作可能使核心定價與經營機密被同業學走；標竿學習最為純粹穩當。</td>
+              <td class="ctr"><span class="chip grey">純標竿學習</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>決策依據：OM1GW_R1.0 第 7 章 ｜ 提請 David 決策備忘錄</div>
+      <div class="pageno">7.1</div>
+    </div>
+  </section>
+
+  <!-- P7.2 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 7 · 跨部門協同 7.2</div>
+        <h1>組織上下牽動與橫向協同：維運公司分拆的企業神經網絡</h1>
+        <p class="sub">1GW 維運公司的成立牽動進能服企業整體頂層架構。向上牽動 2.2 事業經營、2.1 董事會、5.0 商業模式；向下全面拉動業務開發、人資培訓、研發平台、資材採購與工程交接。</p>
+      </div>
+      <div class="flags">
+        <span class="flag blue">向上牽動四大頂層</span>
+        <span class="flag teal">向下協同六大部門</span>
+        <span class="flag amber">企業神經網絡</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="split-img-left">
+        <!-- SVG Visual: Up/Down Alignment Matrix -->
+        <div class="fig">
+          <div class="figtitle">1GW 運維公司向上牽動與向下配合神經網絡架構圖</div>
+          <svg viewBox="0 0 500 290" role="img" aria-label="企業神經網絡矩陣">
+            <g transform="translate(15, 15)">
+              <!-- Center Hub -->
+              <rect x="150" y="90" width="180" height="70" rx="8" fill="#0C3A63" stroke="#1968AD" stroke-width="2.5"/>
+              <text x="240" y="120" font-size="14" font-weight="900" fill="#8FD9E4" text-anchor="middle">1GW 維運獨立公司</text>
+              <text x="240" y="142" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">FY2028 分拆 (4.6.3)</text>
+
+              <!-- Upward nodes -->
+              <rect x="20" y="10" width="130" height="45" rx="4" fill="#E8F1F9" stroke="#1968AD" stroke-width="1.5"/>
+              <text x="85" y="30" font-size="11" font-weight="800" fill="#1968AD" text-anchor="middle">2.2 事業經營</text>
+              <text x="85" y="44" font-size="9" fill="#5B7285" text-anchor="middle">資本額/股權/共享SLA</text>
+
+              <rect x="180" y="10" width="130" height="45" rx="4" fill="#E8F1F9" stroke="#1968AD" stroke-width="1.5"/>
+              <text x="245" y="30" font-size="11" font-weight="800" fill="#1968AD" text-anchor="middle">2.1 董事會</text>
+              <text x="245" y="44" font-size="9" fill="#5B7285" text-anchor="middle">淨利目標12%核定</text>
+
+              <rect x="330" y="10" width="135" height="45" rx="4" fill="#E8F1F9" stroke="#1968AD" stroke-width="1.5"/>
+              <text x="397" y="30" font-size="11" font-weight="800" fill="#1968AD" text-anchor="middle">5.0 商業模式</text>
+              <text x="397" y="44" font-size="9" fill="#5B7285" text-anchor="middle">管道C資金方架構</text>
+
+              <!-- Upward lines -->
+              <line x1="110" y1="55" x2="190" y2="90" stroke="#1968AD" stroke-width="1.8"/>
+              <line x1="245" y1="55" x2="240" y2="90" stroke="#1968AD" stroke-width="1.8"/>
+              <line x1="370" y1="55" x2="290" y2="90" stroke="#1968AD" stroke-width="1.8"/>
+
+              <!-- Downward nodes -->
+              <rect x="10" y="200" width="105" height="45" rx="4" fill="#E2F5F7" stroke="#1BB1BF" stroke-width="1.5"/>
+              <text x="62" y="220" font-size="11" font-weight="800" fill="#12818C" text-anchor="middle">4.1 業務開發</text>
+              <text x="62" y="234" font-size="9" fill="#5B7285" text-anchor="middle">875MW機會池</text>
+
+              <rect x="130" y="200" width="105" height="45" rx="4" fill="#FCF2DE" stroke="#E09A2B" stroke-width="1.5"/>
+              <text x="182" y="220" font-size="11" font-weight="800" fill="#9a6a10" text-anchor="middle">3.3 人力資源</text>
+              <text x="182" y="234" font-size="9" fill="#5B7285" text-anchor="middle">77人培訓體系</text>
+
+              <rect x="250" y="200" width="105" height="45" rx="4" fill="#FBEAE5" stroke="#D95F45" stroke-width="1.5"/>
+              <text x="302" y="220" font-size="11" font-weight="800" fill="#b4432c" text-anchor="middle">4.3 資材採購</text>
+              <text x="302" y="234" font-size="9" fill="#5B7285" text-anchor="middle">清洗外包框架約</text>
+
+              <rect x="370" y="200" width="105" height="45" rx="4" fill="#F3E8FF" stroke="#6B46C1" stroke-width="1.5"/>
+              <text x="422" y="220" font-size="11" font-weight="800" fill="#6B46C1" text-anchor="middle">4.4 工程管理</text>
+              <text x="422" y="234" font-size="9" fill="#5B7285" text-anchor="middle">EPC內嵌機器人</text>
+
+              <!-- Downward lines -->
+              <line x1="200" y1="160" x2="80" y2="200" stroke="#1BB1BF" stroke-width="1.8"/>
+              <line x1="220" y1="160" x2="182" y2="200" stroke="#E09A2B" stroke-width="1.8"/>
+              <line x1="260" y1="160" x2="302" y2="200" stroke="#D95F45" stroke-width="1.8"/>
+              <line x1="280" y1="160" x2="400" y2="200" stroke="#6B46C1" stroke-width="1.8"/>
+            </g>
+          </svg>
+          <div class="cap">圖 7.2：企業組織向上牽動與向下配合神經網絡矩陣</div>
+        </div>
+
+        <!-- Table on Right -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:24%;">跨部門維度</th>
+                <th style="width:36%;">對應關聯章節</th>
+                <th>關鍵協同交付任務與檢驗標準</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hl-row">
+                <td><b>向上牽動</b></td>
+                <td><b>2.2 事業經營</b></td>
+                <td>董事會通過 FY2028 分拆決議、核定 5,000 萬~1 億資本額及母子公司共享協議。</td>
+              </tr>
+              <tr class="hl-row">
+                <td><b>向上牽動</b></td>
+                <td><b>2.1 董事會</b></td>
+                <td>核定淨利率 12% 底線指標（R6.1 之 R-1），此決定 AI 預算上限與分拆時程。</td>
+              </tr>
+              <tr>
+                <td><b>向上牽動</b></td>
+                <td><b>5.0 商業模式</b></td>
+                <td>定調管道 C（資產收購）之壽險資金方結盟架構，確立「表外資產、表內服務」。</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>向下配合</b></td>
+                <td><b>4.1 業務開發 (BD)</b></td>
+                <td>每年鎖定 700~875 MW 機會池；盤點南部地面型名單，嚴守 0.8 MW 門檻。</td>
+              </tr>
+              <tr>
+                <td><b>向下配合</b></td>
+                <td><b>3.3 人力資源</b></td>
+                <td>推動 20 人擴充至 77 人的招聘管線；建置 Master+Slave 雙人執勤認證學院。</td>
+              </tr>
+              <tr>
+                <td><b>向下配合</b></td>
+                <td><b>3.4 研發 / 3.6 資訊</b></td>
+                <td>技術路線四階段推進；M14 報表自動化與 AI Agent 算法模型持續迭代。</td>
+              </tr>
+              <tr class="bad-row">
+                <td><b>向下配合</b></td>
+                <td><b>4.3 資材採購</b></td>
+                <td><b>建立南部除草與清洗外包「框架合約」</b>，將現場交付成本死守於 12 萬以下。</td>
+              </tr>
+              <tr>
+                <td><b>向下配合</b></td>
+                <td><b>4.4 工程管理</b></td>
+                <td>母公司 EPC 規劃階段即內嵌清洗機器人與監控標準；工程與維運合約拆分簽署。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="note" style="margin-top:6px;">
+        <b>📌 專案試點銜接（8 專案機會）</b>：以國泰電業現有存量案場作為 G1 階段「案場評估 SOP」之首發試點，驗證評估週期 ≤2 週之標準作業程序，打通管道 C 案源通道。
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>協同依據：OM1GW_R1.0 第 8 章 ｜ 跨功能層級企業神經網絡</div>
+      <div class="pageno">7.2</div>
+    </div>
+  </section>
+
+  <!-- P7.3 -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="eyebrow">Part 7 · 附錄與溯源 7.3</div>
+        <h1>模型假設清單與資料來源追溯：數據有根有據</h1>
+        <p class="sub">本計畫所有財務、容量與人均指標均建立於嚴謹分類的假設清單基礎上。明確標註【查證】、【文件】、【推論】與【待查】，並完整追溯立法院公報與大同公開研討會文獻。</p>
+      </div>
+      <div class="flags">
+        <span class="flag blue">數據可信度分類</span>
+        <span class="flag green">公開立法院公報</span>
+        <span class="flag amber">嚴謹敏感度模型</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="two-col">
+        <!-- Table Left: Assumption List -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>類別</th>
+                <th>核心參數項目</th>
+                <th class="ctr">設定數值</th>
+                <th class="ctr">驗證狀態</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>市場總量</td>
+                <td>全台光電累計裝機</td>
+                <td class="ctr">15.676 GW (2026/02)</td>
+                <td class="ctr"><span class="chip green">【查證】</span></td>
+              </tr>
+              <tr class="hl-row">
+                <td>市場目標</td>
+                <td>2030 年全台光電總目標</td>
+                <td class="ctr"><b>31.2 GW</b></td>
+                <td class="ctr"><span class="chip green">【查證】</span></td>
+              </tr>
+              <tr>
+                <td>大同智能</td>
+                <td>團隊人數 / 容量 / 場數</td>
+                <td class="ctr">47人 / 350.5MW / 1,610場</td>
+                <td class="ctr"><span class="chip green">【查證】</span></td>
+              </tr>
+              <tr>
+                <td>大同智能</td>
+                <td>發電預測日誤差</td>
+                <td class="ctr">1.7%~13.8% (均 7.6%)</td>
+                <td class="ctr"><span class="chip blue">【公開宣稱】</span></td>
+              </tr>
+              <tr class="good-row">
+                <td>內部參數</td>
+                <td>加權年費 / 現場交付成本</td>
+                <td class="ctr">31.8 萬 ／ 12.0 萬元</td>
+                <td class="ctr"><span class="chip teal">【文件】R6.1</span></td>
+              </tr>
+              <tr class="good-row">
+                <td>內部參數</td>
+                <td>人均成本 / 承載容量</td>
+                <td class="ctr">96 萬 ／ 25.0 MW</td>
+                <td class="ctr"><span class="chip teal">【文件】R6.1</span></td>
+              </tr>
+              <tr>
+                <td>模型推估</td>
+                <td>2028~2030 單價遞減</td>
+                <td class="ctr">31.5 / 31.0 / 30.0 萬</td>
+                <td class="ctr"><span class="chip amber">【推論】</span></td>
+              </tr>
+              <tr>
+                <td>模型推估</td>
+                <td>人均承載提升至 30MW</td>
+                <td class="ctr">現場 34人 / 外包 25%</td>
+                <td class="ctr"><span class="chip amber">【推論】</span></td>
+              </tr>
+              <tr class="bad-row">
+                <td>待查事項</td>
+                <td>儲能維運定價 / 分拆管理費</td>
+                <td class="ctr">待詢價與協議核定</td>
+                <td class="ctr"><span class="chip coral">【待查】</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Table Right: Source Reference -->
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>來源文件名稱與出處</th>
+                <th>核心引用內容與用途</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hl-row">
+                <td><b>立法院經委會第 11 屆第 5 會期報告</b><br><small>(2026/04/16，經濟部審查報告)</small></td>
+                <td>審定台灣 2030 年太陽光電法定總目標為 <b>31.2 GW</b>；2026 年初累計達 15.68 GW。更正內部會議 25GW 誤差。</td>
+              </tr>
+              <tr>
+                <td><b>大同智能研討會簡報</b><br><small>(楊澤欣，2026/07 發表，2026/09/16 研討會)</small></td>
+                <td>大同公司資本額 60 億、維運團隊 47 人分區指標、作業閉環、發電預測誤差 7.6%、VPP IEEE 2030 架構。</td>
+              </tr>
+              <tr class="good-row">
+                <td><b>進能服 OMPLAN R6.1 定案版</b><br><small>(2026-09-15 參數定案版)</small></td>
+                <td>FY2027 基準參數：加權年費 31.8 萬、交付成本 12 萬、現場 25MW/人、B 案在管 318 MW。</td>
+              </tr>
+              <tr>
+                <td><b>BONUS R2.0 獎金激勵方案</b></td>
+                <td>業務獎金提撥 0.5% TCV、現場維運獎金 2.0% 服務 ACV 計算依據。</td>
+              </tr>
+              <tr>
+                <td><b>Notion「4.6 運維管理」知識庫</b><br><small>(最後編輯 2026-09-14)</small></td>
+                <td>章節目錄對照來源；檢核出 9 處編號錯置與 6 大 1GW 缺口章節。</td>
+              </tr>
+              <tr>
+                <td><b>得到大腦筆記（9/15 BP會議）</b></td>
+                <td>李總對 1GW 戰略、據點輕量化、清洗機器人與案場評估 SOP 之指導原則。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="home-foot" style="margin-top:12px;">
+        本平台模型程式已結構化固化於系統工作區中，可隨時輸出為 Excel 模型，無縫匯入 FY2027_BP 系統動力學綜合財務預算中樞。
+      </div>
+    </div>
+    <div class="slide-foot">
+      <div>資料來源：OM1GW_R1.0 附錄 9.1–9.2 節 ｜ 全案假設與文獻索引</div>
+      <div class="pageno">7.3</div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ================= DECKBAR CONTROLS ================= -->
+<div class="deckbar" id="deckbar">
+  <div class="progress"><div class="fill" id="progressFill"></div></div>
+  <div class="hint">快捷鍵：&larr; &rarr; 換頁 ｜ 空白鍵/PgDn 下頁 ｜ Home 封面 ｜ F 全螢幕</div>
+  <div class="ctrl">
+    <span class="counter" id="counter">1 / 4</span>
+    <button type="button" id="btnPrev" aria-label="上一頁">&larr;</button>
+    <button type="button" id="btnNext" aria-label="下一頁">&rarr;</button>
+  </div>
+</div>
+
+<!-- ================= ROUTER & SLIDE CONTROLLER SCRIPT ================= -->
+<script>
+(function(){
+  var parts = {
+    p1: [].slice.call(document.querySelectorAll('#view-p1 .slide')),
+    p2: [].slice.call(document.querySelectorAll('#view-p2 .slide')),
+    p3: [].slice.call(document.querySelectorAll('#view-p3 .slide')),
+    p4: [].slice.call(document.querySelectorAll('#view-p4 .slide')),
+    p5: [].slice.call(document.querySelectorAll('#view-p5 .slide')),
+    p6: [].slice.call(document.querySelectorAll('#view-p6 .slide')),
+    p7: [].slice.call(document.querySelectorAll('#view-p7 .slide'))
+  };
+  var order = ['p1','p2','p3','p4','p5','p6','p7'];
+  var state = { view:'home', idx:0 };
+  var last = { p1:0, p2:0, p3:0, p4:0, p5:0, p6:0, p7:0 };
+  var views = {
+    home: document.getElementById('view-home'),
+    p1: document.getElementById('view-p1'),
+    p2: document.getElementById('view-p2'),
+    p3: document.getElementById('view-p3'),
+    p4: document.getElementById('view-p4'),
+    p5: document.getElementById('view-p5'),
+    p6: document.getElementById('view-p6'),
+    p7: document.getElementById('view-p7')
+  };
+  var deckbar = document.getElementById('deckbar');
+  var fill = document.getElementById('progressFill');
+  var counter = document.getElementById('counter');
+
+  function render(){
+    Object.keys(views).forEach(function(k){
+      if(views[k]) views[k].classList.toggle('active', k===state.view);
+    });
+    var navs = document.querySelectorAll('[data-nav]');
+    for(var i=0;i<navs.length;i++){
+      navs[i].classList.toggle('active', navs[i].getAttribute('data-nav')===state.view);
+    }
+    if(state.view==='home'){
+      deckbar.style.display='none';
+    } else {
+      deckbar.style.display='block';
+      var slides = parts[state.view];
+      if(slides && slides.length){
+        slides.forEach(function(s,i){ s.classList.toggle('active', i===state.idx); });
+        counter.textContent = (state.idx+1)+' / '+slides.length;
+        fill.style.width = ((state.idx+1)/slides.length*100)+'%';
+        last[state.view]=state.idx;
+      }
+    }
+    window.scrollTo(0,0);
+  }
+
+  function goHash(hash){
+    hash = (hash||'#home').replace('#','');
+    if(hash==='home'||hash===''){ state.view='home'; render(); return; }
+    var m = hash.match(/^(p[1-7])-(\\d+)$/);
+    if(m){
+      var v=m[1], i=parseInt(m[2],10)-1;
+      if(parts[v] && parts[v][i]){ state.view=v; state.idx=i; render(); return; }
+    }
+    if(parts[hash]){ state.view=hash; state.idx=last[hash]||0; render(); return; }
+    state.view='home'; render();
+  }
+
+  function setHash(){
+    var h = state.view==='home' ? '#home' : '#'+state.view+'-'+(state.idx+1);
+    if(location.hash!==h) history.replaceState(null,'',h);
+  }
+
+  function move(d){
+    if(state.view==='home'){
+      if(d>0){ state.view='p1'; state.idx=0; render(); setHash(); }
+      return;
+    }
+    var slides = parts[state.view];
+    var n = state.idx + d, pos = order.indexOf(state.view);
+    if(n < 0){
+      if(pos > 0){ state.view=order[pos-1]; state.idx=parts[state.view].length-1; }
+      else { state.view='home'; }
+    } else if(n >= slides.length){
+      if(pos < order.length-1){ state.view=order[pos+1]; state.idx=0; }
+      else { state.view='home'; }
+    } else {
+      state.idx=n;
+    }
+    render(); setHash();
+  }
+
+  document.getElementById('btnPrev').addEventListener('click',function(){move(-1)});
+  document.getElementById('btnNext').addEventListener('click',function(){move(1)});
+
+  document.addEventListener('keydown',function(e){
+    var t=e.target;
+    if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.tagName==='SELECT')) return;
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){ e.preventDefault(); move(1); }
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); move(-1); }
+    else if(e.key==='Home'){ e.preventDefault(); state.view='home'; render(); setHash(); }
+    else if(e.key==='End'&&state.view!=='home'){ e.preventDefault(); state.idx=parts[state.view].length-1; render(); setHash(); }
+    else if(e.key==='f'||e.key==='F'){
+      if(document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen();
+    }
+  });
+
+  var tx=null, ty=null;
+  document.addEventListener('touchstart',function(e){ tx=e.changedTouches[0].clientX; ty=e.changedTouches[0].clientY; },{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(tx===null) return;
+    var dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)) move(dx<0?1:-1);
+    tx=null; ty=null;
+  },{passive:true});
+
+  window.addEventListener('hashchange',function(){ goHash(location.hash); });
+  goHash(location.hash);
+})();
+
+/* Table Accordion */
+document.querySelectorAll('.slide .table-wrap').forEach(function(wrap){
+  var rows=Array.prototype.slice.call(wrap.querySelectorAll('tbody tr'));
+  if(rows.length<=6){return;}
+  rows.slice(6).forEach(function(row){row.classList.add('table-extra');});
+  var button=document.createElement('button');
+  button.type='button';
+  button.className='table-toggle';
+  button.textContent='展開更多數據（共 '+rows.length+' 項）&darr;';
+  button.addEventListener('click',function(){
+    var open=wrap.classList.toggle('expanded');
+    button.textContent=open?'收起表格 &uarr;':'展開更多數據（共 '+rows.length+' 項）&darr;';
+  });
+  wrap.appendChild(button);
+});
+</script>
+</body>
+</html>
