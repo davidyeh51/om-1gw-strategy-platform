@@ -164,17 +164,17 @@ svg text{font-family:inherit}
 .home{min-height:100vh}
 .hero{
   position:relative; overflow:hidden; color:#fff;
-  background:linear-gradient(115deg,var(--blue-dd) 0%,var(--blue) 55%,#1580A8 100%);
-  padding:90px 44px 48px;
+  background:linear-gradient(135deg,var(--blue-dd) 0%,var(--blue) 55%,#1580A8 100%), url('assets/solar-om-hero.jpg') center/cover no-repeat;
+  background-blend-mode:overlay;
+  padding:96px 48px 52px;
 }
 .hero .inner{max-width:1380px; margin:0 auto; position:relative; z-index:2}
-.hero .kicker{font-size:.78rem; font-weight:800; letter-spacing:.16em; color:#8FD9E4}
-.hero h1{font-size:clamp(1.65rem,3.8vw,2.7rem); font-weight:900; line-height:1.24; margin-top:10px; max-width:26em}
-.hero .lede{margin-top:12px; max-width:52em; font-size:.95rem; opacity:.93; line-height:1.65}
+.hero .kicker{font-size:.78rem; font-weight:800; letter-spacing:.16em; color:#8FD9E4; text-shadow:0 1px 3px rgba(0,0,0,.3)}
+.hero h1{font-size:clamp(1.65rem,3.8vw,2.7rem); font-weight:900; line-height:1.24; margin-top:10px; max-width:26em; text-shadow:0 2px 8px rgba(12,58,99,.4)}
+.hero .lede{margin-top:12px; max-width:52em; font-size:.95rem; opacity:.96; line-height:1.65; text-shadow:0 1px 4px rgba(12,58,99,.3)}
 .hero .herometa{margin-top:18px; display:flex; gap:8px; flex-wrap:wrap}
-.hero .herometa span{font-size:.73rem; font-weight:700; background:rgba(255,255,255,.16); padding:4px 11px; border-radius:3px}
-.hero .deco{position:absolute; right:-60px; top:-40px; width:820px; opacity:.38; pointer-events:none; z-index:1}
-@media(max-width:1000px){.hero{padding:75px 16px 36px} .hero .deco{width:520px; right:-120px; opacity:.25}}
+.hero .herometa span{font-size:.73rem; font-weight:700; background:rgba(12,58,99,.45); backdrop-filter:blur(4px); border:1px solid rgba(255,255,255,.25); padding:4px 11px; border-radius:3px}
+@media(max-width:1000px){.hero{padding:80px 18px 40px; background-position:75% center}}
 .homebody{max-width:1380px; margin:0 auto; padding:26px 44px 50px}
 @media(max-width:1000px){.homebody{padding:20px 16px 40px}}
 
@@ -241,25 +241,7 @@ svg text{font-family:inherit}
 
 <!-- ================= HOME VIEW ================= -->
 <div class="view active home" id="view-home">
-  <div class="hero">
-    <svg class="deco" viewBox="0 0 900 520" aria-hidden="true">
-      <g fill="#fff" opacity=".18">
-        <polygon points="320,50 490,10 610,65 440,115"/>
-        <polygon points="630,135 800,85 910,130 740,180"/>
-        <polygon points="240,260 410,210 530,255 360,305"/>
-        <polygon points="650,340 820,290 890,320 720,370"/>
-      </g>
-      <g fill="#8FD9E4" opacity=".35">
-        <circle cx="560" cy="180" r="55"/>
-        <circle cx="390" cy="320" r="42"/>
-        <circle cx="750" cy="110" r="30"/>
-      </g>
-      <g stroke="#fff" stroke-width="2" fill="none" opacity=".4">
-        <path d="M120 190 L470 402"/><circle cx="120" cy="190" r="5" fill="#1BB1BF"/>
-        <path d="M180 390 L300 390 Q330 390 330 360 L330 290"/><circle cx="180" cy="390" r="5" fill="#E09A2B"/>
-        <path d="M680 410 L540 460 L220 460"/><circle cx="220" cy="460" r="5" fill="#1BB1BF"/>
-      </g>
-    </svg>
+  <div class="hero" style="background: linear-gradient(135deg, var(--blue-dd), var(--blue)), url('assets/solar-om-hero.jpg') center/cover no-repeat; background-blend-mode: overlay;">
     <div class="inner">
       <div class="kicker">進能服 6692 · 4.6 運維管理 × 5 商業模式 戰略專題</div>
       <h1>維運市場分析 × 800MW 維運公司營運計畫 R1.0</h1>
